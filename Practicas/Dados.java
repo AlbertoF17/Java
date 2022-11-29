@@ -51,7 +51,7 @@ public class Dados {
                 System.out.println("El número del dado de " + persona1 + " es: " + dado1);
 
                 int dado2 = rand.nextInt(1,7);
-                System.out.println("El número del dado " + persona2 + " es: " + dado2);
+                System.out.println("El número del dado de " + persona2 + " es: " + dado2);
                 System.out.println("*******************************");
                 System.out.println();
 
