@@ -9,7 +9,10 @@ public class Timer {
         int segundos;
         int horas;
         int dias;
+        int anyos;
 
+            System.out.print("Introduce un numero (años): ");
+            anyos = sc.nextInt();
             System.out.print("Introduce un numero (dias): ");
             dias = sc.nextInt();
             System.out.print("Introduce un numero (horas): ");
@@ -31,14 +34,24 @@ public class Timer {
                 dias += horas/24;
                 horas = horas%24;
             }
+            if (dias>364){
+                anyos += dias/365;
+                dias = dias%365;
+            }
 
 
-        for (int i=segundos, j=minutos, k=horas, l=dias; i>=0; i--) {
-            System.out.printf("\r%02d:%02d:%02d:%02d", l, k, j, i);
+        for (int i=segundos, j=minutos, k=horas, l=dias, m=anyos; i>=0; i--) {
+            System.out.printf("\r%02d:%02d:%02d:%02d:%02d", m, l, k, j, i);
             //"\r" Sobreescribe lo que hay en la línea, borrando el número anteriormente impreso
             Thread.sleep(1000); //Duerme el programa durante un tiempo determinado, en este caso 1000 milisegundos (1 segundo)
 
-            if (i==0 && j==0 && k==0 && l>0) {
+            if (i==0 && j==0 && k==0 && l==0 && m>0) {
+                i = 60;
+                j = 59;
+                k = 23;
+                l = 364;
+                m--;
+            } else if (i==0 && j==0 && k==0 && l>0) {
                 i = 60;
                 j = 59;
                 k = 23;
