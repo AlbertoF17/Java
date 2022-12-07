@@ -203,6 +203,9 @@ public class ExamenTrimestre1 {
                 case 12:
                     System.out.println("\t\t \"Diciembre\"");
                     break;
+                default:
+                    System.out.println("ERROR");
+                    break;
             }
 
             //Declaramos la variable días del mes y le damos un valor con una sentencia if-else según el número
