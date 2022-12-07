@@ -162,7 +162,7 @@ public class ExamenTrimestre1 {
                 System.out.print("Introduzca un numero mayor que 0 (anyo): ");
                 anyo = sc.nextInt();
                 System.out.println();
-            }while (mes<1 || mes>12 || anyo<=0);
+            }while (mes<1 || mes>12 || anyo<0);
 
             //Sentencia switch-case para imprimir el nombre del mes según el número introducido.
 
@@ -236,6 +236,16 @@ public class ExamenTrimestre1 {
                 }
                 System.out.println();
             }
+            /* OTRA FORMA DE REALIZAR EL BUCLE ANTERIOR SIN ANIDAR
+
+            for (int i=0; i<=diasDelMes; i++) {
+                System.out.printf("%02d ", i);
+                if (i%7==0){
+                    System.out.println();
+                }
+
+            }
+             */
 
             //Por último, preguntamos si desea comprobar otro mes (repetir el bucle do-while padre del programa).
 
