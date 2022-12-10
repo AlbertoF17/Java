@@ -14,7 +14,7 @@ public class AlgoritmoLuhn {
             numero = numero/10;
         }
         for (int cifraSuma, cifraCopia; cont>0; cont--) {
-            int cifra = (int) copia%10;
+            int cifra = (int) (copia%10);
             if (cont%2==1) {
                 cifraSuma = (cifra*2);
                 if (cifraSuma>9) {
