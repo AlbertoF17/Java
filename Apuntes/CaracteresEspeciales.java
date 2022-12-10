@@ -1,4 +1,4 @@
-package Practicas;
+package Apuntes;
 
 public class CaracteresEspeciales {
     public static void main(String[] args) throws InterruptedException {
