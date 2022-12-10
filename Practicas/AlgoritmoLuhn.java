@@ -37,13 +37,13 @@ public class AlgoritmoLuhn {
             System.out.print("El número " + copia2 +" ES un número de Luhn: ");
             switch (primeraCifra) {
                 case 3:
-                    tarjeta = "Visa";
+                    tarjeta = "American Express";
                     break;
                 case 4:
-                    tarjeta = "Mastercard";
+                    tarjeta = "Visa";
                     break;
                 case 5:
-                    tarjeta = "American Express";
+                    tarjeta = "Mastercard";
                     break;
                 default:
                     System.out.println("Número de tarjeta NO válido");
