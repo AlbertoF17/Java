@@ -1,10 +1,8 @@
 package Boletines;
 
-import com.sun.security.jgss.GSSUtil;
-
 import java.util.Scanner;
 
-public class BoletinString {
+public class Strings1 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         //1. Declara un String que contenga tu nombre, después muestra un mensaje de bienvenida
