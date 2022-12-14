@@ -14,7 +14,7 @@ public class AlgoritmoLuhn {
             numero = numero/10;
         }
         for (int cifraSuma, cifraCopia; cont>0; cont--) {
-            int cifra = (int) copia%10;
+            int cifra = (int) (copia%10);
             if (cont%2==1) {
                 cifraSuma = (cifra*2);
                 if (cifraSuma>9) {
@@ -37,13 +37,13 @@ public class AlgoritmoLuhn {
             System.out.print("El número " + copia2 +" ES un número de Luhn: ");
             switch (primeraCifra) {
                 case 3:
-                    tarjeta = "Visa";
+                    tarjeta = "American Express";
                     break;
                 case 4:
-                    tarjeta = "Mastercard";
+                    tarjeta = "Visa";
                     break;
                 case 5:
-                    tarjeta = "American Express";
+                    tarjeta = "Mastercard";
                     break;
                 default:
                     System.out.println("Número de tarjeta NO válido");
