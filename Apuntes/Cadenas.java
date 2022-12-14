@@ -97,5 +97,22 @@ public class Cadenas {
         System.out.println("Hola".compareTo("hola"));
         System.out.println("Alberto".compareToIgnoreCase("alberto"));
 
+        //trim
+        System.out.println("   Hola Mundo     ".trim());
+
+        //replace
+        String s = "Hola Mundo";
+        System.out.println(s.replace("Hola", "Adiós"));
+
+        //toUpper/LowerCase
+        System.out.println(s.toUpperCase());
+        System.out.println(s.toLowerCase());
+
+        //Nº a String
+        int n = 1;
+        int n2 = 2;
+        String numero = Integer.toString(n);
+        String nm = String.valueOf(n2);
+        System.out.println(numero+1); //Da 11 porque "numero" es String
     }
 }
