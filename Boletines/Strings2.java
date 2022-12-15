@@ -255,12 +255,12 @@ public class Strings2 {
         //Nota: puede usar todo lo aprendido sobre Java. Suponga que la cadena solo tiene
         //letras y números, nunca caracteres especiales.
         System.out.println("EJERCICIO 22");
-        System.out.print("Escriba su contrasenya: ");
+        System.out.print("Escriba su contraseña: ");
         String password = sc.nextLine();
         boolean letras = false;
         boolean numeros = false;
         if (password.length()<5){
-            System.out.println("Contrasenya débil");
+            System.out.println("Nivel de seguridad débil");
         } else {
             for (int i = 0; i<password.length(); i++){
                 String newPass = password.toUpperCase();
@@ -273,9 +273,9 @@ public class Strings2 {
                 }
             }
             if (letras && numeros) {
-                System.out.println("Contrasenya alta");
+                System.out.println("Nivel de seguridad alta");
             } else {
-                System.out.println("Contrasenya media");
+                System.out.println("Nivel de seguridad media");
             }
         }
     }
