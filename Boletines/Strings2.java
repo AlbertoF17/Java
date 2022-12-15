@@ -18,7 +18,7 @@ public class Strings2 {
         System.out.print("Escriba una cadena: ");
         String cad2 = sc.nextLine();
         System.out.println("La primera letra de la cadena es: " + cad2.charAt(0) + " (Unicode: " +
-                (int) cad2.charAt(0) + ")");
+                String.format("U+%04x", (int)cad2.charAt(0)) + ")");
         System.out.println();
 
         //3. Lee por pantalla una cadena de caracteres e imprime su última letra. Ten en
@@ -27,7 +27,7 @@ public class Strings2 {
         System.out.print("Escriba una cadena: ");
         String cad3 = sc.nextLine();
         System.out.println("La última letra de la cadena es: " + cad3.charAt(cad3.length()-1) + " (Unicode: " +
-                (int) cad3.charAt(cad3.length()-1) + ")");
+                String.format("U+%04x", (int)cad3.charAt(cad3.length()-1)) + ")");
         System.out.println();
 
         //4. Lee por pantalla una cadena de caracteres e imprime la letra central o su
@@ -36,7 +36,7 @@ public class Strings2 {
         System.out.print("Escriba una cadena: ");
         String cad4 = sc.nextLine();
         System.out.println("La letra central de la cadena es: " + cad4.charAt(cad4.length()/2) + " (Unicode: " +
-                (int) cad4.charAt(cad4.length()/2) + ")");
+                String.format("U+%04x", (int)cad4.charAt(cad4.length()/2)) + ")");
         System.out.println();
 
         //5. Repite los tres ejercicios anteriores imprimiendo junto a la letra su código
