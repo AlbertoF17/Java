@@ -108,11 +108,13 @@ public class Cadenas {
         System.out.println(s.toUpperCase());
         System.out.println(s.toLowerCase());
 
-        //Nº a String
+        //Nº a String y viceversa
         int n = 1;
         int n2 = 2;
+        String n3 = "3";
         String numero = Integer.toString(n);
         String nm = String.valueOf(n2);
         System.out.println(numero+1); //Da 11 porque "numero" es String
+        //String num3 = Integer.parseInt(n3);
     }
 }

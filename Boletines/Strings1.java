@@ -160,30 +160,30 @@ public class Strings1 {
         System.out.println("EJERCICIO 12");
         System.out.println("CalculadoraPolacaInversaApp");
         System.out.print("Introduzca el primer operando: ");
-        int n1 = sc.nextInt();
+        String n1 = sc.nextLine();
         System.out.print("Introduzca el segundo operando: ");
-        int n2 = sc.nextInt();
+        String n2 = sc.nextLine();
         System.out.print("Introduzca el signo aritmético: ");
         String op = sc.next();
         char op2 = op.charAt(0);
         switch (op2){
             case '+':
-                System.out.println(n1 + op + n2 + " = " + (n1+n2));
+                System.out.println(n1 + op + n2 + " = " + (Integer.parseInt(n1)+Integer.parseInt(n2)));
                 break;
             case '-':
-                System.out.println(n1 + op + n2 + " = " + (n1-n2));
+                System.out.println(n1 + op + n2 + " = " + (Integer.parseInt(n1)-Integer.parseInt(n2)));
                 break;
             case '*':
-                System.out.println(n1 + op + n2 + " = " + (n1*n2));
+                System.out.println(n1 + op + n2 + " = " + (Integer.parseInt(n1)*Integer.parseInt(n2)));
                 break;
             case '/':
-                System.out.println(n1 + op + n2 + " = " + ((double) n1/(double) n2));
+                System.out.println(n1 + op + n2 + " = " + (Double.parseDouble(n1)/Double.parseDouble(n2)));
                 break;
             case '^':
-                System.out.println(n1 + op + n2 + " = " + (Math.pow(n1, n2)));
+                System.out.println(n1 + op + n2 + " = " + (Math.pow(Integer.parseInt(n1), Integer.parseInt(n2))));
                 break;
             case '%':
-                System.out.println(n1 + op + n2 + " = " + (n1%n2));
+                System.out.println(n1 + op + n2 + " = " + (Integer.parseInt(n1)%Integer.parseInt(n2)));
                 break;
             default:
                 System.out.println("Operación no disponible");
