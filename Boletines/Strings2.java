@@ -263,20 +263,13 @@ public class Strings2 {
             System.out.println("Contrasenya débil");
         } else {
             for (int i = 0; i<password.length(); i++){
-                for (int j = 65; j<=90; j++){
-                    if (password.indexOf((char) j)>=0){
-                        letras = true;
-                    }
+                String newPass = password.toUpperCase();
+                char caracter = newPass.charAt(i);
+                if ((int) caracter >=65  && (int) caracter <=90){
+                    letras = true;
                 }
-                for (int j = 97; j<=122; j++){
-                    if (password.indexOf((char) j)>=0){
-                        letras = true;
-                    }
-                }
-                for (int j = 48; j<=57; j++){
-                    if (password.indexOf(j)>=0){
-                        numeros = true;
-                    }
+                if ((int) caracter >= 48 && (int) caracter <=57){
+                    numeros = true;
                 }
             }
             if (letras && numeros) {
