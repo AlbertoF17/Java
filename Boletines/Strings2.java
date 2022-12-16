@@ -277,6 +277,8 @@ public class Strings2 {
             } else {
                 System.out.println("Nivel de seguridad media");
             }
+            // ALBERTO NO DEJES EL ORDENADOR DESBLOQUEADO
+            // Gracias por el consejo pana ♥
         }
     }
 }
