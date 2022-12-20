@@ -143,11 +143,11 @@ public class Strings1 {
         //11. Recorre el String del ejercicio anterior y transforma cada carácter a su código ASCII.
         //Muéstralos en línea recta, separados por un espacio entre cada carácter.
         System.out.println("EJERCICIO 11");
-        for (int i = 0; i<cad1.length(); i++){
-            System.out.print((int) cad1.charAt(i) + " ");
+        String frase11 = "emosido engañado";
+        for (int i = 0; i<frase11.length(); i++){
+            System.out.print((int) frase11.charAt(i) + " ");
         }
-        System.out.println();
-        System.out.println();
+        System.out.println("\n");
 
         //12. Crea una aplicación llamada CalculadoraPolacaInversaApp, nos pedirá 2 operandos (int,
         //pero se leerán como String y luego se convertirán) y un signo aritmético (String), según
