@@ -15,8 +15,8 @@ public class Strings1 {
         //2. Modifica la aplicación anterior, para que nos pida el nombre que queremos introducir.
         System.out.println("EJERCICIO 2");
         System.out.print("Introduce tu nombre: ");
-        String nombre2 = sc.next();
-        System.out.println("Bienvenido " + nombre2);
+        String nombre2 = sc.nextLine();
+        System.out.println("Bienvenido " + nombre2 + " \uD83E\uDD19");
         System.out.println();
 
 
@@ -25,15 +25,20 @@ public class Strings1 {
         //más la contraseña y mostrará un mensaje diciendo “Enhorabuena”. Piensa bien en la
         //condición de salida (3 intentos y si acierta sale, aunque le queden intentos).
         System.out.println("EJERCICIO 3");
-        String contrasenya = "Abcd1234";
+        String contrasenya = "Alberto1234";
         String intento = "";
+        String cantidadIntentos = "";
         int numIntentos = 3;
         do{
-            System.out.print("Introduce la contrasenya (quedan " + numIntentos + " intentos): ");
+            if (numIntentos==1){
+                cantidadIntentos = " intento";
+            } else {
+                cantidadIntentos = " intentos";
+            }
+            System.out.print("Introduce la contrasenya (quedan " + numIntentos + " " + cantidadIntentos + ") ");
             intento = sc.next();
             numIntentos--;
         }while(!(contrasenya.equals(intento)) && numIntentos > 0);
-
         if (numIntentos>=0){
             System.out.println("Acertaste");
         } else {
@@ -49,7 +54,7 @@ public class Strings1 {
         String vocales = "aeiouAEIOU";
         int cuentaVocales = 0;
         for (int i=0; i<frase.length(); i++){
-            if (vocales.contains(frase.charAt(i) + "")){
+            if (vocales.contains(frase.charAt(i)+"")){
                 cuentaVocales++;
             }
         }
@@ -83,10 +88,11 @@ public class Strings1 {
         System.out.println("EJERCICIO 7");
         System.out.print("Introduzca una cadena: ");
         String cad1 = sc.nextLine();
+        String invertida = "";
         for (int i = cad1.length()-1; i>=0; i--){
-            System.out.print(cad1.charAt(i));
+            invertida += cad1.charAt(i);
         }
-        System.out.println();
+        System.out.println(invertida + "\n");
 
         //8. Dada una cadena cad, y un carácter car, verificar cuántas veces se repite el carácter car
         //en la cadena cad, por ejemplo:
@@ -110,7 +116,7 @@ public class Strings1 {
         } else {
             fin = " veces";
         }
-        System.out.println("El carácter " + car2 + " se repite " + numCaracter + fin);
+        System.out.println("El carácter \'" + car2 + "\' se repite " + numCaracter + fin);
         System.out.println();
 
         //9. Lee un número por teclado y muestra por consola, el carácter al que pertenece en la
