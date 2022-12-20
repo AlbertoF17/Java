@@ -108,6 +108,11 @@ public class Cadenas {
         System.out.println(s.toUpperCase());
         System.out.println(s.toLowerCase());
 
+        //Contains
+        String a = "Hola";
+        System.out.println(a.contains("a")); //imprime TRUE
+        System.out.println(a.contains("b")); //imprime FALSE
+
         //Nº a String y viceversa
         int n = 1;
         int n2 = 2;

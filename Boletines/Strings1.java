@@ -25,7 +25,7 @@ public class Strings1 {
         //más la contraseña y mostrará un mensaje diciendo “Enhorabuena”. Piensa bien en la
         //condición de salida (3 intentos y si acierta sale, aunque le queden intentos).
         System.out.println("EJERCICIO 3");
-        String contrasenya = "Alberto1234";
+        String contrasenya = "Abcd1234";
         String intento = "";
         int numIntentos = 3;
         do{
@@ -33,7 +33,8 @@ public class Strings1 {
             intento = sc.next();
             numIntentos--;
         }while(!(contrasenya.equals(intento)) && numIntentos > 0);
-        if (numIntentos>0){
+
+        if (numIntentos>=0){
             System.out.println("Acertaste");
         } else {
             System.out.println("Fallaste");
@@ -45,12 +46,10 @@ public class Strings1 {
         //total (recorre el String con un bucle y charAt).
         System.out.println("EJERCICIO 4");
         String frase = "La lluvia en Sevilla es una maravilla";
+        String vocales = "aeiouAEIOU";
         int cuentaVocales = 0;
         for (int i=0; i<frase.length(); i++){
-            if (frase.charAt(i) == 'a' || frase.charAt(i) == 'e' || frase.charAt(i) == 'i' ||
-                    frase.charAt(i) == 'o' || frase.charAt(i) == 'u' || frase.charAt(i) == 'A' ||
-                    frase.charAt(i) == 'E' || frase.charAt(i) == 'I' || frase.charAt(i) == 'O' ||
-                    frase.charAt(i) == 'U'){
+            if (vocales.contains(frase.charAt(i) + "")){
                 cuentaVocales++;
             }
         }
@@ -71,8 +70,7 @@ public class Strings1 {
         String cad = sc.nextLine();
         int numVocales = 0;
         for (int i=0; i<cad.length(); i++){
-            if (cad.charAt(i) == 'a' || cad.charAt(i) == 'e' || cad.charAt(i) == 'i' ||
-                    cad.charAt(i) == 'o' || cad.charAt(i) == 'u'){
+            if (vocales.contains("" + cad.charAt(i))){
                 numVocales++;
             }
         }
