@@ -209,11 +209,15 @@ public class Strings2 {
         //cifras, e imprime por pantalla el carácter que representa.
         System.out.println("EJERCICIO 18");
         String num2;
+        boolean digito1;
+        boolean digito2;
         do{
             sc.nextLine();
             System.out.print("Introduzca un numero de dos cifras: ");
             num2 = sc.nextLine();
-        }while (num2.length()!=2);
+            digito1 = Character.isDigit(num2.charAt(0));
+            digito2 = Character.isDigit(num2.charAt(1));
+        }while (num2.length()!=2 && !(digito1 && digito2));
         int numCaracter = Integer.parseInt(num2);
         System.out.println("El número " + num2 + " es el código ASCII del carácter \'" + (char) numCaracter + "\'");
         System.out.println();

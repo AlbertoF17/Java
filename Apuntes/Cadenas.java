@@ -121,5 +121,6 @@ public class Cadenas {
         String nm = String.valueOf(n2);
         System.out.println(numero+1); //Da 11 porque "numero" es String
         //String num3 = Integer.parseInt(n3);
+        
     }
 }
