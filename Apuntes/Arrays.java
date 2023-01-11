@@ -10,7 +10,7 @@ public class Arrays {
         int[] arrayDeEnteros = new int[3]; //Número de datos de la secuencia establecidos antes de guardar los datos
         System.out.println("Longitud antes de la declaración del array: " + arrayDeEnteros.length);
         int[] arrayDeEnteros2 = {1, 2, 4, 5, 7, 6, 7, 3};
-        System.out.println("Código de referencia: " + arrayDeEnteros2);
+        System.out.println("Código de referencia (dirección en memoria): " + arrayDeEnteros2);
         System.out.println("Longitud después de la declaración del array: " + arrayDeEnteros2.length);
         for(int i = 0; i<arrayDeEnteros2.length; i++){
             System.out.print(arrayDeEnteros2[i] + " ");
@@ -39,6 +39,56 @@ public class Arrays {
                 System.out.print(arrayDeStrings[i] + " ");
             }else {
                 System.out.print(arrayDeStrings[i]);
+            }
+        }
+        System.out.println();
+        //Ejercicio de ejemplo 2: Crear un array de float de tamaño 10 mediante un inicializador
+        //(dando valores iniciales a su gusto). Imprimir el contenido del array por consola. Una vez impreso,
+        //modificar el array para que en cada posición se almacene el índice que le corresponde. Una vez que el array
+        //esté completamente modificado, volver a imprimir el array y comprobar que ha hecho el ejercicio
+        //de forma correcta.
+        float[] arrayDeFloats = {1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 9f, 10f};
+        for(int i = 0; i<arrayDeFloats.length; i++){
+            if (i<arrayDeFloats.length-1){
+                System.out.print(arrayDeFloats[i] + " ");
+            }else {
+                System.out.print(arrayDeFloats[i]);
+            }
+        }
+        System.out.println();
+        for(int i=0; i<arrayDeFloats.length; i++){
+            arrayDeFloats[i] = i;
+        }
+        for(int i = 0; i<arrayDeFloats.length; i++){
+            if (i<arrayDeFloats.length-1){
+                System.out.print(arrayDeFloats[i] + " ");
+            }else {
+                System.out.print(arrayDeFloats[i]);
+            }
+        }
+        System.out.println();
+
+
+        String[] array1 = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        for(int i = 0; i<array1.length; i++){
+            if (i<array1.length-1){
+                System.out.print(array1[i] + " ");
+            }else {
+                System.out.print(array1[i]);
+            }
+        }
+        System.out.println();
+        for(int i=0; i<array1.length; i++){
+            array1[i] = String.valueOf(i);
+            //array1[i] = Integer.toString(i); Mejor opción para ints
+            //array1[i] = String.valueOf(i);  Mejor opción cuando no se sabe de qué tipo es el número
+            //array1[i] = i+""; Peor opción
+        }
+        for(int i = 0; i<array1.length; i++){
+            if (i<array1.length-1){
+                System.out.print(array1[i] + " ");
+            }else {
+                System.out.print(array1[i]);
             }
         }
         System.out.println();
