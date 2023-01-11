@@ -165,7 +165,7 @@ public class Arrays1 {
         }
         int media = suma/100;
         System.out.println("La suma da: " + suma + " y la media es: " + media);
-*/
+
         //10. Crea un array de caracteres que contenga de la ‘A’ a la ‘Z’ (solo las
         //mayúsculas). Después, ve pidiendo posiciones del array por teclado y si la posición
         //es correcta, se añadirá a una cadena inicialmente vacía que se mostrará al final del
@@ -180,27 +180,28 @@ public class Arrays1 {
         System.out.println("EJERCICIO 10");
         char[] arrayLetras = new char[26];
         int letraAbecedario;
+        String arrayLetras2 = "";
+        int cont = 0;
+
         for (int i = 0; i < arrayLetras.length; i++) {
             arrayLetras[i] = (char)((int)'A'+i);
         }
-        int[] arrayLetras2;
+
         do{
-            int cont = 0;
-            System.out.println("¿Qué letra del abecedario vas a añadir? (introduzca el número de letra siendo" +
-                    "0 la letra A y 26 la letra Z)");
+            System.out.println("¿Qué letra del abecedario vas a añadir? (introduzca el número de letra siendo " +
+                    "0 la letra A y 25 la letra Z)");
             letraAbecedario = sc.nextInt();
             if (letraAbecedario<0){
                 System.out.println("FIN");
-            }else if(letraAbecedario>26){
+            }else if(letraAbecedario>25){
                 System.out.println("Número fuera de rango");
             }else {
-                arrayLetras2[cont] = letraAbecedario;
+                arrayLetras2 += arrayLetras[letraAbecedario];
                 cont++;
             }
         }while (letraAbecedario >= 0);
-        for (int i = 0; i < arrayLetras.length; i++){
-            System.out.print(arrayLetras[i] + " ");
-        }
+        System.out.println();
+        System.out.println("Las letras introducidas son: " + arrayLetras2);
         System.out.println();
 
         //11. Crear un array de String de tamaño 3, con los nombres de tres compañeros de
@@ -218,7 +219,7 @@ public class Arrays1 {
             }
         }
         for (int i = 0; i < arrayNombres.length; i++) {
-            if (arrayNombres[i] == nombre){
+            if (arrayNombres[i].equalsIgnoreCase(nombre)){
                 posicion = i;
             }
         }
@@ -227,14 +228,31 @@ public class Arrays1 {
         } else {
             System.out.println("El nombre " + nombre + " NO se encuentra en el array");
         }
+        System.out.println();
 
         //12. Repetir escribiendo un mensaje de tipo: Juan está en el array en la posición 2.
-
+        System.out.println("EJERCICIO 12: Hecho en el propio ejercicio anterior");
+*/
         //13. Leer por pantalla un numero entero y crear un array de ese tamaño, con valores
         //aleatorios entre 1 y 300. A continuación, pedir un número entero entre 0 y 9, e
         //imprimir todas las posiciones del array que tengan un número acabado en ese dígito.
         //Esos números, además de imprimirlos, almacenarlos en un array de salida con el
         //tamaño adecuado.
+        System.out.println("EJERCICIO 13");
+        System.out.println("Introduzca el tamaño del array:");
+        int[] arrayEj13 = new int[sc.nextInt()];
+        int num;
+        for (int i = 0; i < arrayEj13.length; i++) {
+            arrayEj13[i] = rand.nextInt(1,301);
+        }
+        do{
+            System.out.println("Introduzca un número entre el 0 y el 9:");
+            num = sc.nextInt();
+        }while(num<0||num>9 );
+        for (int i = 0; i < arrayEj13.length; i++) {
+            //arrayEj13[i].charAt(arrayEj13[i].length()) == num;
+        }
+        System.out.println();
 
         //14. Crear dos arrays de enteros del mismo tamaño (4). Inicializarlos con números
         //aleatorios de una cifra. Comparar si el contenido de ambos es exactamente el
