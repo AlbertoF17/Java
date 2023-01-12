@@ -7,7 +7,7 @@ public class Arrays1 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
-        /*
+
         //1. Crear un array de float de tamaño 10 mediante un inicializador (dando valores
         //iniciales a su gusto). Imprimir el contenido del array por consola. Una vez impreso,
         //modificar el array para que en cada posición se almacene el índice que le
@@ -372,26 +372,26 @@ public class Arrays1 {
 
         //17. Repetir, pero contando todas las letras del abecedario.
         System.out.println("EJERCICIO 17");
-        int[] arrayLetras = new int[26];
+        int[] arrayAbecedario = new int[26];
         System.out.print("Introduzca una frase: ");
         String fraseLetras = sc.nextLine();
         fraseLetras = fraseLetras.toLowerCase();
-        for (int i = 0; i < arrayLetras.length; i++) {
+        for (int i = 0; i < arrayAbecedario.length; i++) {
             for (int j = 0; j < fraseLetras.length(); j++) {
                 if (fraseLetras.charAt(j) == 'a'+i){
-                    arrayLetras[i]++;
+                    arrayAbecedario[i]++;
                 }
             }
         }
-        for (int i = 0; i < arrayLetras.length; i++) {
+        for (int i = 0; i < arrayAbecedario.length; i++) {
             System.out.print((char)('a'+i) + " ");
         }
         System.out.println();
-        for (int i = 0; i < arrayLetras.length; i++) {
-            System.out.print(arrayLetras[i] + " ");
+        for (int i = 0; i < arrayAbecedario.length; i++) {
+            System.out.print(arrayAbecedario[i] + " ");
         }
         System.out.println();
-*/
+
         //18. Leer una cadena que contenga varias palabras separadas por espacios. Buscar
         //información del método split de la clase String, y utilizarlo para dividir la cadena en
         //las distintas palabras.
