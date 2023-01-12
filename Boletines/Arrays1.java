@@ -232,42 +232,166 @@ public class Arrays1 {
 
         //12. Repetir escribiendo un mensaje de tipo: Juan está en el array en la posición 2.
         System.out.println("EJERCICIO 12: Hecho en el propio ejercicio anterior");
-*/
+
         //13. Leer por pantalla un numero entero y crear un array de ese tamaño, con valores
         //aleatorios entre 1 y 300. A continuación, pedir un número entero entre 0 y 9, e
         //imprimir todas las posiciones del array que tengan un número acabado en ese dígito.
         //Esos números, además de imprimirlos, almacenarlos en un array de salida con el
         //tamaño adecuado.
         System.out.println("EJERCICIO 13");
-        System.out.println("Introduzca el tamaño del array:");
+        System.out.print("Introduzca el tamaño del array: ");
         int[] arrayEj13 = new int[sc.nextInt()];
         int num;
+        int tamNuevoArray = 0;
+        String cadenaNumeros = "";
+
         for (int i = 0; i < arrayEj13.length; i++) {
             arrayEj13[i] = rand.nextInt(1,301);
         }
+
+        for (int i = 0; i < arrayEj13.length; i++) {
+            System.out.print(arrayEj13[i] + " ");
+        }
+        System.out.println("\n");
         do{
-            System.out.println("Introduzca un número entre el 0 y el 9:");
+            System.out.print("Introduzca un número entre el 0 y el 9: ");
             num = sc.nextInt();
         }while(num<0||num>9 );
+
         for (int i = 0; i < arrayEj13.length; i++) {
-            //arrayEj13[i].charAt(arrayEj13[i].length()) == num;
+            if (arrayEj13[i]%10 == num){
+                cadenaNumeros += arrayEj13[i] + " ";
+                tamNuevoArray++;
+            }
+        }
+        int[] nuevoArray = new int[tamNuevoArray];
+        int numeros = 0;
+        for (int i = 0; i<arrayEj13.length; i++){
+            if (arrayEj13[i]%10 == num){
+                nuevoArray[numeros] = arrayEj13[i];
+                numeros++;
+            }
+        }
+        for (int i = 0; i<nuevoArray.length; i++){
+            System.out.print(nuevoArray[i] + " ");
         }
         System.out.println();
 
         //14. Crear dos arrays de enteros del mismo tamaño (4). Inicializarlos con números
         //aleatorios de una cifra. Comparar si el contenido de ambos es exactamente el
         //mismo, imprimiendo un mensaje al respecto.
+        System.out.println("EJERCICIO 14");
+        int[] array14A = new int[4];
+        int[] array14B = new int[4];
+        boolean iguales = true;
+        for (int i = 0; i < array14A.length; i++) {
+            array14A[i] = rand.nextInt(1,10);
+        }
+        System.out.print("Array 1: ");
+        for (int i = 0; i < array14A.length; i++) {
+            System.out.print(array14A[i] + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < array14B.length; i++) {
+            array14B[i] = rand.nextInt(1,10);
+        }
+        System.out.print("Array 2: ");
+        for (int i = 0; i < array14A.length; i++) {
+            System.out.print(array14A[i] + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < array14A.length; i++) {
+            if (array14B[i]!=array14A[i]){
+                iguales = false;
+            }
+        }
+        System.out.print("¿Son iguales?");
+        if (iguales){
+            System.out.println("Sí");
+        }else {
+            System.out.println("No");
+        }
 
         //15. Repetir el ejercicio anterior, sumando ambos arrays y guardando el resultado en un
         //tercer array que deberá imprimirse por pantalla.
+        System.out.println("EJERCICIO 15");
+        int[] array15A = new int[4];
+        int[] array15B = new int[4];
+        int[] array15C = new int[4];
+
+        for (int i = 0; i < array15A.length; i++) {
+            array15A[i] = rand.nextInt(1,10);
+        }
+        System.out.print("Array 1: ");
+        for (int i = 0; i < array15A.length; i++) {
+            System.out.print(array15A[i] + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < array15B.length; i++) {
+            array15B[i] = rand.nextInt(1,10);
+        }
+        System.out.print("Array 2: ");
+        for (int i = 0; i < array15B.length; i++) {
+            System.out.print(array15B[i] + " ");
+        }
+        System.out.println();
+        System.out.print("Array resultante: ");
+        for (int i = 0; i < array15C.length; i++) {
+            array15C[i] = array15A[i] + array15B[i];
+            System.out.print(array15C[i]);
+        }
+        System.out.println();
 
         //16. Crear un array de enteros de 5 posiciones. Leer por pantalla una cadena y
         //almacenar en cada posición del array el número de ocurrencias de cada vocal: en la
         //posición 0 la cantidad de a, en la 1 la de e, y así sucesivamente, mostrando al final
         //el contenido del array.
+        System.out.println("EJERCICIO 16");
+        int[] arrayVocales = new int[5];
+        System.out.print("Introduzca una frase: ");
+        String fraseVocales = sc.nextLine();
+
+        for (int i = 0; i < fraseVocales.length(); i++) {
+            if(fraseVocales.charAt(i) == 'a' || fraseVocales.charAt(i) == 'A'){
+                arrayVocales[0]++;
+            } else if (fraseVocales.charAt(i) == 'e' || fraseVocales.charAt(i) == 'E'){
+                arrayVocales[1]++;
+            } else if (fraseVocales.charAt(i) == 'i' || fraseVocales.charAt(i) == 'I'){
+                arrayVocales[2]++;
+            } else if (fraseVocales.charAt(i) == 'o' || fraseVocales.charAt(i) == 'O'){
+                arrayVocales[3]++;
+            } else if (fraseVocales.charAt(i) == 'u' || fraseVocales.charAt(i) == 'U'){
+                arrayVocales[4]++;
+            }
+        }
+        System.out.println("a e i o u");
+        for (int i = 0; i < arrayVocales.length; i++) {
+            System.out.print(arrayVocales[i] + " ");
+        }
+        System.out.println("\n");
 
         //17. Repetir, pero contando todas las letras del abecedario.
-
+        System.out.println("EJERCICIO 17");
+        int[] arrayLetras = new int[26];
+        System.out.print("Introduzca una frase: ");
+        String fraseLetras = sc.nextLine();
+        fraseLetras = fraseLetras.toLowerCase();
+        for (int i = 0; i < arrayLetras.length; i++) {
+            for (int j = 0; j < fraseLetras.length(); j++) {
+                if (fraseLetras.charAt(j) == 'a'+i){
+                    arrayLetras[i]++;
+                }
+            }
+        }
+        for (int i = 0; i < arrayLetras.length; i++) {
+            System.out.print((char)('a'+i) + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < arrayLetras.length; i++) {
+            System.out.print(arrayLetras[i] + " ");
+        }
+        System.out.println();
+*/
         //18. Leer una cadena que contenga varias palabras separadas por espacios. Buscar
         //información del método split de la clase String, y utilizarlo para dividir la cadena en
         //las distintas palabras.
