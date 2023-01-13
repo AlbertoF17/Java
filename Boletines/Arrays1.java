@@ -404,7 +404,7 @@ public class Arrays1 {
         System.out.println("EJERCICIO 18");
         System.out.print("Introduce una frase: ");
         String cadenaLarga = sc.nextLine();
-        String partes[] = cadenaLarga.split(" ");
+        String[] partes = cadenaLarga.split(" ");
         for (int i = 0; i < partes.length; i++) {
             System.out.print(partes[i]);
         }
@@ -438,12 +438,10 @@ public class Arrays1 {
         //21 K
         //22 E
         System.out.println("EJERCICIO 19");
-        String[] arrayLetraDNI = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q",
-                "V", "H", "L", "C", "K", "E"};
+        String[] arrayLetraDNI = "TRWAGMYFPDXBNJZSQVHLCKE".split("");
         System.out.print("Introduce la parte numérica de tu DNI: ");
         int numDNI = sc.nextInt();
         int numLetra = numDNI%23;
-        String letraDNI = "Letra no encontrada";
         System.out.println("Su DNI es: " + numDNI + arrayLetraDNI[numLetra]);
     }
 }
