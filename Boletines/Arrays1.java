@@ -279,7 +279,7 @@ public class Arrays1 {
         for (int i = 0; i<nuevoArray.length; i++){
             System.out.print(nuevoArray[i] + " ");
         }
-        System.out.println();
+        System.out.println("\n");
 
         //14. Crear dos arrays de enteros del mismo tamaño (4). Inicializarlos con números
         //aleatorios de una cifra. Comparar si el contenido de ambos es exactamente el
@@ -309,7 +309,7 @@ public class Arrays1 {
                 iguales = false;
             }
         }
-        System.out.print("¿Son iguales?");
+        System.out.print("¿Son iguales? ");
         if (iguales){
             System.out.println("Sí");
         }else {
@@ -354,6 +354,7 @@ public class Arrays1 {
         System.out.println("EJERCICIO 16");
         int[] arrayVocales = new int[5];
         System.out.print("Introduzca una frase: ");
+        sc.nextLine();
         System.out.println();
         String fraseVocales = sc.nextLine();
 
@@ -408,7 +409,7 @@ public class Arrays1 {
         for (int i = 0; i < partes.length; i++) {
             System.out.print(partes[i]);
         }
-        System.out.println();
+        System.out.println("\n");
 
         //19. Introduce por pantalla el número de tu DNI, y vuelve a imprimirlo seguido de la letra.
         //Para calcular la letra, cogeremos el resto de dividir nuestro dni entre 23, el resultado
@@ -438,84 +439,12 @@ public class Arrays1 {
         //21 K
         //22 E
         System.out.println("EJERCICIO 19");
+        String[] arrayLetraDNI = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q",
+                "V", "H", "L", "C", "K", "E"};
         System.out.print("Introduce la parte numérica de tu DNI: ");
         int numDNI = sc.nextInt();
         int numLetra = numDNI%23;
         String letraDNI = "Letra no encontrada";
-        switch (numLetra){
-            case 0:
-                letraDNI = "T";
-                break;
-            case 1:
-                letraDNI = "R";
-                break;
-            case 2:
-                letraDNI = "W";
-                break;
-            case 3:
-                letraDNI = "A";
-                break;
-            case 4:
-                letraDNI = "G";
-                break;
-            case 5:
-                letraDNI = "M";
-                break;
-            case 6:
-                letraDNI = "Y";
-                break;
-            case 7:
-                letraDNI = "F";
-                break;
-            case 8:
-                letraDNI = "P";
-                break;
-            case 9:
-                letraDNI = "D";
-                break;
-            case 10:
-                letraDNI = "X";
-                break;
-            case 11:
-                letraDNI = "B";
-                break;
-            case 12:
-                letraDNI = "N";
-                break;
-            case 13:
-                letraDNI = "J";
-                break;
-            case 14:
-                letraDNI = "Z";
-                break;
-            case 15:
-                letraDNI = "S";
-                break;
-            case 16:
-                letraDNI = "Q";
-                break;
-            case 17:
-                letraDNI = "V";
-                break;
-            case 18:
-                letraDNI = "H";
-                break;
-            case 19:
-                letraDNI = "L";
-                break;
-            case 20:
-                letraDNI = "C";
-                break;
-            case 21:
-                letraDNI = "K";
-                break;
-            case 22:
-                letraDNI = "E";
-                break;
-            default:
-                System.out.println("Error");
-                break;
-        }
-        System.out.println("Su DNI es: " + numDNI + letraDNI);
+        System.out.println("Su DNI es: " + numDNI + arrayLetraDNI[numLetra]);
     }
 }
