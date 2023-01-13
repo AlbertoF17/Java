@@ -1,5 +1,6 @@
 package Boletines;
 
+import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -34,7 +35,7 @@ public class Arrays1 {
                 System.out.print(arrayDeFloats[i]);
             }
         }
-        System.out.println();
+        System.out.println("\n");
 
         //2. Modificar el ejercicio anterior de forma que el array sea de String.
         System.out.println("EJERCICIO 2");
@@ -57,7 +58,7 @@ public class Arrays1 {
                 System.out.print(arrayDeStrings[i]);
             }
         }
-        System.out.println();
+        System.out.println("\n");
 
         //3. Modificar el ejercicio anterior de forma que el array sea de char (utilice únicamente
         //números de una cifra en el inicializador).
@@ -81,7 +82,7 @@ public class Arrays1 {
                 System.out.print(arrayDeChars[i]);
             }
         }
-        System.out.println();
+        System.out.println("\n");
 
         //4. Escribe un programa que cree un array de 5 posiciones e imprima el valor de cada
         //posición. Elija el tipo que desee y los valores iniciales que desee.
@@ -90,7 +91,7 @@ public class Arrays1 {
         for (int i = 0; i < arrayEj4.length; i++){
             System.out.print(arrayEj4[i] + " ");
         }
-        System.out.println();
+        System.out.println("\n");
 
         //5. Modifica el ejercicio anterior para que, a continuación, pida por pantalla 5 nuevos
         //valores y rellene el array con ellos, volviéndolo a imprimir.
@@ -102,7 +103,7 @@ public class Arrays1 {
         for (int i = 0; i < arrayEj4.length; i++){
             System.out.print(arrayEj4[i] + " ");
         }
-        System.out.println();
+        System.out.println("\n");
 
         //6. Modifica el programa anterior para que el número de posiciones del array se lea por
         //pantalla.
@@ -116,7 +117,7 @@ public class Arrays1 {
         for (int i = 0; i < arrayEj6.length; i++){
             System.out.print(arrayEj6[i] + " ");
         }
-        System.out.println();
+        System.out.println("\n");
 
         //7. Si eligió un tipo numérico para el ejercicio anterior, repítalo usando un tipo no
         //numérico (boolean, char o String). Si eligió un tipo no numérico, repítalo usando float.
@@ -130,7 +131,7 @@ public class Arrays1 {
         for (int i = 0; i < arrayEj7.length; i++){
             System.out.print(arrayEj7[i] + " ");
         }
-        System.out.println();
+        System.out.println("\n");
 
         //8. Crear un array de enteros donde indicamos por teclado el tamaño del array,
         //rellenamos el array con números aleatorios entre 0 y 9, y mostramos por pantalla el
@@ -150,6 +151,7 @@ public class Arrays1 {
         }
         System.out.println();
         System.out.println("La suma da: " + suma);
+        System.out.println("\n");
 
         //9. Crea un array de números de 100 posiciones, que contendrá los números del 1 al
         //100. Partiendo del array ya creado y completamente relleno, obtener la suma de
@@ -165,6 +167,7 @@ public class Arrays1 {
         }
         int media = suma/100;
         System.out.println("La suma da: " + suma + " y la media es: " + media);
+        System.out.println("\n");
 
         //10. Crea un array de caracteres que contenga de la ‘A’ a la ‘Z’ (solo las
         //mayúsculas). Después, ve pidiendo posiciones del array por teclado y si la posición
@@ -232,6 +235,7 @@ public class Arrays1 {
 
         //12. Repetir escribiendo un mensaje de tipo: Juan está en el array en la posición 2.
         System.out.println("EJERCICIO 12: Hecho en el propio ejercicio anterior");
+        System.out.println();
 
         //13. Leer por pantalla un numero entero y crear un array de ese tamaño, con valores
         //aleatorios entre 1 y 300. A continuación, pedir un número entero entre 0 y 9, e
@@ -311,6 +315,7 @@ public class Arrays1 {
         }else {
             System.out.println("No");
         }
+        System.out.println();
 
         //15. Repetir el ejercicio anterior, sumando ambos arrays y guardando el resultado en un
         //tercer array que deberá imprimirse por pantalla.
@@ -340,7 +345,7 @@ public class Arrays1 {
             array15C[i] = array15A[i] + array15B[i];
             System.out.print(array15C[i]);
         }
-        System.out.println();
+        System.out.println("\n");
 
         //16. Crear un array de enteros de 5 posiciones. Leer por pantalla una cadena y
         //almacenar en cada posición del array el número de ocurrencias de cada vocal: en la
@@ -349,6 +354,7 @@ public class Arrays1 {
         System.out.println("EJERCICIO 16");
         int[] arrayVocales = new int[5];
         System.out.print("Introduzca una frase: ");
+        System.out.println();
         String fraseVocales = sc.nextLine();
 
         for (int i = 0; i < fraseVocales.length(); i++) {
@@ -390,62 +396,126 @@ public class Arrays1 {
         for (int i = 0; i < arrayAbecedario.length; i++) {
             System.out.print(arrayAbecedario[i] + " ");
         }
-        System.out.println();
+        System.out.println("\n");
 
         //18. Leer una cadena que contenga varias palabras separadas por espacios. Buscar
         //información del método split de la clase String, y utilizarlo para dividir la cadena en
         //las distintas palabras.
+        System.out.println("EJERCICIO 18");
+        System.out.print("Introduce una frase: ");
+        String cadenaLarga = sc.nextLine();
+        String partes[] = cadenaLarga.split(" ");
+        for (int i = 0; i < partes.length; i++) {
+            System.out.print(partes[i]);
+        }
+        System.out.println();
 
         //19. Introduce por pantalla el número de tu DNI, y vuelve a imprimirlo seguido de la letra.
         //Para calcular la letra, cogeremos el resto de dividir nuestro dni entre 23, el resultado
         //debe estar entre 0 y 22. Tendrás que crear un array que contenga:
-        //
         //POSICIÓN LETRA
-        //
         //0 T
-        //
         //1 R
-        //
         //2 W
-        //
         //3 A
-        //
         //4 G
-        //
         //5 M
-        //
         //6 Y
-        //
         //7 F
-        //
         //8 P
-        //
         //9 D
-        //
         //10 X
-        //
         //11 B
-        //
         //12 N
-        //
         //13 J
-        //
         //14 Z
-        //
         //15 S
-        //
         //16 Q
-        //
         //17 V
-        //
         //18 H
-        //
         //19 L
-        //
         //20 C
-        //
         //21 K
-        //
         //22 E
+        System.out.println("EJERCICIO 19");
+        System.out.print("Introduce la parte numérica de tu DNI: ");
+        int numDNI = sc.nextInt();
+        int numLetra = numDNI%23;
+        String letraDNI = "Letra no encontrada";
+        switch (numLetra){
+            case 0:
+                letraDNI = "T";
+                break;
+            case 1:
+                letraDNI = "R";
+                break;
+            case 2:
+                letraDNI = "W";
+                break;
+            case 3:
+                letraDNI = "A";
+                break;
+            case 4:
+                letraDNI = "G";
+                break;
+            case 5:
+                letraDNI = "M";
+                break;
+            case 6:
+                letraDNI = "Y";
+                break;
+            case 7:
+                letraDNI = "F";
+                break;
+            case 8:
+                letraDNI = "P";
+                break;
+            case 9:
+                letraDNI = "D";
+                break;
+            case 10:
+                letraDNI = "X";
+                break;
+            case 11:
+                letraDNI = "B";
+                break;
+            case 12:
+                letraDNI = "N";
+                break;
+            case 13:
+                letraDNI = "J";
+                break;
+            case 14:
+                letraDNI = "Z";
+                break;
+            case 15:
+                letraDNI = "S";
+                break;
+            case 16:
+                letraDNI = "Q";
+                break;
+            case 17:
+                letraDNI = "V";
+                break;
+            case 18:
+                letraDNI = "H";
+                break;
+            case 19:
+                letraDNI = "L";
+                break;
+            case 20:
+                letraDNI = "C";
+                break;
+            case 21:
+                letraDNI = "K";
+                break;
+            case 22:
+                letraDNI = "E";
+                break;
+            default:
+                System.out.println("Error");
+                break;
+        }
+        System.out.println("Su DNI es: " + numDNI + letraDNI);
     }
 }

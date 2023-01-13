@@ -92,5 +92,32 @@ public class Arrays {
             }
         }
         System.out.println();
+
+        // EJERCICIOS CLASE
+        // imprimir cada posicion junto con el contenido
+        System.out.println("----------EJ1----------");
+        int [] arr = {40, 20, 5, 7, 8};
+        for (int i= 0; i <arr.length; i++) {
+            System.out.println(i + "," + arr[i]);
+        }
+
+        // Imprimir la posición central del array junto a su contenido
+        System.out.println("----------EJ2----------");
+        System.out.println(arr.length/2 + "," + arr[arr.length/2]);
+
+        // Duplicar el contenido
+        System.out.println("----------EJ3----------");
+        for (int i= 0; i <arr.length; i++) {
+            arr[i] *=  2;
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        // imprimir array de al final al principio con i++
+        System.out.println("----------EJ4----------");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[arr.length-(i+1)] + " ");
+        }
+        System.out.println();
     }
 }
