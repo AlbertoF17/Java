@@ -191,7 +191,7 @@ public class Arrays1 {
 
         do{
             System.out.println("¿Qué letra del abecedario vas a añadir? (introduzca el número de letra siendo " +
-                    "0 la letra A y 25 la letra Z)");
+                    "0 la letra A y 25 la lera Z)");
             letraAbecedario = sc.nextInt();
             if (letraAbecedario<0){
                 System.out.println("FIN");
