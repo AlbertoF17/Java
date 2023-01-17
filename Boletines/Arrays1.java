@@ -438,7 +438,8 @@ public class Arrays1 {
         //21 K
         //22 E
         System.out.println("EJERCICIO 19");
-        String[] arrayLetraDNI = "TRWAGMYFPDXBNJZSQVHLCKE".split("");
+        String[] arrayLetraDNI = {"T" , "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B",
+                                  "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
         System.out.print("Introduce la parte numérica de tu DNI: ");
         int numDNI = sc.nextInt();
         System.out.println("Su DNI es: " + numDNI + arrayLetraDNI[numDNI%23]);
