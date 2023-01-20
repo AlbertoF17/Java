@@ -119,5 +119,20 @@ public class Arrays {
             System.out.print(arr[arr.length-(i+1)] + " ");
         }
         System.out.println();
+
+        //ARRAYS BIDIMENSIONALES
+        int[] array1D = {3, 22, 34, 1};
+        int[] array1Dbis = new int[4];
+        //Comparación declaración arrays 1 dimensión y 2 dimensiones
+        int[][] array2D = new int[5][3];
+        int[][] array2Dbis = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+        System.out.println("Num filas array2Dbis: " + array2D.length);
+
+
+
     }
 }
