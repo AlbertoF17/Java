@@ -124,15 +124,52 @@ public class Arrays {
         int[] array1D = {3, 22, 34, 1};
         int[] array1Dbis = new int[4];
         //Comparación declaración arrays 1 dimensión y 2 dimensiones
-        int[][] array2D = new int[5][3];
-        int[][] array2Dbis = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
+        char[][] array2D = new char[5][3];
+        char[][] array2Dbis = {
+                {'a', 'b', 'c'},
+                {'d', 'e', 'f'},
+                {'g', 'h', 'i'}
         };
-        System.out.println("Num filas array2Dbis: " + array2D.length);
+        //Acceso a datos
+        System.out.println("Num filas array2D: " + array2D.length);
+        System.out.println("Num filas array2Dbis: " + array2Dbis.length);
+        System.out.println("Num filas array2Dbis[0]: " + array2Dbis[0].length);
+        //Si el array bidimensional es cuadrado:
+        System.out.println("Tamaño array2D: [" + array2D.length + ", " + array2D[0].length + "]");
+        System.out.println(array2D[0][1] + ", " + array2D[2][2] + ", " + array2D[4][0]);
+        System.out.println(array2Dbis[0][1] + ", " + array2Dbis[1][0] + ", " + array2Dbis[2][2]);
 
+        //Modificación de datos
+        array2Dbis[0][0] = 'a';
+        array2Dbis[0][2] = 'a';
+        array2Dbis[2][1] = 'a';
 
+        //Impresión array
+        for (int i = 0; i < array2Dbis.length; i++) {
+            for (int j = 0; j < array2Dbis[0].length; j++) {
+                //Para arrays con tamaño de arrays internos variable, la condición sería "j < array2Dbis[i].length"
+                System.out.print(array2Dbis[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        //Acceso a nivel de fila
+        int[][] array = {
+                {0, 2},
+                {3, 1},
+                {4, 7}
+        };
+        System.out.println(array.length);
+        System.out.println(array[0].length);
+        System.out.println(array[1].length);
+
+        //Impresión array con acceso a nivel de fila
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
 
     }
 }
