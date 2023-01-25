@@ -394,7 +394,7 @@ public class Arrays2 {
             }
             System.out.println();
         }
-        System.out.println("\nNUEVO ARRAY\n");
+        System.out.println("\nNUEVO ARRAY");
         float[][] array8B = new float[dimension8][dimension8];
         for (int i = 0; i < dimension8; i++) {
             for (int j = 0; j < dimension8; j++) {
