@@ -211,27 +211,27 @@ public class Arrays3 {
         }
         for (int i = 0; i < A3.length; i++) {
             for (int j = 0; j < A3[i].length; j++) {
-                A3[i][j] = M1[i][j] + M2[i][j];
+                A3[i][j] = A1[i][j] + A2[i][j];
             }
         }
         System.out.println("ARRAY 1");
-        for (int i = 0; i < M3.length; i++) {
-            for (int j = 0; j < M3[i].length; j++) {
-                System.out.print(M3[i][j] + " ");
+        for (int i = 0; i < A1.length; i++) {
+            for (int j = 0; j < A1[i].length; j++) {
+                System.out.print(A1[i][j] + " ");
             }
             System.out.println();
         }
         System.out.println("\nARRAY 2");
-        for (int i = 0; i < M3.length; i++) {
-            for (int j = 0; j < M3[i].length; j++) {
-                System.out.print(M3[i][j] + " ");
+        for (int i = 0; i < A2.length; i++) {
+            for (int j = 0; j < A2[i].length; j++) {
+                System.out.print(A2[i][j] + " ");
             }
             System.out.println();
         }
-        System.out.println("\nARRAY RESULTANTE");
-        for (int i = 0; i < M3.length; i++) {
-            for (int j = 0; j < M3[i].length; j++) {
-                System.out.print(M3[i][j] + " ");
+        System.out.println("\nARRAY RESULTANTE (SUMADO)");
+        for (int i = 0; i < A3.length; i++) {
+            for (int j = 0; j < A3[i].length; j++) {
+                System.out.print(A3[i][j] + " ");
             }
             System.out.println();
         }
@@ -240,9 +240,39 @@ public class Arrays3 {
         //7. Dadas las matrices del ejercicio 4, desarrollar un programa para multiplicarlas.
         //Busque en internet como se multiplican dos matrices.
         System.out.println("EJERCICIO 7");
+        System.out.println("ARRAY 1");
         int[][] Matriz1 = {{6,8,9},{4,2,0},{3,1,1}};
+        for (int i = 0; i < Matriz1.length; i++) {
+            for (int j = 0; j < Matriz1[i].length; j++) {
+                System.out.print(Matriz1[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("ARRAY 2");
         int[][] Matriz2 = {{2,4,1},{8,7,7},{6,6,2}};
+        for (int i = 0; i < Matriz2.length; i++) {
+            for (int j = 0; j < Matriz2[i].length; j++) {
+                System.out.print(Matriz2[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("ARRAY RESULTANTE (MULTIPLICADO)");
         int[][] Matriz3 = new int[3][3];
-
+        for (int i = 0; i < Matriz3.length; i++) {
+            for (int j = 0; j < Matriz3[i].length; j++) {
+                for (int k = 0; k < Matriz3[i].length; k++) {
+                    Matriz3[i][j] += Matriz1[i][k] * Matriz2[k][j];
+                }
+            }
+        }
+        for (int i = 0; i < Matriz3.length; i++) {
+            for (int j = 0; j < Matriz3[i].length; j++) {
+                System.out.print(Matriz3[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
