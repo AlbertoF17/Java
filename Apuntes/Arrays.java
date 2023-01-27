@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Arrays {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        /*
         //Array: secuencia de datos del mismo tipo
         //Declaración: tipo array, abre y cierra corchetes y nombre de la variable (entre corchetes va el contenido)
         int[] arrayDePrueba; //NULL, aún no inicializado
@@ -171,5 +172,75 @@ public class Arrays {
             System.out.println();
         }
 
+        int[] array1 = {0,1,2,3,4,5,6,7,8,9};
+        //array1 = null;//Garbage Collector (GC)
+        int[] array2 = {0,1,2,3,4,5,6,7,8,9};
+        int[][] array3 = {{0,1},{2,3},{4,5},{6,7}};
+        System.out.println(array1);
+        array1 = array2;
+        System.out.println(array1);
+
+        int[] arrayInt1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] arrayInt2 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        //arrayInt2 = arrayInt1;
+        boolean iguales = true;
+        if (arrayInt1 == null || arrayInt2 == null) {
+            if (arrayInt1 == null && arrayInt2 == null) {
+                System.out.println("Ambos Objetos son nulos");
+            } else if (arrayInt1 == null) {
+                System.out.println("El primer objeto es nulo");
+            } else {
+                System.out.println("El segundo objeto es nulo");
+            }
+            return;
+        }
+        if (arrayInt1 == arrayInt2) {
+            System.out.println("Misma referencia (los 2 arrays son el mismo objeto, por lo que son iguales)");
+            return;
+        }
+        if (arrayInt1.length != arrayInt2.length) {
+            System.out.println("Los arrays tienen diferente longitud, por lo que son diferentes");
+            return;
+        }
+        for (int i = 0; i < arrayInt1.length; i++) {
+            if (arrayInt1[i] != arrayInt2[i]) {
+                iguales = false;
+                break;
+            }
+        }
+        if (iguales) {
+            System.out.println("Son iguales");
+        } else {
+            System.out.println("Son distintos");
+        }*/
+        //Intercambiar filas indice 1 de ambos array
+        int[][] arrA = {{0,1},{2,3},{4,5},{6,7}};
+        int[][] arrB = {{0,0},{1,1},{2,2},{3,3}};
+        int indice = 1;
+        int[] arraySwapping = arrB[indice];
+        arrB[indice] = arrA[indice];
+        arrA[indice] = arraySwapping;
+        /*
+        for (int i = 0; i < arrA.length; i++) {
+            if (arrA[i][j]==arrA[indice][j]){
+                arraySwapping[0] = arrB[i][j];
+                arrB[i][j] = arrA[i][j];
+                arrA[i][j] = arraySwapping[0];
+            }
+        }*/
+        for (int i = 0; i < arrA.length; i++) {
+            for (int j = 0; j < arrA[i].length; j++) {
+                System.out.print(arrA[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        for (int i = 0; i < arrB.length; i++) {
+            for (int j = 0; j < arrB[i].length; j++) {
+                System.out.print(arrB[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
