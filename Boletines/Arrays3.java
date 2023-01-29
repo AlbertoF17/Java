@@ -7,6 +7,7 @@ public class Arrays3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rn = new Random();
+        /*
         //1. Leer por pantalla un número entero n, y crear una matriz de String de dimensiones
         //nxn como la que se muestra a continuación. Imprimir la matriz por pantalla después
         //de haberla rellenado completamente.
@@ -236,40 +237,83 @@ public class Arrays3 {
             System.out.println();
         }
         System.out.println();
-
+*/
         //7. Dadas las matrices del ejercicio 4, desarrollar un programa para multiplicarlas.
         //Busque en internet como se multiplican dos matrices.
         System.out.println("EJERCICIO 7");
+        int filasArray1 = rn.nextInt(1,5);
+        int columnasArray1filasArray2 = rn.nextInt(1,5);
+        int columnasArray2 = rn.nextInt(1,5);
         System.out.println("ARRAY 1");
-        int[][] Matriz1 = {{6,8,9},{4,2,0},{3,1,1}};
+        int[][] Matriz1 = new int[filasArray1][columnasArray1filasArray2];
+        for (int i = 0; i < filasArray1; i++) {
+            for (int j = 0; j < columnasArray1filasArray2; j++) {
+                Matriz1[i][j] = rn.nextInt(-9,10);
+            }
+        }
         for (int i = 0; i < Matriz1.length; i++) {
             for (int j = 0; j < Matriz1[i].length; j++) {
-                System.out.print(Matriz1[i][j] + " ");
+                if(Matriz1[i][j]<0){
+                    System.out.print(Matriz1[i][j] + " ");
+                }else{
+                    System.out.print(" " + Matriz1[i][j] + " ");
+                }
             }
             System.out.println();
         }
         System.out.println();
         System.out.println("ARRAY 2");
-        int[][] Matriz2 = {{2,4,1},{8,7,7},{6,6,2}};
+        int[][] Matriz2 = new int[columnasArray1filasArray2][columnasArray2];
+        for (int i = 0; i < columnasArray1filasArray2; i++) {
+            for (int j = 0; j < columnasArray2; j++) {
+                Matriz2[i][j] = rn.nextInt(-9,10);
+            }
+        }
         for (int i = 0; i < Matriz2.length; i++) {
             for (int j = 0; j < Matriz2[i].length; j++) {
-                System.out.print(Matriz2[i][j] + " ");
+                if(Matriz2[i][j]<0){
+                    System.out.print(Matriz2[i][j] + " ");
+                }else{
+                    System.out.print(" " + Matriz2[i][j] + " ");
+                }
             }
             System.out.println();
         }
         System.out.println();
         System.out.println("ARRAY RESULTANTE (MULTIPLICADO)");
-        int[][] Matriz3 = new int[3][3];
-        for (int i = 0; i < Matriz3.length; i++) {
-            for (int j = 0; j < Matriz3[i].length; j++) {
-                for (int k = 0; k < Matriz3[i].length; k++) {
+        int[][] Matriz3 = new int[filasArray1][columnasArray2];
+        int columnasArray3;
+        int filasArray3;
+        int cont;
+        if (columnasArray1filasArray2<columnasArray2){
+            columnasArray3 = columnasArray1filasArray2;
+        }else{
+            columnasArray3 = columnasArray2;
+        }
+        if (filasArray1<columnasArray1filasArray2){
+            filasArray3 = columnasArray1filasArray2;
+        }else{
+            filasArray3 = filasArray1;
+        }
+        if (filasArray3 > columnasArray3){
+            cont = filasArray3;
+        }else{
+            cont = columnasArray3;
+        }
+        for (int i = 0; i < filasArray1; i++) {
+            for (int j = 0; j < columnasArray2; j++) {
+                for (int k = 0; k < cont; k++) {
                     Matriz3[i][j] += Matriz1[i][k] * Matriz2[k][j];
                 }
             }
         }
         for (int i = 0; i < Matriz3.length; i++) {
             for (int j = 0; j < Matriz3[i].length; j++) {
-                System.out.print(Matriz3[i][j] + " ");
+                if(Matriz3[i][j]<0){
+                    System.out.print(Matriz3[i][j] + " ");
+                }else{
+                    System.out.print(" " + Matriz3[i][j] + " ");
+                }
             }
             System.out.println();
         }
