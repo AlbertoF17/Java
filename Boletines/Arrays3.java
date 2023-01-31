@@ -7,7 +7,6 @@ public class Arrays3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rn = new Random();
-        /*
         //1. Leer por pantalla un número entero n, y crear una matriz de String de dimensiones
         //nxn como la que se muestra a continuación. Imprimir la matriz por pantalla después
         //de haberla rellenado completamente.
@@ -23,7 +22,7 @@ public class Arrays3 {
         String[][] array1 = new String[dimension1][dimension1];
         for (int i = 0; i < array1.length; i++) {
             for (int j = 0; j < array1.length; j++) {
-                array1[i][j] = cont + " ";
+                array1[i][j] = Float.toString(cont);
                 cont++;
             }
         }
@@ -42,24 +41,22 @@ public class Arrays3 {
         //introduzca una posición inválida. Antes de finalizar, imprima la matriz.
         System.out.println("EJERCICIO 2");
         String[][] array2 = {{"Alberto", "Josemari", "Jouse", "Ale"},{"Antonio", "María", "Pablito", "Ricardo"}};
-        int posicioni;
-        int posicionj;
-        boolean continuar = false;
-        do{
+        int posicioni, posicionj;
+        boolean continuar = true;
+        while(continuar){
             System.out.println("Introduzca una posición de la matriz válida: ");
             System.out.print("Posicion i (número entre 0 y 1): ");
             posicioni = sc.nextInt();
             System.out.print("Posicion j (número entre 0 y 3): ");
             posicionj = sc.nextInt();
             if (posicioni>=0 && posicioni<=1 && posicionj>=0 && posicionj<=3){
-                continuar = true;
                 System.out.print("Introduzca el nombre a insertar: ");
                 String nuevoNombre = sc.next();
                 array2[posicioni][posicionj] = nuevoNombre;
-            }else {
+            }else{
                 continuar = false;
             }
-        }while(continuar);
+        }
         System.out.println("Posición no válida, programa finalizado\n");
         System.out.println("MATRIZ FINAL");
         for (int i = 0; i < array2.length; i++) {
@@ -77,24 +74,22 @@ public class Arrays3 {
         //imprimir la matriz.
         System.out.println("EJERCICIO 3");
         String[][] array3 = {{"Alberto", "Josemari", "Jouse", "Ale"},{"Antonio", "María", "Pablito", "Ricardo"}};
-        int posi;
-        int posj;
-        boolean continua = false;
-        do{
+        int posi, posj;
+        boolean continua = true;
+        while(continua){
             System.out.println("Introduzca una posición de la matriz válida: ");
             System.out.print("Posicion i (número entre 0 y 1): ");
             posi = sc.nextInt();
             System.out.print("Posicion j (número entre 0 y 3): ");
             posj = sc.nextInt();
             if (posi>=0 && posi<=1 && posj>=0 && posj<=3){
-                continua = true;
                 System.out.print("Introduzca el nombre a insertar: ");
                 String nuevoNombre = sc.next();
                 array3[posi][posj] = nuevoNombre;
             }else {
                 continua = false;
             }
-        }while(continua);
+        }
         System.out.println("Posición no válida, programa finalizado\n");
         System.out.println("MATRIZ FINAL");
         System.out.println("¿Quieres la matriz en mayúsculas o en minúsculas?");
@@ -137,16 +132,28 @@ public class Arrays3 {
         int[][] M1 = {{6,8,9},{4,2,0},{3,1,1}};
         int[][] M2 = {{2,4,1},{8,7,7},{6,6,2}};
         int[][] M3 = new int[3][3];
+        System.out.println("ARRAY 1");
+        for (int i = 0; i < M1.length; i++) {
+            for (int j = 0; j < M1[i].length; j++) {
+                System.out.print(M1[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("ARRAY 2");
+        for (int i = 0; i < M2.length; i++) {
+            for (int j = 0; j < M2[i].length; j++) {
+                System.out.print(M2[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("ARRAY RESULTANTE");
         for (int i = 0; i < M1.length; i++) {
             for (int j = 0; j < M1[i].length; j++) {
                 M3[i][j] = M1[i][j] + M2[i][j];
-            }
-        }
-        for (int i = 0; i < M3.length; i++) {
-            for (int j = 0; j < M3[i].length; j++) {
                 System.out.print(M3[i][j] + " ");
             }
-            System.out.println();
         }
         System.out.println();
 
@@ -237,7 +244,7 @@ public class Arrays3 {
             System.out.println();
         }
         System.out.println();
-*/
+
         //7. Dadas las matrices del ejercicio 4, desarrollar un programa para multiplicarlas.
         //Busque en internet como se multiplican dos matrices.
         System.out.println("EJERCICIO 7");
@@ -284,7 +291,7 @@ public class Arrays3 {
         int[][] Matriz3 = new int[filasArray1][columnasArray2];
         int columnasArray3;
         int filasArray3;
-        int cont;
+        int contador;
         if (columnasArray1filasArray2<columnasArray2){
             columnasArray3 = columnasArray1filasArray2;
         }else{
@@ -296,13 +303,13 @@ public class Arrays3 {
             filasArray3 = filasArray1;
         }
         if (filasArray3 > columnasArray3){
-            cont = filasArray3;
+            contador = filasArray3;
         }else{
-            cont = columnasArray3;
+            contador = columnasArray3;
         }
         for (int i = 0; i < filasArray1; i++) {
             for (int j = 0; j < columnasArray2; j++) {
-                for (int k = 0; k < cont; k++) {
+                for (int k = 0; k < contador; k++) {
                     Matriz3[i][j] += Matriz1[i][k] * Matriz2[k][j];
                 }
             }
