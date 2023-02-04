@@ -1,11 +1,11 @@
 package Boletines.BoletinMetodosEstaticos1;
 
 import java.beans.MethodDescriptor;
+import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) {
-        //EJERCICIOS 17 Y 27 NO COMPLETADOS
-        //REVISAR SI 21 VA BIEN Y CREO Q 22 NO VA BIEN
+        //EJERCICIOS 22 Y 27 ESTAN MAL
         //1
         System.out.println("EJ 1");
         System.out.println(Metodos.duplicar(3));
@@ -56,7 +56,7 @@ public class Main {
         System.out.println(Metodos.conversorLibrasEuros(1));
         //17
         System.out.println("EJ 17");
-        //System.out.println(Metodos.mostrarDigito(35425, 3));
+        System.out.println(Metodos.mostrarDigito(35425, 3));
         //18
         System.out.println("EJ 18");
         System.out.println(Metodos.invertirCadena("Alberto"));
@@ -87,6 +87,26 @@ public class Main {
         //27
         System.out.println("EJ 27");
         Metodos.buscarEnteroBinario(new int[]{3, 2, 4, 6, 1, 3}, 3);
+        //28
+        for (int i = 0; i < 4; i++) {
+            System.out.print(Metodos.introducirValorArray(new int[]{3, 8, 9}, 13,1)[i] + " ");
+        }
+        System.out.println();
+        //29
+        for (int i = 0; i < 4; i++) {
+            System.out.print(Metodos.modificarArray1(new int[]{7,2,1,0}, new int[]{3,2,2,7,6},3)[i] + " ");
+        }
+        System.out.println();
+        //30
+        for (int i = 0; i < 4; i++) {
+            System.out.print(Metodos.modificarArray2(new int[]{7,2,1,0}, new int[]{3,2,2,7,6},3,2)[i] + " ");
+        }
+        System.out.println();
+        //31
+        for (int i = 0; i < 4; i++) {
+            System.out.print(Metodos.modificarArray3(new int[]{7,2,1,0}, new int[]{3,2,2,7,6},3,2, 1)[i] + " ");
+        }
+        System.out.println();
     }
 }
 

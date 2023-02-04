@@ -156,16 +156,11 @@ public class Metodos {
     //17. Crear un método estático que reciba un número entero y una posición, y
     //devuelva el dígito que se encuentra en dicha posición.
     public static int mostrarDigito(int num, int posicion){
-        int numCifras = 0, digito = 0, copia = num;
-        while(copia>0) {
-            numCifras++;
-            copia/=10;
+        int copia = num;
+        for (int i = 0; i < posicion; i++) {
+            copia /= 10;
         }
-        while(posicion<numCifras){
-            //NO COMPLETADO
-            //digito = num/Math.pow(10,numCifras);
-        }
-        return digito;
+        return copia%10;
     }
     //18. Crear un método estático que reciba un String, y lo devuelva del revés.
     public static String invertirCadena(String cadena){
@@ -274,6 +269,9 @@ public class Metodos {
         //NO COMPLETADO
         boolean encontrado = false;
         ordenarEnteros(array);
+        if(array.length-1 < n){
+
+        }
         if(encontrado){
             System.out.println("El número " + n + " se encuentra en el array");
         }else{
@@ -290,14 +288,61 @@ public class Metodos {
     //Posición: 1
     //El nuevo array devuelto por el método debe ser el siguiente:
     //[3, 13, 8, 9]
+    public static int[] introducirValorArray (int[] array, int n, int pos){
+        int[] arrayFinal = new int[array.length+1];
+        boolean colocado = false;
+        for (int i = 0; i < array.length+1; i++) {
+            if(i==pos){
+                arrayFinal[i] = n;
+                colocado = true;
+            }else {
+                if(colocado){
+                    arrayFinal[i] = array[i-1];
+                } else{
+                    arrayFinal[i] = array[i];
+                }
+            }
+        }
+        return arrayFinal;
+    }
     //29. Crear un método que reciba dos arrays y un entero, y copie tantos elementos
     //del segundo array en el primer array como diga el entero, comenzando desde
     //la posición cero en ambos. Suponga que no se saldrá de los límites.
     //Por ejemplo, si array1 = [7,2,1,0] y array2=[3,2,2,7,6] y entero=3, al acabar el
     //método el primer array se modificará y su contenido será array1=[3,2,2,0] (en
     //negrita están las posiciones que se han modificado).
+    public static int[] modificarArray1(int[] array1, int[] array2, int contenido){
+        int[] arrayResult = new int[array1.length];
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < contenido; i++, j++) {
+                arrayResult[i] = array2[i];
+            }
+            arrayResult[i] = array1[i];
+        }
+        return arrayResult;
+    }
     //30. Repetir lo anterior, pero añadiendo un cuarto argumento, que indique la
     //posición del segundo array a partir de la cual se empezará.
+    public static int[] modificarArray2(int[] array1, int[] array2, int contenido, int posArray2){
+        int[] arrayResult = new int[array1.length];
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = posArray2; j < contenido; i++, j++) {
+                arrayResult[i] = array2[i+posArray2];
+            }
+            arrayResult[i] = array1[i];
+        }
+        return arrayResult;
+    }
     //31. Repetir lo anterior, pero añadiendo un quinto argumento, que indique la
     //posición del primer array a partir de la cual se empezará
+    public static int[] modificarArray3(int[] array1, int[] array2, int contenido, int posArray2, int posArray1){
+        int[] arrayResult = new int[array1.length];
+        for (int i = posArray1; i < array1.length-1; i++) {
+            for (int j = posArray2; j < contenido; i++, j++) {
+                arrayResult[i] = array2[i+posArray2];
+            }
+            arrayResult[i] = array1[i+posArray1];
+        }
+        return arrayResult;
+    }
 }
