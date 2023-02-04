@@ -5,6 +5,7 @@ import java.beans.MethodDescriptor;
 public class Main {
     public static void main(String[] args) {
         //EJERCICIOS 17 Y 27 NO COMPLETADOS
+        //REVISAR SI 21 VA BIEN Y CREO Q 22 NO VA BIEN
         //1
         System.out.println("EJ 1");
         System.out.println(Metodos.duplicar(3));
