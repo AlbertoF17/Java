@@ -15,8 +15,6 @@ public class Metodos {
     //e implementarlo: el método debe imprimir por pantalla la cadena “Hola
     //nombre”, donde nombre será la cadena que se recibe como argumento.
     public static void saludar(String nombre){
-        System.out.print("Introduzca su nombre: ");
-        nombre = sc.next();
         System.out.println("Hola " + nombre);
     }
     //3. Observe la siguiente firma y responda antes de desarrollar cualquier código:
@@ -105,8 +103,9 @@ public class Metodos {
     //pantalla números enteros continuamente, y para únicamente cuando el usuario
     //introduce un cero. Cuando esto ocurre, el método devuelve la cantidad de
     //números positivos que el usuario ha introducido por pantalla.
-    public static int contarPositivos(int num){
+    public static int contarPositivos(){
         int cont = 0;
+        int num;
         do{
             System.out.print("Introduce un número: ");
             num = sc.nextInt();
@@ -132,7 +131,8 @@ public class Metodos {
     }
     //13. Modificar el ejercicio anterior para que la base y altura del triángulo se lean por
     //teclado.
-    public static double areaTriangulo2(int base, int altura){
+    public static double areaTriangulo2(){
+        int base, altura;
         System.out.print("Introduzca la base del triángulo: ");
         base = sc.nextInt();
         System.out.print("Introduzca la altura del triángulo: ");
@@ -155,15 +155,14 @@ public class Metodos {
     }
     //17. Crear un método estático que reciba un número entero y una posición, y
     //devuelva el dígito que se encuentra en dicha posición.
-    public static int mostrarDigito(double num, int posicion){
-        int numCifras = 0;
-        int digito = 0;
-        double copia = num;
+    public static int mostrarDigito(int num, int posicion){
+        int numCifras = 0, digito = 0, copia = num;
         while(copia>0) {
             numCifras++;
             copia/=10;
         }
         while(posicion<numCifras){
+            //NO COMPLETADO
             //digito = num/Math.pow(10,numCifras);
         }
         return digito;
@@ -189,7 +188,7 @@ public class Metodos {
     //de dicho número.
     public static int factorial(int num){
         int resultado = 1;
-        for (int i = num; i < 1; i--) {
+        for (int i = num; i > 1; i--) {
             resultado *= i;
         }
         return resultado;
@@ -198,19 +197,8 @@ public class Metodos {
     //número combinatorio n sobre r. Utilice para ello el método creado en el
     //ejercicio anterior.
     public static int numerosCombinatorios(int n, int r){
-        int resultadoN = 1;
-        for (int i = n; i < 1; i--) {
-            resultadoN *= i;
-        }
-        int resultadoR = 1;
-        for (int i = r; i < 1; i--) {
-            resultadoR *= i;
-        }
-        int resultadoFinal = 1;
-        for (int i = (n-r); i < 1; i--) {
-            resultadoFinal *= i;
-        }
-        return (resultadoN)/(resultadoR*resultadoFinal);
+        int resultadoFinal = n-r;
+        return factorial(n)/(factorial(r)*factorial(resultadoFinal));
     }
     //22. Crear un método estático que reciba dos String, y cuente la cantidad de veces
     //que el segundo se repite en el primero.
@@ -233,6 +221,7 @@ public class Metodos {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
     //24. Cree un método que reciba un array de enteros, y por cada entero del array
     //imprima su tabla de multiplicar.
@@ -243,13 +232,54 @@ public class Metodos {
     }
     //25. Crear un método que reciba un array 1D de enteros y lo ordene.
     public static void ordenarEnteros(int[] array){
-
+        int cont = 0;
+        boolean ordenado = false;
+        while(!ordenado) {
+            for (int i = 0; i < array.length-1; i++) {
+                if (array[i] > array[i + 1]) {
+                    int aux = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = aux;
+                    cont++;
+                }
+            }
+            if (cont == 0) {
+                ordenado = true;
+            }
+            cont = 0;
+        }
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
     }
     //26. Crear un método que reciba un array 1D de enteros y un número, y busque
     //dicho número en el array (búsqueda lineal).
-    //
+    public static void buscarEnteroLineal(int[] array, int n){
+        boolean encontrado = false;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i]==n){
+                encontrado = true;
+            }
+        }
+        if(encontrado){
+            System.out.println("El número " + n + " se encuentra en el array");
+        }else{
+            System.out.println("El número " + n + " NO se encuentra en el array");
+        }
+    }
     //27. Repetir el anterior pero haciendo una búsqueda binaria. Tenga en cuenta los
     //requisitos de este tipo de búsqueda.
+    public static void buscarEnteroBinario(int[] array, int n){
+        //NO COMPLETADO
+        boolean encontrado = false;
+        ordenarEnteros(array);
+        if(encontrado){
+            System.out.println("El número " + n + " se encuentra en el array");
+        }else{
+            System.out.println("El número " + n + " NO se encuentra en el array");
+        }
+    }
     //28. Crear un método que reciba un array de enteros, un número y una posición, y
     //devuelva un nuevo array que tenga los mismos contenidos del original, pero
     //con sus elementos desplazados a partir de la posición especificada, donde se
