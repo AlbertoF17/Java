@@ -120,7 +120,8 @@ public class Cadenas {
         String numero = Integer.toString(n);
         String nm = String.valueOf(n2);
         System.out.println(numero+1); //Da 11 porque "numero" es String
-        //String num3 = Integer.parseInt(n3);
-        
+        int num3 = Integer.parseInt(n3);
+        System.out.println(n3);
+        System.out.println(num3);
     }
 }
