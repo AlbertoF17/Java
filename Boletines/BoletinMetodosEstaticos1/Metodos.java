@@ -104,8 +104,7 @@ public class Metodos {
     //introduce un cero. Cuando esto ocurre, el método devuelve la cantidad de
     //números positivos que el usuario ha introducido por pantalla.
     public static int contarPositivos(){
-        int cont = 0;
-        int num;
+        int cont = 0, num;
         do{
             System.out.print("Introduce un número: ");
             num = sc.nextInt();
@@ -117,17 +116,19 @@ public class Metodos {
     }
     //10. Crear un método estático que reciba la base y la altura de un rectángulo y
     //devuelva su área.
-    public static double areaRectangulo(int base, int altura){
+    public static double areaRectangulo(double base, double altura){
         return base*altura;
     }
     //11. Crear un método estático que reciba el lado de un cuadrado y devuelva su área.
-    public static double areaCuadrado(int lado){
-        return lado*lado;
+    public static double areaCuadrado(double lado){
+        return areaRectangulo(lado, lado);
+        //return lado*lado;
     }
     //12. Crear un método estático que reciba la base y la altura de un triángulo y
     //devuelva su área.
-    public static double areaTriangulo(int base, int altura){
-        return (base*altura)/2;
+    public static double areaTriangulo(double base, double altura){
+        return (areaRectangulo(base,altura))/2;
+        //return (base*altura)/2;
     }
     //13. Modificar el ejercicio anterior para que la base y altura del triángulo se lean por
     //teclado.

@@ -13,9 +13,14 @@ public class Ejercicio2 {
             }
         }
         if(iguales){
-            boolean [][] matrizBooleans = new boolean[][];// No c
-            for (int i = 0; i < matrizEnteros.length; i++) {
+            boolean [][] matrizBooleans = new boolean[matrizEnteros.length][];
+            for (int i = 0; i < matrizBooleans.length; i++) {
                 for (int j = 0; j < matrizEnteros[i].length; j++) {
+                    matrizBooleans[i] = new boolean[matrizEnteros[i].length];
+                }
+            }
+            for (int i = 0; i < matrizBooleans.length; i++) {
+                for (int j = 0; j < matrizBooleans[i].length; j++) {
                     matrizBooleans[i][j] = (matrizEnteros[i][j] == matrizStrings[i][j].charAt(0));
                 }
             }
