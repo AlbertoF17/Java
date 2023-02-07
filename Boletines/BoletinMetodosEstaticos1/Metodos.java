@@ -205,9 +205,9 @@ public class Metodos {
                 cadena = cadena.substring(cadena.indexOf(busqueda)+busqueda.length());
             }
             else {
-                cadena = cadena.substring(1);
+                cadena = cadena.substring(cadena.length());
             }
-        }while(cadena.equals(""));
+        }while(!cadena.equals(""));
         return cont;
     }
     //23. Crear un método estático que reciba un array de algún tipo primitivo y lo

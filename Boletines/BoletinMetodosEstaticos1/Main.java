@@ -5,7 +5,7 @@ import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) {
-        //EJERCICIOS 22 Y 27 ESTAN MAL
+        //EJERCICIO 27 ESTA MAL
         //1
         System.out.println("EJ 1");
         System.out.println(Metodos.duplicar(3));
