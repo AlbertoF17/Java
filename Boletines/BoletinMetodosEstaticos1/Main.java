@@ -6,6 +6,7 @@ import java.sql.SQLOutput;
 public class Main {
     public static void main(String[] args) {
         //EJERCICIO 27 ESTA MAL
+        /*
         //1
         System.out.println("EJ 1");
         System.out.println(Metodos.duplicar(3));
@@ -84,9 +85,12 @@ public class Main {
         //26
         System.out.println("EJ 26");
         Metodos.buscarEnteroLineal(new int[]{3, 2, 4, 6, 1, 3}, 3);
+
+
         //27
         System.out.println("EJ 27");
         Metodos.buscarEnteroBinario(new int[]{3, 2, 4, 6, 1, 3}, 3);
+         */
         //28
         for (int i = 0; i < 4; i++) {
             System.out.print(Metodos.introducirValorArray(new int[]{3, 8, 9}, 13,1)[i] + " ");
