@@ -3,6 +3,7 @@ package Boletines.BoletinMetodosEstaticos1;
 import java.util.Scanner;
 
 public class Metodos {
+    //Busqueda binaria, 30 y 31 no van bien
     static Scanner sc = new Scanner(System.in);
     //1. Crear un método estático que tenga la siguiente firma:
     //public static float duplicar(float num)
@@ -266,13 +267,21 @@ public class Metodos {
     //27. Repetir el anterior pero haciendo una búsqueda binaria. Tenga en cuenta los
     //requisitos de este tipo de búsqueda.
     public static void buscarEnteroBinario(int[] array, int n){
-        //NO COMPLETADO
         boolean encontrado = false;
         ordenarEnteros(array);
-        if(array.length-1 < n){
-
+        int inicio = 0;
+        int fin = array.length-1;
+        while (inicio <= fin) {
+            int mitad = fin-inicio/2;
+            if (array[mitad] == n) {
+                encontrado = true;
+            } else if (array[mitad] < n) {
+                inicio = mitad + 1;
+            } else {
+                fin = mitad - 1;
+            }
         }
-        if(encontrado){
+        if (encontrado){
             System.out.println("El número " + n + " se encuentra en el array");
         }else{
             System.out.println("El número " + n + " NO se encuentra en el array");
