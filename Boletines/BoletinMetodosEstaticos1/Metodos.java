@@ -157,17 +157,16 @@ public class Metodos {
     //17. Crear un método estático que reciba un número entero y una posición, y
     //devuelva el dígito que se encuentra en dicha posición.
     public static int mostrarDigito(int num, int posicion){
-        int copia = num;
         for (int i = 0; i < posicion; i++) {
-            copia /= 10;
+            num /= 10;
         }
-        return copia%10;
+        return num%10;
     }
     //18. Crear un método estático que reciba un String, y lo devuelva del revés.
     public static String invertirCadena(String cadena){
         String cadenaInvertida = "";
-        for (int indice = cadena.length() - 1; indice >= 0; indice--) {
-            cadenaInvertida += cadena.charAt(indice);
+        for (int i = cadena.length() - 1; i >= 0; i--) {
+            cadenaInvertida += cadena.charAt(i);
         }
         return cadenaInvertida;
     }

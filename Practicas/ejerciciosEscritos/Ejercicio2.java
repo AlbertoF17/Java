@@ -5,15 +5,13 @@ public class Ejercicio2 {
         boolean iguales = false;
         if(matrizEnteros.length==matrizStrings.length){
             for (int i = 0; i < matrizEnteros.length; i++) {
-                if(matrizEnteros[i].length == matrizStrings[i].length){
+                if(matrizEnteros[i].length == matrizStrings[i].length) {
                     iguales = true;
-                }else{
-                    return null;
                 }
             }
         }
         if(iguales){
-            boolean [][] matrizBooleans = new boolean[matrizEnteros.length][];
+            boolean[][] matrizBooleans = new boolean[matrizEnteros.length][];
             for (int i = 0; i < matrizBooleans.length; i++) {
                 for (int j = 0; j < matrizEnteros[i].length; j++) {
                     matrizBooleans[i] = new boolean[matrizEnteros[i].length];
@@ -21,8 +19,12 @@ public class Ejercicio2 {
             }
             for (int i = 0; i < matrizBooleans.length; i++) {
                 for (int j = 0; j < matrizBooleans[i].length; j++) {
-                    matrizBooleans[i][j] = (matrizEnteros[i][j] == matrizStrings[i][j].charAt(0));
+                    //matrizBooleans[i][j] = (Integer.toHexString(matrizEnteros[i][j]).equals(Integer.toHexString(matrizStrings[i][j].charAt(0))));
+                    // hay que meter el ascii y lo traduce a unicode (el ejercicio pide que sea a unicode)
+                    matrizBooleans[i][j] = (""+matrizEnteros[i][j]).equals(Integer.toHexString(matrizStrings[i][j].charAt(0)));
+                    //hay que meter el unicode (no se traga letras al ser tipo int)
                 }
+
             }
             return matrizBooleans;
         }else {
@@ -38,8 +40,7 @@ public class Ejercicio2 {
             System.out.println();
         }
     }
-
     public static void main(String[] args){
-        imprimirMatriz(ejercicio2(new int[][]{{3,2}}, new String[][]{{"Hola", "Mundo"}}));
+        imprimirMatriz(ejercicio2(new int[][]{{48,77}}, new String[][]{{"Hola", "Mundo"}}));
     }
 }
