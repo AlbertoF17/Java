@@ -42,5 +42,6 @@ public class Ejercicio2 {
     }
     public static void main(String[] args){
         imprimirMatriz(ejercicio2(new int[][]{{48,77}}, new String[][]{{"Hola", "Mundo"}}));
+        //
     }
 }
