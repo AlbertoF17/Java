@@ -251,18 +251,14 @@ public class Metodos {
     }
     //26. Crear un método que reciba un array 1D de enteros y un número, y busque
     //dicho número en el array (búsqueda lineal).
-    public static void buscarEnteroLineal(int[] array, int n){
-        boolean encontrado = false;
+    public static int buscarEnteroLineal(int[] array, int n){
+        int pos = -1;
         for (int i = 0; i < array.length; i++) {
             if (array[i]==n){
-                encontrado = true;
+                pos = i;
             }
         }
-        if(encontrado){
-            System.out.println("El número " + n + " se encuentra en el array");
-        }else{
-            System.out.println("El número " + n + " NO se encuentra en el array");
-        }
+        return pos;
     }
     //27. Repetir el anterior pero haciendo una búsqueda binaria. Tenga en cuenta los
     //requisitos de este tipo de búsqueda.
