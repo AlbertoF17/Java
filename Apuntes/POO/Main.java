@@ -69,7 +69,7 @@ public class Main {
 
     public static void imprimirDivision() {
         Scanner scan = new Scanner(System.in);
-        System.out.print("Intrduce los dos números que quieres dividir: ");
+        System.out.println("Intrduce los dos números que quieres dividir: ");
         try{
             System.out.println(scan.nextInt() / scan.nextInt());
         } catch(ArithmeticException e){
