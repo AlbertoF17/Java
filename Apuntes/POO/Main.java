@@ -75,7 +75,7 @@ public class Main {
             System.out.println(scan.nextInt() / scan.nextInt());
         } catch(ArithmeticException e) {
             System.out.println("Excepcion de tipo aritmético");
-            e.printStackTrace();//Se imprime en la salida de error (orden diferente a la     salida estándar)
+            e.printStackTrace();//Se imprime en la salida de error (orden diferente a la salida estándar)
         } catch (InputMismatchException e){
             System.out.println("Excepcion de tipo input mismatch");
         } catch (Exception e){
