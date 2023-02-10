@@ -72,8 +72,12 @@ public class Main {
         System.out.println("Intrduce los dos números que quieres dividir: ");
         try{
             System.out.println(scan.nextInt() / scan.nextInt());
-        } catch(ArithmeticException e){
+        } catch(ArithmeticException e) {
             System.out.println("Excepcion de tipo aritmético");
+        } catch (Exception e){
+            System.out.println("Excepcion generica (clase padre)");
+        } finally {
+            System.out.println("Me ejecuto haya o no excepcion");
         }
         System.out.println("FIN");
 
