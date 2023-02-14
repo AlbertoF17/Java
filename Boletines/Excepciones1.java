@@ -7,16 +7,23 @@ import static java.lang.Character.isLetter;
 public class Excepciones1 {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
-        /*
+        //Ejercicio 1
         dividir();
+        //Ejercicio 2
         imprimirArray();
+        //Ejercicio 3
         leerNumero();
+        //Ejercicio 4
         leerString();
+        //Ejercicio 5
         imprimirString();
-        imprimirMayusculas();
-        leerUsuarios("Alberto", "Alberto");
-         */
+        //Ejercicio 6
+        imprimirMayusculas("eo");
+        //Ejercicio 7
         realizarEjercicios();
+        //Ejercicio 8
+        leerUsuarios("Alberto", "Alberto");
+
     }
     //1. Realice un programa que lea por pantalla dos números enteros, e imprima el resultado de
     //dividirlos. Observe la excepción que se lanza al dividir por cero, y tras ello modifique su código
