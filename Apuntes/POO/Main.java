@@ -4,11 +4,12 @@ package Apuntes.POO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+import java.io.*;
 public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        writeFile1();
         /*
         System.out.println("Método imprimirSaludo");
         System.out.print("Escribe tu nombre: ");
@@ -52,9 +53,22 @@ public class Main {
 
          */
         //TRY-CATCH
-        imprimirDivision();
+        //imprimirDivision();
     }
-
+    public static void writeFile1(){
+        File fout = new File("out.txt");
+        try{
+            FileOutputStream fos = new FileOutputStream(fout);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+            for (int i = 0; i < 10; i++) {
+                bw.write("something".concat(String.valueOf(i)));
+                bw.newLine();
+            }
+            bw.close();
+        }catch (IOException e){
+            System.out.println("Excepcion al ejecutar");
+        }
+    }
     public static void imprimirArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
