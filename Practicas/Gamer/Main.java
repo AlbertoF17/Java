@@ -31,6 +31,9 @@ public class Main {
         Enemigo.recibirDanyo(1);
         Enemigo.curar(0);
         System.out.println(Enemigo.comprobarMuerte());
+        if (Personaje.comprobarMuerte()){
+            System.out.println("GAME OVER");
+        }
         //Parte 3
         //Puede tener infinitos enemigos pero no es viable ya que habría que escribir infinitas líneas de código,
         //porque hay que definir otra vez todos los atributos (una vez por cada personaje/enemigo).

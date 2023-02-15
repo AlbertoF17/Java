@@ -19,12 +19,18 @@ public class Personaje {
     static int luck = rand.nextInt(1, 11);
 
     public static void recibirDanyo(int damage){
-        saludActual = saludActual-damage;
+        saludActual -= damage;
     }
     public static boolean comprobarMuerte(){
         return saludActual<=0;
     }
     public static void curar(int cura){
-        saludActual = saludActual + cura;
+        if (cura<0){
+            throw new IllegalArgumentException("La curación negativa no es válida");
+        }
+        saludActual += cura;
+        if(saludActual > saludMaxima){
+            saludActual = saludMaxima;
+        }
     }
 }
