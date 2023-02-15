@@ -22,11 +22,7 @@ public class Enemigo {
         saludActual = saludActual-damage;
     }
     public static boolean comprobarMuerte(){
-        if (saludActual<=0){
-            return true;
-        }else{
-            return false;
-        }
+        return saludActual<=0;
     }
     public static void curar(int cura){
         saludActual = saludActual + cura;
