@@ -9,7 +9,44 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        writeFile1();
+        Television tele1 = new Television();
+        System.out.println(tele1);
+        //No funciona por no usar getter
+        //System.out.println(tele1.canal);
+        //System.out.println(tele1.marca);
+        tele1.setCanal(1);
+        tele1.setMarca("Samsung");
+        tele1.setModelo("Smartv");
+        tele1.setBrillo(50);
+        tele1.setContraste(20);
+        tele1.setVolumen(20);
+        System.out.println(tele1.getCanal());
+        System.out.println(tele1.getMarca());
+        Television tele2 = new Television("Mitsubishi","M983A");
+        System.out.println("Marca de la tele 1: " + tele1.getMarca());
+        System.out.println("Marca de la tele 2: " + tele2.getMarca());
+        System.out.println("Modelo de la tele 1: " + tele1.getModelo());
+        System.out.println("Modelo de la tele 2: " + tele2.getModelo());
+        /*
+        System.out.println(tele1.precio);
+        System.out.println(tele2.precio);
+        tele1.precio = 3;
+        System.out.println(tele1.precio);
+        System.out.println(tele2.precio);
+        Al ser precio atributo estático, se cambia en ambos
+         */
+        //CONSTRUCTOR
+        Television tele3 = new Television("HP","ER720", 50,70,50,4);
+        System.out.println("Marca de la tele 3: " + tele3.getMarca());
+        System.out.println("Modelo de la tele 3: " + tele3.getModelo());
+        System.out.println(tele3);
+        System.out.println(tele3.getMarca());
+        tele3.setMarca("Panasonic");
+        System.out.println(tele3.getMarca());
+        System.out.println(tele3);
+        tele3.imprimirReferencia();
+
+        //writeFile1();
         /*
         System.out.println("Método imprimirSaludo");
         System.out.print("Escribe tu nombre: ");
