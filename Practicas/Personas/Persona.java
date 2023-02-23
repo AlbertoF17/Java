@@ -100,78 +100,9 @@ public class Persona {
             dniGenerado+=""+ rand.nextInt(0, 10);
         }
         int numero = Integer.parseInt(dniGenerado)%23;
-        switch (numero){
-            case 0:
-                dniGenerado+="T";
-                break;
-            case 1:
-                dniGenerado+="R";
-                break;
-            case 2:
-                dniGenerado+="W";
-                break;
-            case 3:
-                dniGenerado+="A";
-                break;
-            case 4:
-                dniGenerado+="G";
-                break;
-            case 5:
-                dniGenerado+="M";
-                break;
-            case 6:
-                dniGenerado+="Y";
-                break;
-            case 7:
-                dniGenerado+="F";
-                break;
-            case 8:
-                dniGenerado+="P";
-                break;
-            case 9:
-                dniGenerado+="D";
-                break;
-            case 10:
-                dniGenerado+="X";
-                break;
-            case 11:
-                dniGenerado+="B";
-                break;
-            case 12:
-                dniGenerado+="N";
-                break;
-            case 13:
-                dniGenerado+="J";
-                break;
-            case 14:
-                dniGenerado+="Z";
-                break;
-            case 15:
-                dniGenerado+="S";
-                break;
-            case 16:
-                dniGenerado+="Q";
-                break;
-            case 17:
-                dniGenerado+="V";
-                break;
-            case 18:
-                dniGenerado+="H";
-                break;
-            case 19:
-                dniGenerado+="L";
-                break;
-            case 20:
-                dniGenerado+="C";
-                break;
-            case 21:
-                dniGenerado+="K";
-                break;
-            case 22:
-                dniGenerado+="E";
-                break;
-        }
-        return dniGenerado;
+        String[] letrasDNI = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q",
+        "V", "H", "L", "C", "K", "E"};
+        return dniGenerado+letrasDNI[numero];
     }
     // Métodos set de cada parámetro, excepto de DNI.
     public void setNombre(String nombre) {
