@@ -55,6 +55,15 @@ public class Password {
     }
     //o Método get para contraseña y longitud.
     //o Método set para longitud.
+    public int getLongitud() {
+        return longitud;
+    }
 
+    public String getPass() {
+        return pass;
+    }
 
+    public void setLongitud(int longitud) {
+        this.longitud = longitud;
+    }
 }
