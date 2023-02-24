@@ -1,6 +1,9 @@
 package Practicas.Password;
 
+import java.util.Random;
+
 public class Password {
+    Random rand = new Random();
     //EJERCICIO 3: Haz una clase llamada Password que siga las siguientes
     //condiciones:
     // Que tenga los atributos longitud y contraseña. Por defecto, la
@@ -15,10 +18,12 @@ public class Password {
     //una contraseña aleatoria con esa longitud.
     public Password(){
         this.longitud = 8;
+        this.pass = generarPassword();
     }
 
     public Password(int longitud){
         this.longitud = longitud;
+        this.pass = generarPassword();
     }
     // Los métodos que implementa serán:
     //o esFuerte(): devuelve un booleano si es fuerte o no, para que
@@ -30,12 +35,12 @@ public class Password {
         int minus = 0;
         int nums = 0;
 
-        for (int i = 0; i < pass.length(); i++) {
-            if(pass.charAt(i) >= 65 && pass.charAt(i) <= 90){
+        for (int i = 0; i < longitud; i++) {
+            if(Character.isUpperCase(pass.charAt(i))){
                 mayus++;
-            } else if (pass.charAt(i) >= 97 && pass.charAt(i) <= 122){
+            } else if (Character.isLowerCase(pass.charAt(i))){
                 minus++;
-            } else if (pass.charAt(i) >= 48 && pass.charAt(i) <= 57) {
+            } else if (Character.isDigit(pass.charAt(i))) {
                 nums++;
             }
         }
@@ -47,11 +52,12 @@ public class Password {
     //o generarPassword():  genera la contraseña del objeto con la
     //longitud que tenga.
     public String generarPassword(){
-        String cont = "";
+        String caracteres = "abcdefghijklmnopqrstuvwxyz" + "abcdefghijklmnopqrstuvwxyz".toUpperCase() + "0123456789";
+        String pass = "";
         for (int i = 0; i < longitud; i++) {
-            cont+="";
+            pass+= caracteres.charAt(rand.nextInt(caracteres.length()));
         }
-        return cont;
+        return pass;
     }
     //o Método get para contraseña y longitud.
     //o Método set para longitud.

@@ -31,7 +31,7 @@ public class Main {
         //contraseña1 valor_booleano1
         //contraseña2 valor_bololeano2
         for (int i = 0; i < arrayPass.length; i++) {
-            System.out.println(arrayPass[i] + " " + arrayFuertes[i]);
+            System.out.println(arrayPass[i].getPass() + " " + arrayFuertes[i]);
         }
     }
 }
