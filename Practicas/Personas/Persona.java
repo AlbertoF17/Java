@@ -26,11 +26,9 @@ public class Persona {
     //defecto.
     //o Un constructor con todos los atributos como parámetro.
     public Persona(){
-        nombre = "Alberto";
-        edad = 20;
+        nombre = "DefaultName";
+        dni = generaDNI();
         sexo = HOMBRE;
-        peso = 52;
-        altura = 1.63;
     }
 
     public Persona(String nombre, int edad, char sexo){
@@ -42,6 +40,7 @@ public class Persona {
     public Persona(String nombre, int edad, char sexo, double peso, double altura){
         this.nombre = nombre;
         this.edad = edad;
+        this.dni = generaDNI();
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
@@ -79,8 +78,8 @@ public class Persona {
     //introducido es correcto. Si no es correcto, será H. No
     //será visible al exterior.
     private void comprobarSexo(char sexo){
-        if (sexo != 'H' && sexo != 'M'){
-            sexo = 'H';
+        if (sexo != HOMBRE || sexo != MUJER){
+            sexo = HOMBRE;
         }
     }
     // toString(): devuelve toda la información del objeto.
@@ -94,11 +93,9 @@ public class Persona {
     //correspondiente. Este método será invocado cuando
     //se construya el objeto. Puedes dividir el método para
     //que te sea más fácil. No será visible al exterior.
-    public String generaDNI(){
+    private String generaDNI(){
         String dniGenerado="";
-        for (int i = 0; i < 9; i++) {
-            dniGenerado+=""+ rand.nextInt(0, 10);
-        }
+        dniGenerado+= rand.nextInt(99999999) + 1;
         int numero = Integer.parseInt(dniGenerado)%23;
         String[] letrasDNI = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q",
         "V", "H", "L", "C", "K", "E"};
