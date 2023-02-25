@@ -1,4 +1,4 @@
-package Practicas.NumerosRealesPositivos.src.com.company;
+package Practicas.NumerosRealesPositivos;
 
 public class Main {
 

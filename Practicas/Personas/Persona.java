@@ -68,11 +68,10 @@ public class Persona {
     // esMayorDeEdad(): indica si es mayor de edad,
     //devuelve un booleano.
     public boolean esMayorDeEdad(){
-        if (edad>=18){
+        if (edad>=18) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     // comprobarSexo(char sexo): comprueba que el sexo
     //introducido es correcto. Si no es correcto, será H. No
