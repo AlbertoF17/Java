@@ -43,12 +43,11 @@ public class Libro {
                 digitos = false;
             }
         }
-        if(!digitos){
-            throw new IllegalArgumentException("El dato introducido contiene caracteres no numéricos.");
-        } else if (ISBN.length() != 10 || ISBN.length() != 13){
-            throw new IllegalArgumentException("El ISBN debe tener diez o trece dígitos. No puede tener más o menos.");
-        } else {
+        if(digitos && (ISBN.length() == 10 || ISBN.length() == 13)){
             this.ISBN = ISBN;
+        } else {
+            throw new IllegalArgumentException("El ISBN debe tener diez o trece dígitos y todos deben ser números." +
+                    "No puede tener más o menos.");
         }
         //Este setter lanza una excepción al declarar un ISBN cuyo array no sea
     }

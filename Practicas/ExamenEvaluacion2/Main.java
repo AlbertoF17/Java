@@ -62,7 +62,7 @@ public class Main {
         System.out.println("\nTEST EJERCICIO 3");
         int[][] array1 = {{7,9},{2,1}};
         int[][] array2 = {{3,4},{2,0}};
-        int[][] nuevoArray = concatenar(array1, array2, 'V');
+        int[][] nuevoArray = concatenar(array1, array2, 'H');
         for (int i = 0; i < nuevoArray.length; i++) {
             for (int j = 0; j < nuevoArray[i].length; j++) {
                 System.out.print(nuevoArray[i][j] + " ");
