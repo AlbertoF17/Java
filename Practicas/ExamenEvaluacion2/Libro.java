@@ -12,17 +12,17 @@ public class Libro {
 
     public Libro(){
         this.ISBN = "0";
-        this.titulo = "";
-        this.autor = "";
+        this.titulo = "NombreVacio";
+        this.autor = "AutorVacio";
         this.numPaginas = 0;
-        this.editorial = "";
+        this.editorial = "EditorialVacia";
     }
     public Libro(String ISBN, String titulo, String autor){
         this.ISBN = ISBN;
         this.titulo = titulo;
         this.autor = autor;
         this.numPaginas = 0;
-        this.editorial = "";
+        this.editorial = "EditorialVacia";
     }
     public Libro(String ISBN, String titulo, String autor, int numPaginas, String editorial){
         this.ISBN = ISBN;
