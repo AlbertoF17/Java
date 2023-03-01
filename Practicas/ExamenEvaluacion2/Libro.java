@@ -47,7 +47,7 @@ public class Libro {
             this.ISBN = ISBN;
         } else {
             throw new IllegalArgumentException("El ISBN debe tener diez o trece dígitos y todos deben ser números." +
-                    "No puede tener más o menos.");
+                    " No puede tener más o menos.");
         }
         //Este setter lanza una excepción al declarar un ISBN cuyo array no sea
     }
