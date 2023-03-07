@@ -25,9 +25,10 @@ public class Libro {
         this.editorial = "EditorialVacia";
     }
     public Libro(String ISBN, String titulo, String autor, int numPaginas, String editorial){
-        this.ISBN = ISBN;
+        /*this.ISBN = ISBN;
         this.titulo = titulo;
-        this.autor = autor;
+        this.autor = autor;*/
+        this(ISBN, titulo, autor);//El this se puede usar también para el constructor, y así no repetir código
         this.numPaginas = numPaginas;
         this.editorial = editorial;
     }
