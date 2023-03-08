@@ -30,6 +30,10 @@ public class Persona {
         this.edad = edad;
     }
 
+    public void decirQueEres(){
+        System.out.println("Yo soy una persona");
+    }
+
     @Override
     public String toString() {
         return this.getClass() + "{" +
