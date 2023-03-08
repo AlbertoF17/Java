@@ -2,6 +2,8 @@ package Apuntes.POO;
 
 //import static Apuntes.POO.Utilidades.*;
 
+import Apuntes.POO.Herencias.Profesor;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.*;
@@ -9,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        Television tele1 = new Television();
+        /*Television tele1 = new Television();
         System.out.println(tele1);
         //No funciona por no usar getter
         //System.out.println(tele1.canal);
@@ -36,7 +38,7 @@ public class Main {
         Al ser precio atributo estático, se cambia en ambos
          */
         //CONSTRUCTOR
-        Television tele3 = new Television("HP","ER720", 50,70,50,4);
+        /*Television tele3 = new Television("HP","ER720", 50,70,50,4);
         System.out.println("Marca de la tele 3: " + tele3.getMarca());
         System.out.println("Modelo de la tele 3: " + tele3.getModelo());
         System.out.println(tele3);
@@ -45,7 +47,7 @@ public class Main {
         System.out.println(tele3.getMarca());
         System.out.println(tele3);
         tele3.imprimirReferencia();
-
+        */
         //writeFile1();
         /*
         System.out.println("Método imprimirSaludo");
@@ -92,7 +94,7 @@ public class Main {
         //TRY-CATCH
         //imprimirDivision();
     }
-    public static void writeFile1(){
+    /*public static void writeFile1(){
         File fout = new File("out.txt");
         try{
             FileOutputStream fos = new FileOutputStream(fout);
@@ -137,7 +139,7 @@ public class Main {
         //LANZAMIENTO DE EXCEPCION (comentado para que el código funcione)
         //throw new ArithmeticException("Lanzando excepción genérica");
         System.out.println("FIN");
-
     }
+     */
 
 }
