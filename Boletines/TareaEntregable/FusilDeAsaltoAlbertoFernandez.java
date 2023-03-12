@@ -33,13 +33,13 @@ public class FusilDeAsaltoAlbertoFernandez extends ArmaAlbertoFernandez{
     }
 
     public String toString(){
-        return RAREZAS[rareza] + " |\\_______________ (_____\\\\______________\n" +
-        "HH======#H###############H#######################\n" +
-                " ' ~\"\"\"\"\"\"\"\"\"\"\"\"\"\"`##(_))#H\\\"\"\"\"\"Y########\n" +
-                " )) \\#H\\ `\"Y###\n" +
-                " \" }#H)" + "\n" + RESET +
-                modelo + (silenciador ? "(Con" : "(Sin") + " Silenciador)\t\t\t" +
-                municionActual + " / " + municionMaxima;
+        return RAREZAS[rareza] + "        |\\_______________ (_____\\\\______________\n" +
+                "HH======#H###############H#######################\n" +
+                "        ' ~\"\"\"\"\"\"\"\"\"\"\"\"\"\"`##(_))#H\\\"\"\"\"\"Y########\n" +
+                "                          ))    \\#H\\       `\"Y###\n" +
+                "                          \"      }#H)" + "\n" + RESET +
+                modelo + (silenciador ? "(Con" : "(Sin") + " Silenciador)\t\t\t" + municionActual + " / "
+                + municionMaxima;
     }
 
     @Override

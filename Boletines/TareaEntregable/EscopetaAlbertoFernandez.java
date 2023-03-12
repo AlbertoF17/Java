@@ -23,16 +23,13 @@ public class EscopetaAlbertoFernandez extends ArmaAlbertoFernandez{
         this.culata = culata;
     }
     public String toString(){
-        return RAREZAS[rareza] + ",______________________________________ \n" +
-        "|_________________,----------._ [____] \"\"-,__ __....-----=====\n" +
-        " (_(||||||||||||)___________/ \"\" |\n"
-                +
-                " `----------' [ ))\"-, |\n" +
-                " \"\" `, _,--....___ |\n" +
-                " `/ \"\"\"\" \n" +
-                RESET +
-                modelo + (culata ? "(Con" : "(Sin") + " Culata)\t\t\t" +
-                municionActual + " / " + municionMaxima;
+        return RAREZAS[rareza] + " ,______________________________________       \n" +
+                "|_________________,----------._ [____]  \"\"-,__  __....-----=====\n" +
+                "               (_(||||||||||||)___________/   \"\"                |\n" +
+                "                  `----------'        [ ))\"-,                   |\n" +
+                "                                       \"\"    `,  _,--....___    |\n" +
+                "                                               `/           \"\"\"\" \n" + RESET +
+                modelo + (culata ? "(Con" : "(Sin") + " Culata)\t\t\t" + municionActual + " / " + municionMaxima;
 
     }
     @Override

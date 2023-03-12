@@ -8,6 +8,11 @@ public class InventarioAlbertoFernandez{
     }
 
     public void setColeccionArmas(ArmaAlbertoFernandez[] coleccionArmas) {
+        for (int i = 0; i < coleccionArmas.length; i++) {
+            if(coleccionArmas[i] == null){
+                throw new IllegalArgumentException("No puede haber un arma nula");
+            }
+        }
         if (coleccionArmas.length>5) {
             for (int i = 0; i < this.coleccionArmas.length; i++) {
                 this.coleccionArmas[i] = coleccionArmas[i];
@@ -22,7 +27,11 @@ public class InventarioAlbertoFernandez{
     }
 
     public String toString(){
-        return "";
+        String inventarioStr = "";
+        for (int i = 0; i < getColeccionArmas().length; i++) {
+            inventarioStr += coleccionArmas[i].toString();
+        }
+        return inventarioStr;
     }
 
 }

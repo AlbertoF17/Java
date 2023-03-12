@@ -73,17 +73,16 @@ public class ArmaAlbertoFernandez {
 
     public String toString(){
         return RAREZAS[rareza] + " +--^----------,--------,-----,--------^-,\n" +
-
-                " | ||||||||| `--------' | O\n" +
+                " | |||||||||   `--------'     |          O\n" +
                 " `+---------------------------^----------|\n" +
-                " `\\_,---------,---------,--------------'\n" +
-                " / XXXXXX /'| /'\n" +
-                " / XXXXXX / `\\ /'\n" +
-                " / XXXXXX /`-------'\n" +
+                "   `\\_,---------,---------,--------------'\n" +
+                "     / XXXXXX /'|       /'\n" +
+                "    / XXXXXX /  `\\    /'\n" +
+                "   / XXXXXX /`-------'\n" +
+                "  / XXXXXX /\n" +
                 " / XXXXXX /\n" +
-                " / XXXXXX /\n" +
-                "(________( \n" +
-                " `------' \n" + RESET +
+                "(________(                \n" +
+                " `------'              \n" + RESET +
                 modelo + "\t\t\t" + municionActual + " / " + municionMaxima;
     }
 
