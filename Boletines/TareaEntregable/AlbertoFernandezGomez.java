@@ -9,30 +9,33 @@ public class AlbertoFernandezGomez {
         } catch (IllegalArgumentException e){
             arma1 = new ArmaAlbertoFernandez();
         }
-
-
         arma1.setRareza(4);
         System.out.println(arma1);
 
         FusilDeAsaltoAlbertoFernandez fusil1;
-        fusil1 = new FusilDeAsaltoAlbertoFernandez(null,-10,-2,7,false);
-        fusil1 = new FusilDeAsaltoAlbertoFernandez();
+        try {
+            fusil1 = new FusilDeAsaltoAlbertoFernandez(null,-10,-2,7,
+                    false);
+        } catch (IllegalArgumentException e){
+            fusil1 = new FusilDeAsaltoAlbertoFernandez();
+        }
         fusil1.setRareza(3);
         fusil1.setSilenciador(true);
+        System.out.println(fusil1);
 
         EscopetaAlbertoFernandez escopeta1;
         try{
             escopeta1 = new EscopetaAlbertoFernandez(null,-2,-2,7,true);
         }catch(IllegalArgumentException e){
-            e.getStackTrace();
             escopeta1 = new EscopetaAlbertoFernandez();
         }
-
-
         escopeta1.setRareza(2);
+        System.out.println(escopeta1);
+
+
         ArmaAlbertoFernandez[] coleccionArmas = {new EscopetaAlbertoFernandez(), new ArmaAlbertoFernandez(),
                 new ArmaAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez()};
-        InventarioAlbertoFernandez inventario = new InventarioAlbertoFernandez(coleccionArmas);
-        MetodosEstaticosDeAlbertoFernandez.imprimirInventario(inventario);
+        //InventarioAlbertoFernandez inventario = new InventarioAlbertoFernandez(coleccionArmas);
+        //MetodosEstaticosDeAlbertoFernandez.imprimirInventario(inventario);
     }
 }

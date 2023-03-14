@@ -10,18 +10,22 @@ public class EscopetaAlbertoFernandez extends ArmaAlbertoFernandez{
     }
     public EscopetaAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza, boolean culata){
         super();
-        setCulata(culata);
+        validarCulata(culata);
+        this.culata = culata;
     }
     public boolean isCulata() {
         return culata;
     }
 
     public void setCulata(boolean culata) {
+         validarCulata(culata);
+         this.culata = culata;
+    }
+
+    public void validarCulata(boolean culata){
         if (culata != true || culata != false){
             throw new IllegalArgumentException("Para indicar si el arma tiene culata," +
                     " se debe introducir un valor booleano");
-        } else {
-            this.culata = culata;
         }
     }
     public String toString(){

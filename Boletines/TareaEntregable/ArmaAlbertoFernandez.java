@@ -17,10 +17,7 @@ public class ArmaAlbertoFernandez {
         rareza = 0;
     }
     public ArmaAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza){
-        setModelo(modelo);
-        setMunicionMaxima(municionMaxima);
-        setMunicionActual(municionActual);
-        setRareza(rareza);
+
     }
 
     public String getModelo() {
@@ -28,10 +25,13 @@ public class ArmaAlbertoFernandez {
     }
 
     public void setModelo(String modelo) {
-        if (modelo == null || modelo.isEmpty()){
+        validarModelo(modelo);
+        this.modelo = modelo;
+    }
+
+    public void validarModelo(String modelo){
+        if (modelo == null || modelo.isEmpty()) {
             throw new IllegalArgumentException("No se permiten cadenas nulas o vacias.");
-        } else {
-            this.modelo = modelo;
         }
     }
 
@@ -40,10 +40,13 @@ public class ArmaAlbertoFernandez {
     }
 
     public void setMunicionMaxima(int municionMaxima) {
+        validarMunicionMaxima(municionMaxima);
+        this.municionMaxima = municionMaxima;
+    }
+
+    public void validarMunicionMaxima(int municionMaxima){
         if (municionMaxima < 0){
             throw new IllegalArgumentException("No se puede tener munición máxima negativa.");
-        } else {
-            this.municionMaxima = municionMaxima;
         }
     }
 
@@ -52,22 +55,27 @@ public class ArmaAlbertoFernandez {
     }
 
     public void setMunicionActual(int municionActual) {
+        validarMunicionActual(municionActual);
+        this.municionActual = municionActual;
+    }
+
+    public void validarMunicionActual(int municionActual){
         if (municionActual < 0 || municionActual > getMunicionMaxima()){
             throw new IllegalArgumentException("No se puede tener munición negativa, ni una " +
                     "munición mayor a la máxima.");
-        } else {
-            this.municionActual = municionActual;
         }
     }
-
     public int getRareza() {
         return rareza;
     }
 
     public void setRareza(int rareza) {
-        if (rareza >= 0 && rareza <= 4){
-            this.rareza = rareza;
-        } else {
+        validarRareza(rareza);
+        this.rareza = rareza;
+    }
+
+    public void validarRareza(int rareza){
+        if (rareza < 0 || rareza > 4){
             throw new IllegalArgumentException("El tipo de rareza sólo se puede definir entre los números 0 y 4.");
         }
     }

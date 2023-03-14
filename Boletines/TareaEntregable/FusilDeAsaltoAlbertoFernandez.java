@@ -12,7 +12,8 @@ public class FusilDeAsaltoAlbertoFernandez extends ArmaAlbertoFernandez{
     public FusilDeAsaltoAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza,
                                          boolean silenciador){
         super();
-        setSilenciador(silenciador);
+        validarSilenciador(silenciador);
+        this.silenciador = silenciador;
     }
 
     public boolean isSilenciador() {
@@ -20,10 +21,13 @@ public class FusilDeAsaltoAlbertoFernandez extends ArmaAlbertoFernandez{
     }
 
     public void setSilenciador(boolean silenciador) {
+        validarSilenciador(silenciador);
+        this.silenciador = silenciador;
+    }
+
+    public void validarSilenciador(boolean silenciador){
         if(silenciador!=true && silenciador!=false){
             throw new IllegalArgumentException("El valor sólo puede ser \"true\" o \"false\"");
-        } else {
-            this.silenciador = silenciador;
         }
     }
 
