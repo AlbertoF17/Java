@@ -34,8 +34,9 @@ public class AlbertoFernandezGomez {
 
 
         ArmaAlbertoFernandez[] coleccionArmas = {new EscopetaAlbertoFernandez(), new ArmaAlbertoFernandez(),
-                new ArmaAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez()};
-        //InventarioAlbertoFernandez inventario = new InventarioAlbertoFernandez(coleccionArmas);
-        //MetodosEstaticosDeAlbertoFernandez.imprimirInventario(inventario);
+                new ArmaAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez(),
+                new ArmaAlbertoFernandez()};
+        InventarioAlbertoFernandez inventario = new InventarioAlbertoFernandez(coleccionArmas);
+        MetodosEstaticosDeAlbertoFernandez.imprimirInventario(inventario);
     }
 }

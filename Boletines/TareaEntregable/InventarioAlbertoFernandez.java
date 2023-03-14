@@ -4,8 +4,7 @@ public class InventarioAlbertoFernandez{
     private ArmaAlbertoFernandez[] coleccionArmas;
 
     public InventarioAlbertoFernandez(ArmaAlbertoFernandez[] coleccionArmas){
-        validarColeccionArmas(coleccionArmas);
-        this.coleccionArmas = coleccionArmas;
+        this.coleccionArmas = validarColeccionArmas(coleccionArmas);
     }
 
     public ArmaAlbertoFernandez[] getColeccionArmas() {
@@ -13,11 +12,10 @@ public class InventarioAlbertoFernandez{
     }
 
     public void setColeccionArmas(ArmaAlbertoFernandez[] coleccionArmas) {
-        validarColeccionArmas(coleccionArmas);
-        this.coleccionArmas = coleccionArmas;
+        this.coleccionArmas = validarColeccionArmas(coleccionArmas);
     }
 
-    public void validarColeccionArmas(ArmaAlbertoFernandez[] coleccionArmas){
+    public ArmaAlbertoFernandez[] validarColeccionArmas(ArmaAlbertoFernandez[] coleccionArmas){
         for (int i = 0; i < coleccionArmas.length; i++) {
             if(coleccionArmas[i] == null){
                 throw new IllegalArgumentException("No puede haber un arma nula");
@@ -26,10 +24,11 @@ public class InventarioAlbertoFernandez{
         if (coleccionArmas.length>5) {
             ArmaAlbertoFernandez[] coleccionCopia = coleccionArmas;
             coleccionArmas = new ArmaAlbertoFernandez[5];
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < coleccionArmas.length; i++) {
                 coleccionArmas[i] = coleccionCopia[i];
             }
         }
+        return coleccionArmas;
     }
 
     public String toString(){
