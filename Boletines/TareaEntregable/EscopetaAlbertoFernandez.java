@@ -23,7 +23,7 @@ public class EscopetaAlbertoFernandez extends ArmaAlbertoFernandez{
     }
 
     public void validarCulata(boolean culata){
-        if (culata != true || culata != false){
+        if (culata != true && culata != false){
             throw new IllegalArgumentException("Para indicar si el arma tiene culata," +
                     " se debe introducir un valor booleano");
         }

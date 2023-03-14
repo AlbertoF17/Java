@@ -33,6 +33,7 @@ public class AlbertoFernandezGomez {
         System.out.println(escopeta1);
 
 
+
         ArmaAlbertoFernandez[] coleccionArmas = {new EscopetaAlbertoFernandez(), new ArmaAlbertoFernandez(),
                 new ArmaAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez(),
                 new ArmaAlbertoFernandez()};
