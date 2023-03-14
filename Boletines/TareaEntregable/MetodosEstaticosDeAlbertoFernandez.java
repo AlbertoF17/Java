@@ -29,6 +29,8 @@ public class MetodosEstaticosDeAlbertoFernandez {
     }
 
     public static void imprimirInventario(InventarioAlbertoFernandez inventario){
-        /* ??? */
+        for (int i = 0; i < inventario.getColeccionArmas().length; i++) {
+            System.out.print(inventario.getColeccionArmas()[i] + " ");
+        }
     }
 }

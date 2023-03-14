@@ -3,7 +3,7 @@ package Boletines.TareaEntregable;
 public class AlbertoFernandezGomez {
     public static void main(String[] args){
         /* EJERCICIO 4 */
-        ArmaAlbertoFernandez arma1;
+        /*ArmaAlbertoFernandez arma1;
         arma1 = new ArmaAlbertoFernandez(null,-2,-3,7);
         System.out.println(arma1);
         arma1 = new ArmaAlbertoFernandez();
@@ -19,6 +19,10 @@ public class AlbertoFernandezGomez {
         EscopetaAlbertoFernandez escopeta1;
         escopeta1 = new EscopetaAlbertoFernandez(null,-2,-2,7);
         escopeta1 = new EscopetaAlbertoFernandez();
-        escopeta1.setRareza(2);
+        escopeta1.setRareza(2);*/
+        ArmaAlbertoFernandez[] coleccionArmas = {new EscopetaAlbertoFernandez(), new ArmaAlbertoFernandez(),
+                new ArmaAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez()};
+        InventarioAlbertoFernandez inventario = new InventarioAlbertoFernandez(coleccionArmas);
+        MetodosEstaticosDeAlbertoFernandez.imprimirInventario(inventario);
     }
 }

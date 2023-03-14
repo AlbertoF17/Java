@@ -5,10 +5,8 @@ public class FusilDeAsaltoAlbertoFernandez extends ArmaAlbertoFernandez{
     public boolean silenciador;
 
     public FusilDeAsaltoAlbertoFernandez(){
+        super();
         modelo = "Carabina M4";
-        municionMaxima = 20;
-        municionActual = 20;
-        rareza = 0;
         silenciador = false;
     }
     public FusilDeAsaltoAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza,
@@ -39,7 +37,7 @@ public class FusilDeAsaltoAlbertoFernandez extends ArmaAlbertoFernandez{
                 "                          ))    \\#H\\       `\"Y###\n" +
                 "                          \"      }#H)" + "\n" + RESET +
                 modelo + (silenciador ? "(Con" : "(Sin") + " Silenciador)\t\t\t" + municionActual + " / "
-                + municionMaxima;
+                + municionMaxima + "\n";
     }
 
     @Override

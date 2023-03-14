@@ -4,10 +4,8 @@ public class EscopetaAlbertoFernandez extends ArmaAlbertoFernandez{
     /* EJERCICIO 3 */
     public boolean culata;
     public EscopetaAlbertoFernandez(){
+        super();
         modelo = "Remington 870";
-        municionMaxima = 20;
-        municionActual = 20;
-        rareza = 0;
     }
     public EscopetaAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza){
         this.modelo = modelo;
@@ -29,7 +27,7 @@ public class EscopetaAlbertoFernandez extends ArmaAlbertoFernandez{
                 "                  `----------'        [ ))\"-,                   |\n" +
                 "                                       \"\"    `,  _,--....___    |\n" +
                 "                                               `/           \"\"\"\" \n" + RESET +
-                modelo + (culata ? "(Con" : "(Sin") + " Culata)\t\t\t" + municionActual + " / " + municionMaxima;
+                modelo + (culata ? "(Con" : "(Sin") + " Culata)\t\t\t" + municionActual + " / " + municionMaxima + "\n";
 
     }
     @Override
