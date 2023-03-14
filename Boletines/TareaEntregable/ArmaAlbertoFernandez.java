@@ -17,10 +17,10 @@ public class ArmaAlbertoFernandez {
         rareza = 0;
     }
     public ArmaAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza){
-        this.modelo = modelo;
-        this.municionMaxima = municionMaxima;
-        this.municionActual = municionActual;
-        this.rareza = rareza;
+        setModelo(modelo);
+        setMunicionMaxima(municionMaxima);
+        setMunicionActual(municionActual);
+        setRareza(rareza);
     }
 
     public String getModelo() {
@@ -28,8 +28,8 @@ public class ArmaAlbertoFernandez {
     }
 
     public void setModelo(String modelo) {
-        if (modelo == null){
-            throw new IllegalArgumentException("No se permiten cadenas nulas.");
+        if (modelo == null || modelo.isEmpty()){
+            throw new IllegalArgumentException("No se permiten cadenas nulas o vacias.");
         } else {
             this.modelo = modelo;
         }
@@ -52,8 +52,9 @@ public class ArmaAlbertoFernandez {
     }
 
     public void setMunicionActual(int municionActual) {
-        if (municionActual < 0){
-            throw new IllegalArgumentException("No se puede tener munición negativa.");
+        if (municionActual < 0 || municionActual > getMunicionMaxima()){
+            throw new IllegalArgumentException("No se puede tener munición negativa, ni una " +
+                    "munición mayor a la máxima.");
         } else {
             this.municionActual = municionActual;
         }

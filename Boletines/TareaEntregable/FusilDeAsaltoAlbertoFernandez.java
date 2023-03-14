@@ -11,11 +11,8 @@ public class FusilDeAsaltoAlbertoFernandez extends ArmaAlbertoFernandez{
     }
     public FusilDeAsaltoAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza,
                                          boolean silenciador){
-        this.modelo = modelo;
-        this.municionMaxima = municionMaxima;
-        this.municionActual = municionActual;
-        this.rareza = rareza;
-        this.silenciador = silenciador;
+        super();
+        setSilenciador(silenciador);
     }
 
     public boolean isSilenciador() {
