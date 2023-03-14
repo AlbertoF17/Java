@@ -6,12 +6,14 @@ public class EscopetaAlbertoFernandez extends ArmaAlbertoFernandez{
     public EscopetaAlbertoFernandez(){
         super();
         modelo = "Remington 870";
+        culata = false;
     }
-    public EscopetaAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza){
+    public EscopetaAlbertoFernandez(String modelo, int municionMaxima, int municionActual, int rareza, boolean culata){
         this.modelo = modelo;
         this.municionMaxima = municionMaxima;
         this.municionActual = municionActual;
         this.rareza = rareza;
+        this.culata = culata;
     }
     public boolean isCulata() {
         return culata;
