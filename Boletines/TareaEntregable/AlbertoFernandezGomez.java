@@ -10,6 +10,7 @@ public class AlbertoFernandezGomez {
             arma1 = new ArmaAlbertoFernandez();
         }
         arma1.setRareza(4);
+        //Impresión de prueba
         System.out.println(arma1);
 
         FusilDeAsaltoAlbertoFernandez fusil1;
@@ -21,6 +22,7 @@ public class AlbertoFernandezGomez {
         }
         fusil1.setRareza(3);
         fusil1.setSilenciador(true);
+        //Impresión de prueba
         System.out.println(fusil1);
 
         EscopetaAlbertoFernandez escopeta1;
@@ -30,6 +32,7 @@ public class AlbertoFernandezGomez {
             escopeta1 = new EscopetaAlbertoFernandez();
         }
         escopeta1.setRareza(2);
+        //Impresión de prueba
         System.out.println(escopeta1);
 
 
