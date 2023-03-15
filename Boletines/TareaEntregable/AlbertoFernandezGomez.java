@@ -37,11 +37,10 @@ public class AlbertoFernandezGomez {
         System.out.println(escopeta1);*/
 
         //TESTEO OTROS EJERCICIOS
-        ArmaAlbertoFernandez[] coleccionArmas = {new EscopetaAlbertoFernandez(), new ArmaAlbertoFernandez(),
-                new ArmaAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez(),
-                new ArmaAlbertoFernandez()};
+        ArmaAlbertoFernandez[] coleccionArmas = {new EscopetaAlbertoFernandez(), new EscopetaAlbertoFernandez(),
+                new FusilDeAsaltoAlbertoFernandez(), new FusilDeAsaltoAlbertoFernandez(),
+                new FusilDeAsaltoAlbertoFernandez()};
         InventarioAlbertoFernandez inventario = new InventarioAlbertoFernandez(coleccionArmas);
         MetodosEstaticosDeAlbertoFernandez.imprimirInventario(inventario);
-        //Recorta el array si hay más de 5 armas, pero no las imprime en la misma línea.
     }
 }

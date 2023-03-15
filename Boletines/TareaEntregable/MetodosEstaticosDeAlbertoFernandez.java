@@ -1,43 +1,42 @@
 package Boletines.TareaEntregable;
 
 public class MetodosEstaticosDeAlbertoFernandez {
-    public static void imprimirStrings(String[] arrayStr){
-        if (arrayStr == null){
-            throw new NullPointerException("El array no puede ser nulo.");
-        } else{
-            for (int i = 0; i < arrayStr.length; i++) {
-                System.out.println(arrayStr[i]);
+    public static void imprimirStrings(String[] sol) {
+        if (sol == null) {
+            throw new NullPointerException("No puede ser nulo");
+        }
+        for (int i = 0; i < sol.length; i++) {
+            System.out.println(sol[i]);
+        }
+    }
+
+    public static String ampliar(String str, int m) {
+        if (str == null) {
+            throw new NullPointerException("No puede ser nulo");
+        }
+        if (m < 0) {
+            throw new IllegalArgumentException("El numero no puede ser negativo");
+        }
+        return str + " ".repeat(m-str.length());
+    }
+
+    public static String[] desplazar(String[] array, int n) {
+        if (array == null) {
+            throw new NullPointerException("No puede ser nulo");
+        }
+        if (n < 0) {
+            throw new IllegalArgumentException("El numero no puede ser negativo");
+        }
+        String[] sol = new String[n];
+        int diff = n - array.length;
+        for (int i = 0; i < n; i++) {
+            if (i>= diff) {
+                sol[i] = array[i-diff];
+            } else {
+                sol[i] = "";
             }
         }
-    }
-
-    public static String ampliar(String cadena, int numero){
-        if (cadena == null){
-            throw new NullPointerException("La cadena no puede ser nula.");
-        }
-        if (numero < 0){
-            throw new IllegalArgumentException("El número no puede ser negativo");
-        }
-        String cadenaNueva = cadena;
-        int numEspacios = numero - cadena.length();
-        cadenaNueva += " ".repeat(numEspacios);
-        return cadenaNueva;
-    }
-
-    public static String[] desplazar(String[] arrayStr, int numero){
-        if (arrayStr == null){
-            throw new NullPointerException("El array no puede ser nulo.");
-        } else if (numero < 0){
-            throw new IllegalArgumentException("El número no puede ser negativo");
-        }
-        String[] arrayNuevo = new String[numero];
-        for (int i = 0; i < arrayNuevo.length-arrayStr.length; i++) {
-            arrayNuevo[i] = "";
-        }
-        for (int i = arrayNuevo.length-arrayStr.length, j = 0; i < arrayNuevo.length; i++, j++) {
-            arrayNuevo[i] = arrayStr[j];
-        }
-        return arrayNuevo;
+        return sol;
     }
 
     public static void imprimirInventario(InventarioAlbertoFernandez inventario){
@@ -46,7 +45,7 @@ public class MetodosEstaticosDeAlbertoFernandez {
         int maxColumns = 0;
         for (int i = 0; i < inventario.getColeccionArmas().length; i++) {
             lineas[i] = inventario.getColeccionArmas()[i].toString().split("\n");
-            if (lineas[i].length>maxRows){
+            if (lineas[i].length > maxRows) {
                 maxRows = lineas[i].length;
             }
             for (int j = 0; j < lineas[i].length; j++) {
@@ -61,7 +60,6 @@ public class MetodosEstaticosDeAlbertoFernandez {
                 lineas[i][j] = MetodosEstaticosDeAlbertoFernandez.ampliar(lineas[i][j], maxColumns);
             }
         }
-
         String[] solucion = new String[maxRows];
         for (int i = 0; i < maxRows; i++) {
             solucion[i] = "";
