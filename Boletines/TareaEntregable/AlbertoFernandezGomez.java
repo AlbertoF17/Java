@@ -3,6 +3,7 @@ package Boletines.TareaEntregable;
 public class AlbertoFernandezGomez {
     public static void main(String[] args){
         /* EJERCICIO 4 */
+        /*
         ArmaAlbertoFernandez arma1;
         try{
             arma1 = new ArmaAlbertoFernandez(null,-2,-3,7);
@@ -33,8 +34,7 @@ public class AlbertoFernandezGomez {
         }
         escopeta1.setRareza(2);
         //Impresión de prueba
-        System.out.println(escopeta1);
-
+        System.out.println(escopeta1);*/
 
         //TESTEO OTROS EJERCICIOS
         ArmaAlbertoFernandez[] coleccionArmas = {new EscopetaAlbertoFernandez(), new ArmaAlbertoFernandez(),

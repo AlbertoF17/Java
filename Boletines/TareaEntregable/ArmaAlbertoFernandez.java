@@ -92,7 +92,7 @@ public class ArmaAlbertoFernandez {
                 " / XXXXXX /\n" +
                 "(________(                \n" +
                 " `------'              \n" + RESET +
-                modelo + "\t\t\t" + municionActual + " / " + municionMaxima + "\n";
+                modelo + "\t\t\t" + municionActual + " / " + municionMaxima;
     }
 
     public void disparar(){

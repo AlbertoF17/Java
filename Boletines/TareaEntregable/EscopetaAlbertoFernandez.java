@@ -35,7 +35,7 @@ public class EscopetaAlbertoFernandez extends ArmaAlbertoFernandez{
                 "                  `----------'        [ ))\"-,                   |\n" +
                 "                                       \"\"    `,  _,--....___    |\n" +
                 "                                               `/           \"\"\"\" \n" + RESET +
-                modelo + (culata ? "(Con" : "(Sin") + " Culata)\t\t\t" + municionActual + " / " + municionMaxima + "\n";
+                modelo + (culata ? "(Con" : "(Sin") + " Culata)\t\t\t" + municionActual + " / " + municionMaxima;
 
     }
     @Override

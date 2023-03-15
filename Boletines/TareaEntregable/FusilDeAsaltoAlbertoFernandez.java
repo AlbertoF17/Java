@@ -38,7 +38,7 @@ public class FusilDeAsaltoAlbertoFernandez extends ArmaAlbertoFernandez{
                 "                          ))    \\#H\\       `\"Y###\n" +
                 "                          \"      }#H)" + "\n" + RESET +
                 modelo + (silenciador ? "(Con" : "(Sin") + " Silenciador)\t\t\t" + municionActual + " / "
-                + municionMaxima + "\n";
+                + municionMaxima;
     }
 
     @Override
