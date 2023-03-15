@@ -5,19 +5,19 @@ public class Enanos extends SerTierraMedia{
     //Enano y añádala a la jerarquía como estime conveniente. Los enanos se caracterizan
     //porque pueden golpear con el hacha (usarHacha) y hacer armaduras (crearArmadura).
     //Éstos métodos no devuelven nada, y reciben una cadena.
-    public void usarHacha(String objetivo){
+    void usarHacha(String objetivo){
 
     }
-    public void crearArmadura(String armadura){
+    void crearArmadura(String armadura){
 
     }
     @Override
-    public void hablar(String frase) {
+    void hablar(String frase) {
 
     }
 
     @Override
-    public void moverse(String lugar) {
+    void moverse(String lugar) {
 
     }
 }

@@ -5,15 +5,15 @@ public class Orco extends Elfo{
     //corrupción. Cree la clase Orco y añádala a la jerarquía como estime conveniente. Los orcos,
     //además de disparar con arco y hacer encantamientos, saben envenenar flechas.
     //Implemente dicho método como los anteriores.
-    public void envenenarFlechas(){
+    void envenenarFlechas(){
 
     }
-    public void hablar(String frase) {
+    void hablar(String frase) {
 
     }
 
     @Override
-    public void moverse(String lugar) {
+    void moverse(String lugar) {
 
     }
 }

@@ -12,6 +12,6 @@ public abstract class SerTierraMedia {
     private String apellido;
     private String apodo;
 
-    public abstract void hablar(String frase);
-    public abstract void moverse(String lugar);
+    abstract void hablar(String frase);
+    abstract void moverse(String lugar);
 }

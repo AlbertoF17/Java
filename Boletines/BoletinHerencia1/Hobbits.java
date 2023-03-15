@@ -6,24 +6,24 @@ public class Hobbits extends Hombres{
     //propio. Cree la clase Hobbit y añádala a la jerarquía como estime conveniente. Los hobbits
     //se caracterizan por dos cosas: fumar hierba para pipa y comer como si no hubiera mañana.
     //Saben disparar el arco, tirar piedras pero no usar la espada.
-    public void fumarHierba(){
+    void fumarHierba(){
 
     }
-    public void comerMucho(){
+    void comerMucho(){
 
     }
-    public void dispararArco(){
+    void dispararArco(){
 
     }
-    public void tirarPiedras(){
+    void tirarPiedras(){
 
     }
-    public void hablar(String frase) {
+    void hablar(String frase) {
 
     }
 
     @Override
-    public void moverse(String lugar) {
+    void moverse(String lugar) {
 
     }
 }
