@@ -15,7 +15,4 @@ public class Hobbits extends Hombres{
     public void dispararArco(){
 
     }
-    /*public void usarEspada(){
-
-    }*/
 }

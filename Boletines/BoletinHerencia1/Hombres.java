@@ -10,7 +10,7 @@ public class Hombres extends SerTierraMedia{
     public void morir(){
         System.out.println("Sayonara, baby");
     }
-    public void usarEspada(String objetivo){
+    private void usarEspada(String objetivo){
 
     }
     @Override
