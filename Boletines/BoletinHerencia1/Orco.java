@@ -8,4 +8,12 @@ public class Orco extends Elfo{
     public void envenenarFlechas(){
 
     }
+    public void hablar(String frase) {
+
+    }
+
+    @Override
+    public void moverse(String lugar) {
+
+    }
 }

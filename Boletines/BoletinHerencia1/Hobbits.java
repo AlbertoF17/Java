@@ -18,4 +18,12 @@ public class Hobbits extends Hombres{
     public void tirarPiedras(){
 
     }
+    public void hablar(String frase) {
+
+    }
+
+    @Override
+    public void moverse(String lugar) {
+
+    }
 }
