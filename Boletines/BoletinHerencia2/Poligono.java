@@ -25,8 +25,8 @@ public abstract class Poligono {
     }
 
     public void validarVertices(int vertices){
-        if (vertices<0){
-            throw new IllegalArgumentException("Debe tener 0 o más vértices");
+        if (vertices<3){
+            throw new IllegalArgumentException("Debe tener 3 o más vértices");
         }
     }
     public void validarLongitud(double numero){
