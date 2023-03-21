@@ -6,19 +6,20 @@ public class Elfo extends SerTierraMedia {
     //porque pueden disparar con el arco (dispararArco) y hacer encantamientos (encantar).
     //Éstos métodos no devuelven nada, y reciben una cadena con el objetivo al que se quiere
     //disparar y el objetivo que se quiere encantar.
-    void dispararArco(String nombreObjetivo){
+    public Elfo() {
+    }
+    public Elfo(String nombre, String apellido, String apodo) {
+        super(nombre, apellido, apodo);
+    }
 
+    @Override
+    public String toString() {
+        return "Elfo{" + super.toString() + "}";
+    }
+    void dispararArco(String nombreObjetivo){
+        System.out.println(nombre + " disparó una flecha a: " + nombreObjetivo);
     }
     void encantar(String nombreObjetivo){
-
-    }
-    @Override
-    void hablar(String frase) {
-
-    }
-
-    @Override
-    void moverse(String lugar) {
-
+        System.out.println(nombre + " encantó a: " + nombreObjetivo);
     }
 }
