@@ -16,16 +16,30 @@ public class CrucigramaAlbertoFernandez {
     }
 
     public void introducirSolucion(){
+        int numCelda = 1;
         for (int i = 0; i < sol.length; i++) {
             for (int j = 0; j < sol[i].length; j++) {
-                System.out.println("¿Qué carácter crees que va en la celda " + i+1 + "?");
+                System.out.println("¿Qué carácter crees que va en la celda " + numCelda + "?");
+                numCelda++;
                 sol[i][j] = sc.next().charAt(0);
             }
         }
     }
 
     public void comprobarSolucion(){
-
+        boolean solucionCorrecta = true;
+        for (int i = 0; i < sol.length; i++) {
+            for (int j = 0; j < sol[i].length; j++) {
+                if (!((sol[i][j]+"").matches(row[i])) || !((sol[i][j]+"").matches(col[j]))){
+                    solucionCorrecta = false;
+                }
+            }
+        }
+        if (solucionCorrecta){
+            System.out.println("HAS ACERTADO");
+        }else{
+            System.out.println("Fallaste, inténtalo de nuevo");
+        }
     }
 
     public void borrarSol(){
