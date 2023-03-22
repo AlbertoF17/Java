@@ -1,3 +1,7 @@
+package Apuntes.POO.ResumenHerenciaInterfaces;
+
+import javax.naming.OperationNotSupportedException;
+
 public class Alumno extends Persona implements Cloneable, Comparable {
 
     public Alumno() {
@@ -39,5 +43,9 @@ public class Alumno extends Persona implements Cloneable, Comparable {
 
     public final void preguntarSinHaberLeido() {
         System.out.println(this.nombre + ": Que tengo que hacer en el ejercicio?");
+    }
+
+    protected void hacerUnaGracia() throws OperationNotSupportedException {
+        System.out.println(this.nombre + ": ¿Que es un terapeuta? 1024 Gigapeutas");
     }
 }

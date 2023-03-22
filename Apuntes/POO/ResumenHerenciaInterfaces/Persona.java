@@ -1,3 +1,5 @@
+package Apuntes.POO.ResumenHerenciaInterfaces;
+
 public abstract class Persona {
     String nombre;
     int edad;

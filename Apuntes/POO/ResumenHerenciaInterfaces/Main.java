@@ -1,3 +1,6 @@
+package Apuntes.POO.ResumenHerenciaInterfaces;
+
+import javax.naming.OperationNotSupportedException;
 import java.util.Arrays;
 
 public class Main {
@@ -32,7 +35,11 @@ public class Main {
             mostrarError(e,"");
         }
 
-        a2.preguntarSinHaberLeido();
+        try {
+            a2.hacerUnaGracia();
+        } catch (OperationNotSupportedException e) {
+            mostrarError(e,"");
+        }
 
         System.out.println("Son iguales a1 y a2?: " + a1.equals(a2));
 
@@ -64,6 +71,12 @@ public class Main {
 
         a3.preguntarSinHaberLeido();
         a3.pelotear();
+
+	try {
+            a3.hacerUnaGracia();
+        } catch (OperationNotSupportedException e) {
+            mostrarError(e,"");
+        }
 
         Alumno a4;
         try {
