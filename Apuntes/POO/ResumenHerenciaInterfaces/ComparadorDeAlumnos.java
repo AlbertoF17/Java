@@ -1,3 +1,5 @@
+package Apuntes.POO.ResumenHerenciaInterfaces;
+
 import java.util.Comparator;
 
 public class ComparadorDeAlumnos implements Comparator{

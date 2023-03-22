@@ -1,5 +1,7 @@
 package Apuntes.POO.ResumenHerenciaInterfaces;
 
+import javax.naming.OperationNotSupportedException;
+
 public final class AlumnoPelota extends Alumno implements Pelota {
 
     public AlumnoPelota() {

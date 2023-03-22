@@ -1,5 +1,4 @@
 package Apuntes.POO.ResumenHerenciaInterfaces;
-
 import javax.naming.OperationNotSupportedException;
 import java.util.Arrays;
 
@@ -72,7 +71,7 @@ public class Main {
         a3.preguntarSinHaberLeido();
         a3.pelotear();
 
-	try {
+        try {
             a3.hacerUnaGracia();
         } catch (OperationNotSupportedException e) {
             mostrarError(e,"");
