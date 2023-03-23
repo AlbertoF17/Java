@@ -7,7 +7,7 @@ public class AlbertoFernandezGomez {
                 new String[]{"[DEF][MNO]*","[^DJNU]P[ABC]","[ICAN]*"});
         System.out.println(crucigrama1);
         crucigrama1.introducirSol();
-        crucigrama1.comprobarSol();
         System.out.println(crucigrama1);
+        crucigrama1.comprobarSol();
     }
 }
