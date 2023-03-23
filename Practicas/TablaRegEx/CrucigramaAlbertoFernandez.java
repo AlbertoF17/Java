@@ -21,7 +21,7 @@ public class CrucigramaAlbertoFernandez {
         validarRow(row);
         this.row = row;
         sol = new char[row.length][col.length];
-        this.maxLen = 1;
+        this.maxLen = maxLong();
     }
 
     public void setSol(char[][] sol) {
@@ -29,21 +29,11 @@ public class CrucigramaAlbertoFernandez {
         this.sol = sol;
     }
     private void validarRow(String[] row){
-        for (int i = 0; i < row.length; i++) {
-            if (row[i].length() != 1){
-                throw new IllegalArgumentException("La fila debe tener un sólo carácter en cada espacio que ocupa");
-            }
-        }
         if(row == null){
             throw new NullPointerException("El array no puede ser nulo");
         }
     }
     private void validarCol(String[] col){
-        for (int i = 0; i < col.length; i++) {
-            if (col[i].length() != 1){
-                throw new IllegalArgumentException("La columna debe tener un sólo carácter en cada espacio que ocupa");
-            }
-        }
         if(col == null){
             throw new NullPointerException("El array no puede ser nulo");
         }
@@ -77,11 +67,9 @@ public class CrucigramaAlbertoFernandez {
         return " ".repeat(maxLen-str.length()) + str + " |";
     }
     public void introducirSol(){
-        int numCelda = 1;
         for (int i = 0; i < sol.length; i++) {
             for (int j = 0; j < sol[i].length; j++) {
-                System.out.println("¿Qué carácter crees que va en la celda " + numCelda + "?");
-                numCelda++;
+                System.out.println("Introduce el carácter en la posición (" + i + ", " + j + "):");
                 sol[i][j] = sc.next().charAt(0);
             }
         }
@@ -89,13 +77,26 @@ public class CrucigramaAlbertoFernandez {
 
     public boolean comprobarSol(){
         boolean solucionCorrecta = true;
+        String lineaSol = "";
         for (int i = 0; i < sol.length; i++) {
             for (int j = 0; j < sol[i].length; j++) {
-                if (!((sol[i][j]+"").matches(row[i])) || !((sol[i][j]+"").matches(col[j]))){
-                    solucionCorrecta = false;
-                }
+                lineaSol += sol[i][j];
             }
+            if (!lineaSol.matches(row[i])){
+                solucionCorrecta = false;
+            }
+            lineaSol = "";
         }
+        for (int i = 0; i < sol.length; i++) {
+            for (int j = 0; j < sol[i].length; j++) {
+                lineaSol += sol[j][i];
+            }
+            if (!lineaSol.matches(col[i])){
+                solucionCorrecta = false;
+            }
+            lineaSol = "";
+        }
+
         if (solucionCorrecta){
             System.out.println("HAS ACERTADO");
         }else{
@@ -110,10 +111,19 @@ public class CrucigramaAlbertoFernandez {
 
     @Override
     public String toString() {
-        return "CrucigramaAlbertoFernandez{" +
-                "col=" + Arrays.toString(col) +
-                ", row=" + Arrays.toString(row) +
-                ", sol=" + Arrays.toString(sol) +
-                '}';
+        String resultado = "";
+        resultado += ampliar("");
+        for (int i = 0; i < col.length; i++) {
+            resultado += ampliar(col[i]);
+        }
+        resultado += "\n";
+        for (int i = 0; i < row.length; i++) {
+            resultado += ampliar(row[i]);
+            for (int j = 0; j < sol.length; j++) {
+                resultado += ampliar(sol[i][j] + "");
+            }
+            resultado += "\n";
+        }
+        return resultado;
     }
 }

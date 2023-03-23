@@ -3,10 +3,10 @@ package Boletines.BoletinHerencia4;
 import javax.naming.OperationNotSupportedException;
 
 public class Hijo extends Padre{
-    Padre padre1 = new Padre();
-    Padre padre2 = new Padre();
-    Abuelo abuelo1 = new Abuelo();
-    Abuelo abuelo2 = new Abuelo();
+    Padre padre1;
+    Padre padre2;
+    Abuelo abuelo1;
+    Abuelo abuelo2;
 
     public Hijo() {
         super();
