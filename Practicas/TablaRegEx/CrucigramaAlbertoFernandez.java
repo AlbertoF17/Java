@@ -16,13 +16,16 @@ public class CrucigramaAlbertoFernandez {
         this.maxLen = 1;
     }
     public CrucigramaAlbertoFernandez(String[] col, String[] row) {
+        validarCol(col);
         this.col = col;
+        validarRow(row);
         this.row = row;
         sol = new char[row.length][col.length];
         this.maxLen = 1;
     }
 
     public void setSol(char[][] sol) {
+        validarSol(sol);
         this.sol = sol;
     }
     private void validarRow(String[] row){
