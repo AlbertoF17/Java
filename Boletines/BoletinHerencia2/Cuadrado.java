@@ -8,7 +8,27 @@ public class Cuadrado extends Rectangulo{
         super();
     }
     public Cuadrado(double lado){
-        super();
-        altura = lado;
+        super(lado, lado);
+    }
+
+    @Override
+    public void setBase(int base) {
+        this.base = base;
+        setAltura(base);
+    }
+
+    @Override
+    public void setAltura(int altura) {
+        this.altura = altura;
+        setBase(altura);
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass() + "{" +
+                "base=" + base +
+                ", altura=" + altura +
+                ", vertices=" + vertices +
+                '}';
     }
 }
