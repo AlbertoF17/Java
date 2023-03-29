@@ -2,7 +2,8 @@ package Practicas.TablaRegEx;
 
 public class AlbertoFernandezGomez {
     public static void main(String[] args){
-        /*CrucigramaAlbertoFernandez crucigrama1 = new CrucigramaAlbertoFernandez(
+        //EJERCICIO CRUCIGRAMA OBLIGATORIO
+        CrucigramaAlbertoFernandez crucigrama1 = new CrucigramaAlbertoFernandez(
                 new String[]{"[JUNDT]*","APA|OPI|OLK","(NA|FE|HE)[CV]" },
                 new String[]{"[DEF][MNO]*","[^DJNU]P[ABC]","[ICAN]*"});
         CrucigramaAlbertoFernandez crucigrama2 = new CrucigramaAlbertoFernandez(
@@ -18,7 +19,9 @@ public class AlbertoFernandezGomez {
             arrayCrucicramas[i].introducirSol();
             System.out.println(arrayCrucicramas[i]);
             arrayCrucicramas[i].comprobarSol();
-        }*/
+        }
+
+        //EJERCICIO CRUCIGRAMA OPCIONAL
         CrucigramasOpcAlbertoFernandez crucigramaOpc1 = new CrucigramasOpcAlbertoFernandez(
                 new String[]{"(PO|R|G|E)*","(Z|OO)[KINZS]+"}, new String[]{"[GRA]P+.*","(X|Y|Z)[KIS\\s]+"},
                 new String[]{"[GRAPEZ]+","[^ION\\sS]+","(ZO|OS|OP)"}, new String[]{"[GIN].","[SPIK\\s]*","[^ZYP]+"});

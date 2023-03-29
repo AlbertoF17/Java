@@ -57,6 +57,8 @@ public class CrucigramaAlbertoFernandez {
             if (col[i].length() > maxLong){
                 maxLong = col[i].length();
             }
+        }
+        for (int i = 0; i < row.length; i++) {
             if (row[i].length() > maxLong){
                 maxLong = row[i].length();
             }
