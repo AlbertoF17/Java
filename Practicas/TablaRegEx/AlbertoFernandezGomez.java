@@ -27,7 +27,8 @@ public class AlbertoFernandezGomez {
                 new String[]{"[GRAPEZ]+","[^ION\\sS]+","(ZO|OS|OP)"}, new String[]{"[GIN].","[SPIK\\s]*","[^ZYP]+"});
         CrucigramasOpcAlbertoFernandez crucigramaOpc2 = new CrucigramasOpcAlbertoFernandez(
                 new String[]{"(N3|TRA|N7)*","[1LOVE2?4]+.", "(A|D)M[5-8&L]+", "[^\\s0ILAD]+", "[B-E]+(.)\1."},
-                new String[]{"[^OLD\\s]+","(\\d+)[LA\\s$?]+", "(\\-P|5\\$|AM|Z|L)+", "(\\-D|\\-WE)+[^L4-9N$?]+", "[FED$?]+"},
+                new String[]{"[^OLD\\s]+","(\\d+)[LA\\s$?]+", "(\\-P|5\\$|AM|Z|L)+", "(\\-D|\\-WE)+[^L4-9N$?]+",
+                        "[FED$?]+"},
                 new String[]{"[2TAIL\\-D]+","(WE|R4|RY|M)+", "[FEAL3-5S]+","[^FA\sT1-2]+F", "[LO\\s\\?5-8]+"},
                 new String[]{"[^ILYO]+",".+[MURDEW]+","[1ALF5$E\\s]+", "[\\dFAN$?]+", ".+\\s.+\\?"});
         CrucigramasOpcAlbertoFernandez[] arrayCrucicramas2 = new CrucigramasOpcAlbertoFernandez[]{crucigramaOpc1,
