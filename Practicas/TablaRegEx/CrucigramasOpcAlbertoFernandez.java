@@ -87,7 +87,7 @@ public class CrucigramasOpcAlbertoFernandez {
         for (int i = 0; i < sol.length; i++) {
             for (int j = 0; j < sol[i].length; j++) {
                 System.out.println("Introduce el carácter en la posición (" + i + ", " + j + "):");
-                sol[i][j] = sc.next().charAt(0);
+                sol[i][j] = sc.nextLine().charAt(0);
             }
         }
     }
