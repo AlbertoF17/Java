@@ -26,12 +26,12 @@ public abstract class Pokemon implements Tipo {
     int defEspecial;
     int velocidad;
     Movimiento[] movimientos;
-    int[] debilidades;
+    float[] debilidades;
 
     public Pokemon() {
         this.mote = "MissingNo.";
         this.movimientos = new Movimiento[4];
-        this.debilidades = new int[tipos.length];
+        this.debilidades = new float[tipos.length];
     }
 
     public Pokemon(String mote, int pokedexNum, int tipo1, int tipo2, int psBase, int ataqueBase, int defensaBase,
@@ -41,6 +41,8 @@ public abstract class Pokemon implements Tipo {
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
         this.psBase = psBase;
+        this.ps = psBase;
+        this.psMax = psBase;
         this.ataqueBase = ataqueBase;
         this.defensaBase = defensaBase;
         this.atqEspecialBase = atqEspecialBase;
@@ -49,7 +51,7 @@ public abstract class Pokemon implements Tipo {
         this.nivel = nivel-1;
         subirDeNivel();
         movimientos = new Movimiento[4];
-        calcularDebilidades();
+        this.debilidades = calcularDebilidades();
     }
 
     public String getMote() {
@@ -128,7 +130,7 @@ public abstract class Pokemon implements Tipo {
         return movimientos;
     }
 
-    public int[] getDebilidades() {
+    public float[] getDebilidades() {
         return debilidades;
     }
 
@@ -259,15 +261,15 @@ public abstract class Pokemon implements Tipo {
     }
 
     private void recibirDanho(Pokemon pok, Movimiento ataque){
+        float[] deb = calcularDebilidades();
         float b;
-        if (ataque.getTipo() == tipo1 || ataque.getTipo() == tipo2){
+        if (ataque.getTipo() == pok.getTipo1() || ataque.getTipo() == pok.getTipo2()){
             b = 1.5f;
         } else {
             b = 1;
         }
-        int e = debilidades[ataque.getTipo()];
-        int a;
-        int d;
+        float e = deb[ataque.getTipo()];
+        int a, d;
         if (ataque.getClase() == 0){
             a = pok.getAtaque();
             d = getDefensa();
@@ -276,12 +278,14 @@ public abstract class Pokemon implements Tipo {
             d = getDefEspecial();
         }
         int p = ataque.getPotencia();
+        System.out.println(ps);
+        System.out.println("Daño: " + (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/d)+2)));
         setPs(ps-(int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/d)+2)));
+        System.out.println(ps);
     }
 
     public void atacar(Pokemon objetivo, int movimiento){
-        System.out.println(mote + " usó: " + movimientos[movimiento]);
-        Pokemon pok = null; //Variable inicializada de forma random para que no dé error
-        objetivo.recibirDanho(pok, movimientos[movimiento]);
+        System.out.println(mote + " usó: " + movimientos[movimiento].getClass().getSimpleName());
+        objetivo.recibirDanho(this, movimientos[movimiento]);
     }
 }

@@ -116,7 +116,7 @@ public abstract class Movimiento implements Tipo {
         } else {
             claseStr = "especial";
         }
-        return "Movimiento{" +
+        return getClass().getSimpleName() + "{" +
                 "potencia=" + potencia +
                 ", precision=" + precision +
                 ", ppMax=" + ppMax +

@@ -42,10 +42,10 @@ public class Main {
     }
     public static int elegirAtaque(Pokemon pok){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Selecciona un ataque (0-3): ");
         for (int i = 0; i < pok.getMovimientos().length; i++) {
             System.out.println(i + " " + pok.getMovimientos()[i]);
         }
+        System.out.print("Selecciona un ataque (0-3): ");
         return sc.nextInt();
     }
     public static void batalla(Entrenador entrenador1, Entrenador entrenador2){
