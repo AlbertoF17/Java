@@ -176,7 +176,7 @@ public abstract class Pokemon implements Tipo {
 
     @Override
     public String toString() {
-        return this.getClass() + "{" +
+        return this.getClass().getSimpleName() + "{" +
                 "mote='" + mote + '\'' +
                 ", pokedexNum=" + pokedexNum +
                 ", tipo1=" + tipos[tipo1] +
