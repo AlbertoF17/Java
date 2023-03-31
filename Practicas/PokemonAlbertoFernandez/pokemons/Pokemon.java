@@ -3,6 +3,7 @@ package Practicas.PokemonAlbertoFernandez.pokemons;
 import Practicas.PokemonAlbertoFernandez.movimientos.Movimiento;
 import Practicas.PokemonAlbertoFernandez.tipos.*;
 
+import javax.naming.OperationNotSupportedException;
 import java.util.Arrays;
 
 public abstract class Pokemon implements Tipo {
@@ -201,14 +202,11 @@ public abstract class Pokemon implements Tipo {
         ps = psMax;
     }
 
-    public abstract void evolucionar();
+    public abstract Pokemon evolucionar() throws OperationNotSupportedException;
 
     private float[] calcularDebilidades(){
         float[] deb = new float[tipos.length];
         if(tipo2 == -1){
-            /*for (int i = 0; i < deb.length; i++) {
-                deb[i] = tipos[i].efectividad[tipo1];
-            }*/
             deb[0] = TipoAcero.efectividad[tipo1];
             deb[1] = TipoAgua.efectividad[tipo1];
             deb[2] = TipoBicho.efectividad[tipo1];
@@ -283,6 +281,7 @@ public abstract class Pokemon implements Tipo {
 
     public void atacar(Pokemon objetivo, int movimiento){
         System.out.println(mote + " usó: " + movimientos[movimiento]);
-        //objetivo.recibirDanho();
+        Pokemon pok = null; //Variable inicializada de forma random para que no dé error
+        objetivo.recibirDanho(pok, movimientos[movimiento]);
     }
 }

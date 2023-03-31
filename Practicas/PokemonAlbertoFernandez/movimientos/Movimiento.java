@@ -79,7 +79,7 @@ public abstract class Movimiento implements Tipo {
     }
 
     protected void validarClase(int clase) {
-        if (clase != 0 || clase != 1) {
+        if (clase != 0 && clase != 1) {
             throw new IllegalArgumentException("El valor de la clase solo puede ser 0 (físico) ó 1 (especial)");
         }
     }
