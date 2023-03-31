@@ -279,8 +279,8 @@ public abstract class Pokemon implements Tipo {
         }
         int p = ataque.getPotencia();
         System.out.println(ps);
-        System.out.println("Daño: " + (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/d)+2)));
-        setPs(ps-(int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/d)+2)));
+        System.out.println("Daño: " + (int) (0.01*b*e*10*((((0.2*nivel+1)*a*p)/d)+2)));
+        setPs(ps-(int) (0.01*b*e*10*((((0.2*nivel+1)*a*p)/d)+2)));
         System.out.println(ps);
     }
 

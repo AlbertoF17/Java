@@ -6,6 +6,7 @@ import Practicas.PokemonAlbertoFernandez.pokemons.Charmander;
 import Practicas.PokemonAlbertoFernandez.pokemons.Pokemon;
 import Practicas.PokemonAlbertoFernandez.pokemons.Squirtle;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -49,34 +50,53 @@ public class Main {
         return sc.nextInt();
     }
     public static void batalla(Entrenador entrenador1, Entrenador entrenador2){
+        Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         Pokemon primerPokemonE1 = entrenador1.getPokemons()[0];
         Pokemon primerPokemonE2 = entrenador2.getPokemons()[0];
-        System.out.println(entrenador2.getNombre() + " envió a " + primerPokemonE2.getMote() + "!" +
-                "\nVe " + primerPokemonE1.getMote() + "!");
-        while (primerPokemonE1.getPs() > 0 && primerPokemonE2.getPs() > 0){
-            System.out.println(primerPokemonE2.getMote() + ": " + primerPokemonE2.getPs() + "/"
-                    + primerPokemonE2.getPsMax());
-            System.out.println(primerPokemonE1.getMote() + ": " + primerPokemonE1.getPs() + "/"
-                    + primerPokemonE1.getPsMax());
-            if (primerPokemonE1.getVelocidad() >= primerPokemonE2.getVelocidad()){
-                primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
-                if(primerPokemonE2.getPs() > 0){
+        while (primerPokemonE1 != null && primerPokemonE2 != null){
+            System.out.println(entrenador2.getNombre() + " envió a " + primerPokemonE2.getMote() + "!" +
+                    "\nVe " + primerPokemonE1.getMote() + "!");
+            while (primerPokemonE1.getPs() > 0 && primerPokemonE2.getPs() > 0){
+                System.out.println(primerPokemonE2.getMote() + ": " + primerPokemonE2.getPs() + "/"
+                        + primerPokemonE2.getPsMax());
+                System.out.println(primerPokemonE1.getMote() + ": " + primerPokemonE1.getPs() + "/"
+                        + primerPokemonE1.getPsMax());
+                if (primerPokemonE1.getVelocidad() >= primerPokemonE2.getVelocidad()){
+                    primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
+                    if(primerPokemonE2.getPs() > 0){
+                        //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
+                        primerPokemonE2.atacar(primerPokemonE1,0);
+                    }
+                } else {
                     //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
                     primerPokemonE2.atacar(primerPokemonE1,0);
+                    if(primerPokemonE1.getPs() > 0){
+                        primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
+                    }
                 }
-            } else {
-                //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
-                primerPokemonE2.atacar(primerPokemonE1,0);
-                if(primerPokemonE1.getPs() > 0){
-                    primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
+            }
+            if (primerPokemonE1.getPs()<=0){
+                System.out.println("Tu pokemon " + primerPokemonE1.getMote() + " se debilitó");
+                System.out.println("Selecciona el pokemon que quieres sacar: ");
+                System.out.println(entrenador1.getPokemons().length);
+                System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
+                primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
+            } else if (primerPokemonE2.getPs()<=0){
+                System.out.println("El pokemon del rival " + primerPokemonE2.getMote() + " se debilitó");
+                primerPokemonE2 = entrenador1.getPokemons()[rand.nextInt(0,4)];
+                System.out.println(entrenador2.getNombre() + " sacará a " + primerPokemonE2.getMote() +
+                        " ¿quieres cambiar de pokemon? (true -> si; false -> no)");
+                if (sc.nextBoolean()){
+                    System.out.println("Selecciona el pokemon que quieres sacar: ");
+                    System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
+                    primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
                 }
             }
         }
-        if (primerPokemonE1.getPs()<=0){
-            System.out.println("Tu pokemon " + primerPokemonE1.getMote() + " se debilitó");
-        } else if (primerPokemonE2.getPs()<=0){
-            System.out.println("El pokemon del rival " + primerPokemonE2.getMote() + " se debilitó");
-        }
+        //BUGS:
+        //1.- VIDA MAX NO SE MUESTRA CORRECTAMENTE
+        //2.- FORMULA DE DAÑO MAL HECHA??? (*10 en vez de *100)
+        //3.- SALTA EXCEPCION AL IMPRIMIR LA LISTA DE LOS POKEMONS
     }
 }
