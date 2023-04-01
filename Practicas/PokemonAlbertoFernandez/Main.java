@@ -13,8 +13,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Hola a todos! Bienvenidos al mundo de Pokemon! Me " +
                 "llamo Joaquin! Pero la gente me llama el PROFESOR  POKEMON!\nEste mundo está habitado por unas" +
-                "criaturas llamadas POKEMON! Para algunos, los POKEMON son  mascotas. Pero otros los usan para pelear.\n"+
-                "En cuanto a mi... Estudio a los pokemon como profesion. Pero primero dime como te llamas: ");
+                "criaturas llamadas POKEMON! Para algunos, los POKEMON son  mascotas. Pero otros los usan para " +
+                "pelear.\nEn cuanto a mi... Estudio a los pokemon como profesion. Pero primero dime como te llamas: ");
         Entrenador entrenador = new Entrenador(sc.nextLine());
         System.out.println("Bien! Tu nombre es " + entrenador.getNombre() + "\nEste es mi nieto." +
                         " El ha sido tu rival desde que eras un niño... mmm podrias decirme como se llama?: ");
@@ -70,6 +70,15 @@ public class Main {
             }
         }
         System.out.println();
+        System.out.print("Lista de Pokemons rivales: ");
+        for (int i = 0; i < entrenador2.getPokemons().length; i++) {
+            if (entrenador2.getPokemons()[i] == null){
+                System.out.print("null ");
+            } else {
+                System.out.print(entrenador2.getPokemons()[i].getClass().getSimpleName() + " ");
+            }
+        }
+        System.out.println();
         Pokemon primerPokemonE1 = entrenador1.getPokemons()[0];
         Pokemon primerPokemonE2 = entrenador2.getPokemons()[0];
         while ((primerPokemonE1 != null && primerPokemonE2 != null)){
@@ -121,7 +130,7 @@ public class Main {
                     } while (primerPokemonE1 == null);
                 } else {
                     System.out.println("HAS PERDIDO");
-                    break; //INTENTAR CAMBIARLO PQ EL BUCLE ES INFINITO
+                    primerPokemonE1 = null;
                 }
             } else if (primerPokemonE2.getPs()<=0){
                 System.out.println("El pokemon del rival " + primerPokemonE2.getMote() + " se debilitó");
@@ -143,18 +152,18 @@ public class Main {
                                     System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
                                 }
                             }
-                            primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
+                            primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
                         } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
                     }
                 } else {
                     System.out.println("HAS GANADO!!");
-                    break; //INTENTAR CAMBIARLO PQ EL BUCLE ES INFINITO
+                    primerPokemonE2 = null;
                 }
             }
         }
         //BUGS:
         //1.- VIDA MAX NO SE MUESTRA CORRECTAMENTE (SOLUCIONADO MUY FEO)
         //2.- FORMULA DE DAÑO MAL HECHA??? (*10 en vez de *100)
-        //3.- HAY BREAKS PORQUE NO FUNCIONAN BIEN LOS WHILE CUANDO LOS POKEMONS ESTAN DEBILITADOS
+        //3.- IMPRESION DEL ARRAY POKEMONS NO SE PUEDE HACER CON ARRAYS.TOSTRING()?
     }
 }
