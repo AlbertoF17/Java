@@ -10,16 +10,25 @@ public class Wartortle extends Pokemon implements TipoAgua {
         super("Wartortle", 8, 1, -1, 59, 63, 80,
                 65, 80, 58, 1);
         movimientos[0] = new Burbuja();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     public Wartortle(int nivel){
         super("Wartortle", 8, 1, -1, 59, 63, 80,
                 65, 80, 58, nivel);
         movimientos[0] = new Burbuja();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     public Wartortle(String mote, int nivel){
         super(mote, 8, 1, -1, 59, 63, 80,
                 65, 80, 58, nivel);
         movimientos[0] = new Burbuja();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

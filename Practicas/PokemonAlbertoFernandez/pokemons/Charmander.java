@@ -10,16 +10,25 @@ public class Charmander extends Pokemon implements TipoFuego {
         super("Charmander", 4, 6, -1, 39,
                 52, 43, 60, 50, 65, 1);
         movimientos[0] = new Ascuas();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     public Charmander(int nivel){
         super("Charmander", 4, 6, -1, 39,
                 52, 43, 60, 50, 65, nivel);
         movimientos[0] = new Ascuas();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     public Charmander(String mote, int nivel){
         super(mote, 4, 6, -1, 39,
                 52, 43, 60, 50, 65, nivel);
         movimientos[0] = new Ascuas();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

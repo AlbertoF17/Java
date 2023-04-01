@@ -41,8 +41,8 @@ public abstract class Pokemon implements Tipo {
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
         this.psBase = psBase;
-        this.ps = psBase;
-        this.psMax = psBase;
+        this.ps = psBase; //PARECE QUE NO FUNCIONA (por eso estan llamados en los constructores hijos)
+        this.psMax = psBase; //PARECE QUE NO FUNCIONA (por eso estan llamados en los constructores hijos)
         this.ataqueBase = ataqueBase;
         this.defensaBase = defensaBase;
         this.atqEspecialBase = atqEspecialBase;

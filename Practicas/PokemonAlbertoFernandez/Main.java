@@ -52,9 +52,32 @@ public class Main {
     public static void batalla(Entrenador entrenador1, Entrenador entrenador2){
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
+        int numPokE1 = 0;
+        int numPokE2 = 0;
+        for (int i = 0; i < entrenador1.getPokemons().length; i++) {
+            if (entrenador1.getPokemons()[i] != null){
+                numPokE1++;
+            }
+            if (entrenador2.getPokemons()[i] != null){
+                numPokE2++;
+            }
+        }
+        System.out.print("Lista de Pokemons: ");
+        for (int i = 0; i < entrenador1.getPokemons().length; i++) {
+            if (entrenador1.getPokemons()[i] == null){
+                System.out.print("null ");
+            } else {
+                System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+            }
+        }
+        System.out.println();
         Pokemon primerPokemonE1 = entrenador1.getPokemons()[0];
         Pokemon primerPokemonE2 = entrenador2.getPokemons()[0];
-        while (primerPokemonE1 != null && primerPokemonE2 != null){
+        while ((primerPokemonE1 != null || primerPokemonE2 != null)){
+            while(primerPokemonE1.getPs() <= 0){
+                System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro");
+                primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
+            }
             System.out.println(entrenador2.getNombre() + " envió a " + primerPokemonE2.getMote() + "!" +
                     "\nVe " + primerPokemonE1.getMote() + "!");
             while (primerPokemonE1.getPs() > 0 && primerPokemonE2.getPs() > 0){
@@ -78,25 +101,42 @@ public class Main {
             }
             if (primerPokemonE1.getPs()<=0){
                 System.out.println("Tu pokemon " + primerPokemonE1.getMote() + " se debilitó");
-                System.out.println("Selecciona el pokemon que quieres sacar: ");
-                System.out.println(entrenador1.getPokemons().length);
-                System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
-                primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
+                numPokE1--;
+                if (numPokE1 > 0){
+                    do {
+                        System.out.println("Selecciona el pokemon que quieres sacar: ");
+                        System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
+                        primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
+                    } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
+                } else {
+                    System.out.println("HAS PERDIDO");
+                    break; //INTENTAR CAMBIARLO PQ EL BUCLE ES INFINITO
+                }
             } else if (primerPokemonE2.getPs()<=0){
                 System.out.println("El pokemon del rival " + primerPokemonE2.getMote() + " se debilitó");
-                primerPokemonE2 = entrenador1.getPokemons()[rand.nextInt(0,4)];
-                System.out.println(entrenador2.getNombre() + " sacará a " + primerPokemonE2.getMote() +
-                        " ¿quieres cambiar de pokemon? (true -> si; false -> no)");
-                if (sc.nextBoolean()){
-                    System.out.println("Selecciona el pokemon que quieres sacar: ");
-                    System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
-                    primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
+                numPokE2--;
+                if (numPokE2 > 0){
+                    do{
+                        primerPokemonE2 = entrenador1.getPokemons()[rand.nextInt(0,4)];
+                    } while (primerPokemonE2 == null || primerPokemonE2.getPs() <= 0);
+                    System.out.println(entrenador2.getNombre() + " sacará a " + primerPokemonE2.getMote() +
+                            " ¿quieres cambiar de pokemon? (true -> si; false -> no)");
+                    if (sc.nextBoolean()){
+                        do {
+                            System.out.println("Selecciona el pokemon que quieres sacar: ");
+                            System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
+                            primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
+                        } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
+                    }
+                } else {
+                    System.out.println("HAS GANADO!!");
+                    break; //INTENTAR CAMBIARLO PQ EL BUCLE ES INFINITO
                 }
             }
         }
         //BUGS:
-        //1.- VIDA MAX NO SE MUESTRA CORRECTAMENTE
+        //1.- VIDA MAX NO SE MUESTRA CORRECTAMENTE (SOLUCIONADO MUY FEO)
         //2.- FORMULA DE DAÑO MAL HECHA??? (*10 en vez de *100)
-        //3.- SALTA EXCEPCION AL IMPRIMIR LA LISTA DE LOS POKEMONS
+        //3.- HAY BREAKS PORQUE NO FUNCIONAN BIEN LOS WHILE CUANDO LOS POKEMONS ESTAN DEBILITADOS
     }
 }

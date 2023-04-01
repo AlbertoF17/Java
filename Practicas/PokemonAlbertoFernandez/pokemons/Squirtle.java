@@ -10,16 +10,25 @@ public class Squirtle extends Pokemon implements TipoAgua {
         super("Squirtle", 7, 1, -1, 44, 48, 65, 50,
                 64, 43, 1);
         movimientos[0] = new Burbuja();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     public Squirtle(int nivel){
         super("Squirtle", 7, 1, -1, 44, 48, 65, 50,
                 64, 43, nivel);
         movimientos[0] = new Burbuja();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     public Squirtle(String mote, int nivel){
         super(mote, 7, 1, -1, 44, 48, 65, 50,
                 64, 43, nivel);
         movimientos[0] = new Burbuja();
+        //VALORES EXTRA PORQUE SINO DA ERROR
+        psMax = psBase;
+        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {
