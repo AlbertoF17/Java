@@ -1,10 +1,7 @@
 package Practicas.PokemonAlbertoFernandez;
 
 import Practicas.PokemonAlbertoFernandez.entrenadores.Entrenador;
-import Practicas.PokemonAlbertoFernandez.pokemons.Bulbasaur;
-import Practicas.PokemonAlbertoFernandez.pokemons.Charmander;
-import Practicas.PokemonAlbertoFernandez.pokemons.Pokemon;
-import Practicas.PokemonAlbertoFernandez.pokemons.Squirtle;
+import Practicas.PokemonAlbertoFernandez.pokemons.*;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -34,7 +31,9 @@ public class Main {
             npc.nuevoPokemon(new Charmander(5));
         } else if (eleccionPokemon == 2){
             entrenador.nuevoPokemon(new Charmander(5));
+            entrenador.nuevoPokemon(new Venusaur(5));//PRUEBA
             npc.nuevoPokemon(new Squirtle(5));
+            npc.nuevoPokemon(new Blastoise(4));//PRUEBA
         } else {
             entrenador.nuevoPokemon(new Squirtle(5));
             npc.nuevoPokemon(new Bulbasaur(5));
@@ -73,10 +72,10 @@ public class Main {
         System.out.println();
         Pokemon primerPokemonE1 = entrenador1.getPokemons()[0];
         Pokemon primerPokemonE2 = entrenador2.getPokemons()[0];
-        while ((primerPokemonE1 != null || primerPokemonE2 != null)){
+        while ((primerPokemonE1 != null && primerPokemonE2 != null)){
             while(primerPokemonE1.getPs() <= 0){
-                System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro");
-                primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
+                System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro:");
+                primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
             }
             System.out.println(entrenador2.getNombre() + " envió a " + primerPokemonE2.getMote() + "!" +
                     "\nVe " + primerPokemonE1.getMote() + "!");
@@ -105,9 +104,21 @@ public class Main {
                 if (numPokE1 > 0){
                     do {
                         System.out.println("Selecciona el pokemon que quieres sacar: ");
-                        System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
-                        primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
-                    } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
+                        //System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
+                        for (int i = 0; i < entrenador1.getPokemons().length; i++) {
+                            if (entrenador1.getPokemons()[i] == null){
+                                System.out.print("null ");
+                            } else {
+                                System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+                            }
+                        }
+                        primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
+                        if (primerPokemonE1.getPs() <= 0){
+                            System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro:");
+                            primerPokemonE1 = null;
+                        }
+
+                    } while (primerPokemonE1 == null);
                 } else {
                     System.out.println("HAS PERDIDO");
                     break; //INTENTAR CAMBIARLO PQ EL BUCLE ES INFINITO
@@ -124,7 +135,14 @@ public class Main {
                     if (sc.nextBoolean()){
                         do {
                             System.out.println("Selecciona el pokemon que quieres sacar: ");
-                            System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
+                            //System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
+                            for (int i = 0; i < entrenador1.getPokemons().length; i++) {
+                                if (entrenador1.getPokemons()[i] == null){
+                                    System.out.print("null ");
+                                } else {
+                                    System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+                                }
+                            }
                             primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()];
                         } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
                     }
