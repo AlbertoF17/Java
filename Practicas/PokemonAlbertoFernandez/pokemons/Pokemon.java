@@ -41,8 +41,6 @@ public abstract class Pokemon implements Tipo {
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
         this.psBase = psBase;
-        this.ps = psBase; //PARECE QUE NO FUNCIONA (por eso están llamados en los constructores hijos)
-        this.psMax = psBase; //PARECE QUE NO FUNCIONA (por eso están llamados en los constructores hijos)
         this.ataqueBase = ataqueBase;
         this.defensaBase = defensaBase;
         this.atqEspecialBase = atqEspecialBase;
@@ -251,13 +249,13 @@ public abstract class Pokemon implements Tipo {
     }
 
     public void subirDeNivel(){
-        setNivel(nivel++);
-        setPsMax((((2*psBase+31)*nivel)/100)+nivel+10);
-        setAtaque((int) ((((((2*ataqueBase+31)*nivel)/100)+5)+nivel+10)*1.1f));
-        setAtqEspecial((int) ((((((2*atqEspecialBase+31)*nivel)/100)+5)+nivel+10)*1.1f));
-        setDefensa((int) ((((((2*defensaBase+31)*nivel)/100)+5)+nivel+10)*1.1f));
-        setDefEspecial((int) ((((((2*defEspecial+31)*nivel)/100)+5)+nivel+10)*1.1f));
-        setVelocidad((int) ((((((2*velocidadBase+31)*nivel)/100)+5)+nivel+10)*1.1f));
+        this.nivel = this.nivel+1;
+        this.psMax = (((2*psBase+31)*nivel)/100)+nivel+10;
+        this.ataque = (int) ((((((2*ataqueBase+31)*nivel)/100)+5)+nivel+10)*1.1f);
+        this.atqEspecial = (int) ((((((2*atqEspecialBase+31)*nivel)/100)+5)+nivel+10)*1.1f);
+        this.defensa = (int) ((((((2*defensaBase+31)*nivel)/100)+5)+nivel+10)*1.1f);
+        this.defEspecial = (int) ((((((2*defEspecial+31)*nivel)/100)+5)+nivel+10)*1.1f);
+        this.velocidad = (int) ((((((2*velocidadBase+31)*nivel)/100)+5)+nivel+10)*1.1f);
     }
 
     private void recibirDanho(Pokemon pok, Movimiento ataque){
@@ -280,7 +278,7 @@ public abstract class Pokemon implements Tipo {
         int p = ataque.getPotencia();
         System.out.println(ps);
         System.out.println("Daño: " + (int) (0.01*b*e*10*((((0.2*nivel+1)*a*p)/d)+2)));
-        setPs(ps-(int) (0.01*b*e*10*((((0.2*nivel+1)*a*p)/d)+2)));
+        this.ps = this.ps - (int) (0.01*b*e*10*((((0.2*nivel+1)*a*p)/d)+2));
         System.out.println(ps);
     }
 

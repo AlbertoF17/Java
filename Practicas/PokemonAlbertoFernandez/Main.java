@@ -101,9 +101,10 @@ public class Main {
                     }
                 } else {
                     //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
+                    int ataque = elegirAtaque(primerPokemonE1);
                     primerPokemonE2.atacar(primerPokemonE1,0);
                     if(primerPokemonE1.getPs() > 0){
-                        primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
+                        primerPokemonE1.atacar(primerPokemonE2, ataque);
                     }
                 }
             }
@@ -162,8 +163,7 @@ public class Main {
             }
         }
         //BUGS:
-        //1.- VIDA MAX NO SE MUESTRA CORRECTAMENTE (SOLUCIONADO MUY FEO)
-        //2.- FORMULA DE DAÑO MAL HECHA??? (*10 en vez de *100)
-        //3.- IMPRESION DEL ARRAY POKEMONS NO SE PUEDE HACER CON ARRAYS.TOSTRING()?
+        //1.- FORMULA DE DAÑO MAL HECHA??? (*10 en vez de *100)
+        //2.- IMPRESION DEL ARRAY POKEMONS NO SE PUEDE HACER CON ARRAYS.TOSTRING()?
     }
 }
