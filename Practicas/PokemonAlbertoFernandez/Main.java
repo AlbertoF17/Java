@@ -163,7 +163,7 @@ public class Main {
             }
         }
         //BUGS:
-        //1.- FORMULA DE DAÑO MAL HECHA??? (*10 en vez de *100)
+        //1.- FORMULA DE DAÑO MAL IMPLEMENTADA??? (funciona haciendo *10 en vez de *100)
         //2.- IMPRESION DEL ARRAY POKEMONS NO SE PUEDE HACER CON ARRAYS.TOSTRING()?
     }
 }
