@@ -270,10 +270,10 @@ public abstract class Pokemon implements Tipo {
         int a, d;
         if (ataque.getClase() == 0){
             a = pok.getAtaque();
-            d = getDefensa();
+            d = defensa;
         } else {
             a = pok.getAtqEspecial();
-            d = getDefEspecial();
+            d = defEspecial;
         }
         int p = ataque.getPotencia();
         System.out.println(ps);
