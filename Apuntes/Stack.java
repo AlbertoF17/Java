@@ -2,7 +2,7 @@ package Apuntes;
 
 import java.util.Stack;
 
-class Main {
+class StackClass {
     //La clase Stack representa una pila de objetos “last-in-first-out” (LIFO).
     //Extiende la clase “Vector” con cinco operaciones que permiten tratar un vector como una pila.
     //Se proporcionan las operaciones habituales de push y pop, así como un método para mirar el elemento
