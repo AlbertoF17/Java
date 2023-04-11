@@ -138,7 +138,7 @@ public class Main {
                 numPokE2--;
                 if (numPokE2 > 0){
                     do{
-                        primerPokemonE2 = entrenador1.getPokemons()[rand.nextInt(0,4)];
+                        primerPokemonE2 = entrenador2.getPokemons()[rand.nextInt(0,4)];
                     } while (primerPokemonE2 == null || primerPokemonE2.getPs() <= 0);
                     System.out.println(entrenador2.getNombre() + " sacará a " + primerPokemonE2.getMote() +
                             " ¿quieres cambiar de pokemon? (true -> si; false -> no)");
