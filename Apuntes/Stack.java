@@ -22,21 +22,30 @@ class Main {
     public static void main(String[] args) {
         Stack<String> stack = new Stack<String>();
 
-        stack.push("A");    // Insert `A` into the stack
-        stack.push("B");    // Insert `B` into the stack
-        stack.push("C");    // Insert `C` into the stack
-        stack.push("D");    // Insert `D` into the stack
+        stack.push("A"); // Inserta "A" en la pila
+        stack.push("B"); // Inserta "B" en la pila
+        stack.push("C"); // Inserta "C" en la pila
+        stack.push("D"); // Inserta "D" en la pila
 
-        // prints the top of the stack (`D`)
-        System.out.println("The top element is " + stack.peek());
+        System.out.println("The top element is " + stack.peek()); // Imprime "D" ya que es la última letra insertada
 
-        stack.pop();        // removing the top element (`D`)
-        stack.pop();        // removing the next top (`C)
+        stack.pop(); // Elimina "D", ya que es la última letra insertada y, por tanto, está arriba en la pila
+        stack.pop(); // Elimina "C" ya que es la letra que está más arriba en la pila
 
-        // returns the total number of elements present in the stack
         System.out.println("The stack size is " + stack.size());
 
-        // check if the stack is empty
+        if (stack.empty()) {
+            System.out.println("The stack is empty");
+        }
+        else {
+            System.out.println("The stack is not empty");
+        }
+
+        // Vaciamos la pila para volver a hacer el if para ver si ahora nos dice si está vacío
+        for (int i = 0; i <= stack.size(); i++) {
+            stack.pop();
+        }
+
         if (stack.empty()) {
             System.out.println("The stack is empty");
         }
