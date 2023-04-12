@@ -1,6 +1,7 @@
 package Apuntes;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 class QueueClass {
@@ -32,23 +33,25 @@ class QueueClass {
             //Retorna valor especial:
                 //peek(): retorna el objeto que está almacenado encima de la pila sin eliminarlo.
     public static void main(String[] args) {
-        Queue<Integer> q1 = new LinkedList<Integer>();
-        //Add elements to the Queue
-        q1.add(10);
-        q1.add(20);
-        q1.add(30);
-        q1.add(40);
-        q1.add(50);
-        System.out.println("Elements in Queue:"+q1);
-        //remove () method =>removes first element from the queue
-        System.out.println("Element removed from the queue: "+q1.remove());
-        //element() => returns head of the queue
-        System.out.println("Head of the queue: "+q1.element());
-        //poll () => removes and returns the head
-        System.out.println("Poll():Returned Head of the queue: "+q1.poll());
-        //returns head of the queue
-        System.out.println("peek():Head of the queue: "+q1.peek());
-        //print the contents of the Queue
-        System.out.println("Final Queue:"+q1);
+        //Declaramos la cola y le añadimos elementos
+        Queue<Integer> q1 = new LinkedList<Integer>(List.of(10, 20, 30, 40, 50));
+        //También se pueden agregar elementos de la siguiente manera (ya sea usando add u offer)
+        q1.add(60);
+        q1.add(70);
+        q1.offer(80);
+        q1.offer(90);
+        q1.offer(100);
+        //Imprimimos la cola inicial
+        System.out.println("Elementos de la cola:" + q1);
+        //Usamos remove para eliminar el primer elemento
+        System.out.println("Elemento eliminado de la cola: " + q1.remove());
+        //Usamos element para retornar el primer elemento SIN eliminarlo
+        System.out.println("Cabeza de la cola: " + q1.element());
+        //Usamos poll para retornar el primer elemento ELIMINÁNDOLO
+        System.out.println("Cabeza de la cola (se eliminará): " + q1.poll());
+        //Usamos peek para retornar la cabeza de la cola, de nuevo sin eliminar
+        System.out.println("Cabeza de la cola actual: " + q1.peek());
+        //Imprimimos la cola resultante
+        System.out.println("Cola resultante:" + q1);
     }
 }

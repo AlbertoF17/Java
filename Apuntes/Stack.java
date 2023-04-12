@@ -27,18 +27,19 @@ class StackClass {
         stack.push("C"); // Inserta "C" en la pila
         stack.push("D"); // Inserta "D" en la pila
 
-        System.out.println("The top element is " + stack.peek()); // Imprime "D" ya que es la última letra insertada
+        System.out.println("El elemento superior es: " + stack.peek());
+        // Imprime "D" ya que es la última letra insertada
 
         stack.pop(); // Elimina "D", ya que es la última letra insertada y, por tanto, está arriba en la pila
         stack.pop(); // Elimina "C" ya que es la letra que está más arriba en la pila
 
-        System.out.println("The stack size is " + stack.size());
+        System.out.println("El tamaño de la pila es: " + stack.size());
 
         if (stack.empty()) {
-            System.out.println("The stack is empty");
+            System.out.println("La pila está vacía");
         }
         else {
-            System.out.println("The stack is not empty");
+            System.out.println("La pila no está vacía");
         }
 
         // Vaciamos la pila para volver a hacer el if para ver si ahora nos dice si está vacío
@@ -47,10 +48,10 @@ class StackClass {
         }
 
         if (stack.empty()) {
-            System.out.println("The stack is empty");
+            System.out.println("La pila está vacía");
         }
         else {
-            System.out.println("The stack is not empty");
+            System.out.println("La pila no está vacía");
         }
     }
 }
