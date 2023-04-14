@@ -62,20 +62,18 @@ public class BuscaMinas {
 
     private void generarMinas() throws MinaException {
         Random rand = new Random();
-        int cont = numMinas;
+        int restantes = numMinas;
         do {
-            for (int i = 0; i < numMinas; i++) {
-                int Minai = rand.nextInt(1, alto+1);
-                int Minaj = rand.nextInt(1, ancho+1);
-                if (tablero[Minai][Minaj] != 9){
-                    tablero[Minai][Minaj] = 9;
-                    actualizar8vecinos(Minai, Minaj);
-                    Mina mina = new Mina(Minai,Minaj);
-                    cont--;
-                    minas[cont] = mina;
-                }
+            int minai = rand.nextInt(1, alto+1);
+            int minaj = rand.nextInt(1, ancho+1);
+            if (tablero[minai][minaj] != 9){
+                tablero[minai][minaj] = 9;
+                actualizar8vecinos(minai, minaj);
+                Mina mina = new Mina(minai,minaj);
+                restantes--;
+                minas[restantes] = mina;
             }
-        }while(cont>0);
+        }while(restantes>0);
     }
     private void actualizar8vecinos(int i, int j){
         tablero[i-1][j-1]++;
