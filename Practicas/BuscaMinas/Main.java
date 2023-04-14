@@ -5,6 +5,7 @@ public class Main {
         try {
             BuscaMinas buscaMinas1 = new BuscaMinas(9,9,8);
             buscaMinas1.imprimirTableroExt();
+            System.out.println("******************************");
             buscaMinas1.imprimirTablero();
         } catch (TableroException e) {
             e.printStackTrace();

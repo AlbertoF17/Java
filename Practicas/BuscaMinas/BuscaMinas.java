@@ -37,7 +37,11 @@ public class BuscaMinas {
     public void imprimirTableroExt(){
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[i].length; j++) {
-                System.out.print(tablero[i][j] + "  ");
+                if (tablero[i][j]>8){
+                    System.out.print("*  ");
+                }else{
+                    System.out.print(tablero[i][j] + "  ");
+                }
             }
             System.out.println();
         }
@@ -46,23 +50,41 @@ public class BuscaMinas {
     public void imprimirTablero(){
         for (int i = 1; i < tablero.length-1; i++) {
             for (int j = 1; j < tablero[i].length-1; j++) {
-                System.out.print(tablero[i][j] + "  ");
+                if (tablero[i][j]>8){
+                    System.out.print("*  ");
+                }else{
+                    System.out.print(tablero[i][j] + "  ");
+                }
             }
             System.out.println();
         }
     }
 
-    private void generarMinas(){
+    private void generarMinas() throws MinaException {
         Random rand = new Random();
         int cont = numMinas;
         do {
             for (int i = 0; i < numMinas; i++) {
-                int colocacionMinai = rand.nextInt(1, alto+1);
-                int colocacionMinaj = rand.nextInt(1, ancho+1);
-                if (tablero[colocacionMinai][colocacionMinaj] != 9){
+                int Minai = rand.nextInt(1, alto+1);
+                int Minaj = rand.nextInt(1, ancho+1);
+                if (tablero[Minai][Minaj] != 9){
+                    tablero[Minai][Minaj] = 9;
+                    actualizar8vecinos(Minai, Minaj);
+                    Mina mina = new Mina(Minai,Minaj);
                     cont--;
+                    minas[cont] = mina;
                 }
             }
         }while(cont>0);
+    }
+    private void actualizar8vecinos(int i, int j){
+        tablero[i-1][j-1]++;
+        tablero[i-1][j]++;
+        tablero[i-1][j+1]++;
+        tablero[i][j-1]++;
+        tablero[i][j+1]++;
+        tablero[i+1][j-1]++;
+        tablero[i+1][j]++;
+        tablero[i+1][j+1]++;
     }
 }
