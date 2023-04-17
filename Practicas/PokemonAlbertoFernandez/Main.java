@@ -112,22 +112,32 @@ public class Main {
                 System.out.println("Tu pokemon " + primerPokemonE1.getMote() + " se debilitó");
                 numPokE1--;
                 if (numPokE1 > 0){
+                    System.out.println("Selecciona el pokemon que quieres sacar: ");
                     do {
-                        System.out.println("Selecciona el pokemon que quieres sacar: ");
-                        //System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
                         for (int i = 0; i < entrenador1.getPokemons().length; i++) {
                             if (entrenador1.getPokemons()[i] == null){
-                                System.out.print("null ");
+                                System.out.println(i+1 + " -> " + "null ");
                             } else {
-                                System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+                                System.out.println(i+1 + " -> "
+                                        + entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
                             }
                         }
-                        primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
-                        if (primerPokemonE1.getPs() <= 0){
-                            System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro:");
-                            primerPokemonE1 = null;
+                        boolean pokNoValido = false;
+                        try {
+                            primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
+                        } catch (ArrayIndexOutOfBoundsException e){
+                            System.out.println("Esta posición no existe en tu lista de pokemons, debe ser un número" +
+                                    " comprendido entre 1 y 6 (ambos incluidos)");
+                            pokNoValido = true;
                         }
-
+                        if (!pokNoValido){
+                            if (primerPokemonE1 == null) {
+                                System.out.println("Este espacio está vacío y no hay ningún pokemon, seleccione otro:");
+                            } else if (primerPokemonE1.getPs() <= 0) {
+                                System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro:");
+                                primerPokemonE1 = null;
+                            }
+                        }
                     } while (primerPokemonE1 == null);
                 } else {
                     System.out.println("HAS PERDIDO");
@@ -143,17 +153,32 @@ public class Main {
                     System.out.println(entrenador2.getNombre() + " sacará a " + primerPokemonE2.getMote() +
                             " ¿quieres cambiar de pokemon? (true -> si; false -> no)");
                     if (sc.nextBoolean()){
+                        System.out.println("Selecciona el pokemon que quieres sacar: ");
                         do {
-                            System.out.println("Selecciona el pokemon que quieres sacar: ");
-                            //System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
                             for (int i = 0; i < entrenador1.getPokemons().length; i++) {
                                 if (entrenador1.getPokemons()[i] == null){
-                                    System.out.print("null ");
+                                    System.out.println(i+1 + " -> " + "null ");
                                 } else {
-                                    System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+                                    System.out.println(i+1 + " -> "
+                                            + entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
                                 }
                             }
-                            primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
+                            boolean pokNoValido = false;
+                            try {
+                                primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
+                            } catch (ArrayIndexOutOfBoundsException e){
+                                System.out.println("Esta posición no existe en tu lista de pokemons, debe ser un número" +
+                                        " comprendido entre 1 y 6 (ambos incluidos)");
+                                pokNoValido = true;
+                            }
+                            if (!pokNoValido){
+                                if (primerPokemonE1 == null) {
+                                    System.out.println("Este espacio está vacío y no hay ningún pokemon, seleccione otro:");
+                                } else if (primerPokemonE1.getPs() <= 0) {
+                                    System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro:");
+                                    primerPokemonE1 = null;
+                                }
+                            }
                         } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
                     }
                 } else {
@@ -162,8 +187,5 @@ public class Main {
                 }
             }
         }
-        //BUGS:
-        //1.- FORMULA DE DAÑO MAL IMPLEMENTADA??? (funciona haciendo *10 en vez de *100)
-        //2.- IMPRESION DEL ARRAY POKEMONS NO SE PUEDE HACER CON ARRAYS.TOSTRING()?
     }
 }
