@@ -1,6 +1,7 @@
 package Practicas.PokemonAlbertoFernandez;
 
 import Practicas.PokemonAlbertoFernandez.entrenadores.Entrenador;
+import Practicas.PokemonAlbertoFernandez.movimientos.Movimiento;
 import Practicas.PokemonAlbertoFernandez.pokemons.*;
 
 import java.util.Arrays;
@@ -40,13 +41,20 @@ public class Main {
         }
         batalla(entrenador, npc);
     }
-    public static int elegirAtaque(Pokemon pok){
+    public static int elegirAtaque(Pokemon pok) {
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < pok.getMovimientos().length; i++) {
-            System.out.println(i + " " + pok.getMovimientos()[i]);
-        }
-        System.out.print("Selecciona un ataque (0-3): ");
-        return sc.nextInt();
+        Movimiento ataque;
+        int ataqueNum;
+        do{
+            for (int i = 0; i < pok.getMovimientos().length; i++) {
+                System.out.println(i + 1 + " -> " + pok.getMovimientos()[i]);
+            }
+            System.out.print("Selecciona un ataque (1-4): ");
+            ataqueNum = sc.nextInt();
+            ataque = pok.getMovimientos()[ataqueNum-1];
+        }while(ataque.getPpActual()<=0);
+        //while(ataque.getPpActual()<=0 || (ataqueNum<1 || ataqueNum>4) || ataque == null);
+        return ataqueNum-1;
     }
     public static void batalla(Entrenador entrenador1, Entrenador entrenador2){
         Scanner sc = new Scanner(System.in);
@@ -96,10 +104,12 @@ public class Main {
                 if (primerPokemonE1.getVelocidad() >= primerPokemonE2.getVelocidad()){
                     primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
                     if(primerPokemonE2.getPs() > 0){
+                        //Esto se haría si el pokemon rival tuviera los 4 movimientos disponibles
                         //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
                         primerPokemonE2.atacar(primerPokemonE1,0);
                     }
                 } else {
+                    //Esto se haría si el pokemon rival tuviera los 4 movimientos disponibles
                     //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
                     int ataque = elegirAtaque(primerPokemonE1);
                     primerPokemonE2.atacar(primerPokemonE1,0);
@@ -188,4 +198,6 @@ public class Main {
             }
         }
     }
+    //BUGS
+    //1.- Línea 55 (las condiciones están pochas)
 }
