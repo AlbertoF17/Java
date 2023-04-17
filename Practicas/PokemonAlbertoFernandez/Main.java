@@ -142,9 +142,11 @@ public class Main {
                         }
                         if (!pokNoValido){
                             if (primerPokemonE1 == null) {
-                                System.out.println("Este espacio está vacío y no hay ningún pokemon, seleccione otro:");
+                                System.out.println("Este espacio está vacío y no hay ningún pokemon," +
+                                        " seleccione otro:");
                             } else if (primerPokemonE1.getPs() <= 0) {
-                                System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro:");
+                                System.out.println("Este pokemon está debilitado y no puede combatir," +
+                                        " seleccione otro:");
                                 primerPokemonE1 = null;
                             }
                         }
@@ -177,15 +179,17 @@ public class Main {
                             try {
                                 primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
                             } catch (ArrayIndexOutOfBoundsException e){
-                                System.out.println("Esta posición no existe en tu lista de pokemons, debe ser un número" +
-                                        " comprendido entre 1 y 6 (ambos incluidos)");
+                                System.out.println("Esta posición no existe en tu lista de pokemons, debe ser un" +
+                                        " número comprendido entre 1 y 6 (ambos incluidos)");
                                 pokNoValido = true;
                             }
                             if (!pokNoValido){
                                 if (primerPokemonE1 == null) {
-                                    System.out.println("Este espacio está vacío y no hay ningún pokemon, seleccione otro:");
+                                    System.out.println("Este espacio está vacío y no hay ningún pokemon," +
+                                            " seleccione otro:");
                                 } else if (primerPokemonE1.getPs() <= 0) {
-                                    System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro:");
+                                    System.out.println("Este pokemon está debilitado y no puede combatir," +
+                                            " seleccione otro:");
                                     primerPokemonE1 = null;
                                 }
                             }
