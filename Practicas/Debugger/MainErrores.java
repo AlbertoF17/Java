@@ -31,7 +31,7 @@ public class MainErrores {
 
         evilEdu.eliminarNota(1);
         System.out.println(evilEdu);
-        //TODO seguir por aqui
+        //TODO seguir por aquí
         try{
             evilEdu.editarNota(-1, 10);
         }catch (IllegalArgumentException e){
