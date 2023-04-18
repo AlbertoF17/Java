@@ -1,7 +1,5 @@
-package Apuntes.Recursividad;
-
+package Apuntes.ColeccionesRecursividad;
 import java.util.*;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println(factorial(5));
@@ -151,9 +149,75 @@ public class Main {
         for(Map.Entry<Integer, Alumno> entry : dic.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
+
+        Vector<Integer> vec = new Vector<>();
+        for (int i = 1; i < 11; i++) {
+            vec.add(i);
+        }
+        System.out.println(vec);
+
+        //Las enumeraciones y los iteradores son objetos útiles a la hora de recorrer diferentes tipos de colecciones
+
+        //Interfaz Enumeration. Permite consultar secuencialmente los elementos de una coleccion.
+        Enumeration enu = vec.elements();
+
+        //Para consultar uno a uno los elementos
+        while (enu.hasMoreElements()) {
+            Object o = enu.nextElement();
+            Integer n = (Integer) o;
+            System.out.println(n);
+        }
+
+        /*
+            Interfaz Iterator. Permite iterar sobre los elementos de una colección secuencialmente para, además de
+            consultar, eliminar elementos.
+        */
+        Iterator iter = vec.iterator();
+
+        //Para iterar uno a uno los elementos
+        while(iter.hasNext()) {
+            Object o = iter.next();
+            Integer n = (Integer) o;
+            if (n > 3 && n <7) {
+                iter.remove();
+            }
+        }
+        System.out.println(vec);
+
+        /*
+            Interfaz ListIterator. Permite iterar sobre los elementos de una lista secuencialmente para consultar,
+            eliminar y setear elementos. Tambien permite iterar hacia atras.
+        */
+        for (int i = 3; i < 6; i++) {
+            vec.add(i,i+1);
+        }
+        System.out.println(vec);
+
+        ListIterator listIt = vec.listIterator();
+
+        //Para iterar uno a uno los elementos
+        while(listIt.hasNext()) {
+            Object o = listIt.next();
+            Integer n = (Integer) o;
+            if (n > 3 && n <7) {
+                listIt.set(Integer.valueOf(0));
+            }
+        }
+        System.out.println(vec);
+
+        //Se puede iterar al reves
+        ListIterator listIt2 = vec.listIterator(vec.size());
+        while(listIt2.hasPrevious()) {
+            Object o = listIt2.previous();
+            Integer n = (Integer) o;
+            if (n == 0) {
+                System.out.println("Añadiendo 5s delante de 0s");
+                listIt2.add(Integer.valueOf(5));
+            }
+        }
+        System.out.println(vec);
+
     }
-
-
 
     public static int factorial(int n) {
         if (n == 0) {
@@ -172,5 +236,4 @@ public class Main {
             return fibo(n-1) + fibo(n-2);
         }
     }
-
 }

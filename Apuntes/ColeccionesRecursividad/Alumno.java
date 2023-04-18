@@ -1,8 +1,8 @@
-package Apuntes.Recursividad;
+package Apuntes.ColeccionesRecursividad;
 
 import java.util.Objects;
 
-public class Alumno implements Comparable {
+public class Alumno implements Comparable{
     String nombre;
 
     public Alumno(String nombre) {
