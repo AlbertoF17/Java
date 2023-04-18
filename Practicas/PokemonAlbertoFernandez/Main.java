@@ -1,6 +1,7 @@
 package Practicas.PokemonAlbertoFernandez;
 
 import Practicas.PokemonAlbertoFernandez.entrenadores.Entrenador;
+import Practicas.PokemonAlbertoFernandez.movimientos.Movimiento;
 import Practicas.PokemonAlbertoFernandez.pokemons.*;
 
 import java.util.Arrays;
@@ -40,13 +41,20 @@ public class Main {
         }
         batalla(entrenador, npc);
     }
-    public static int elegirAtaque(Pokemon pok){
+    public static int elegirAtaque(Pokemon pok) {
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < pok.getMovimientos().length; i++) {
-            System.out.println(i + " " + pok.getMovimientos()[i]);
-        }
-        System.out.print("Selecciona un ataque (0-3): ");
-        return sc.nextInt();
+        Movimiento ataque;
+        int ataqueNum;
+        do{
+            for (int i = 0; i < pok.getMovimientos().length; i++) {
+                System.out.println(i + 1 + " -> " + pok.getMovimientos()[i]);
+            }
+            System.out.print("Selecciona un ataque (1-4): ");
+            ataqueNum = sc.nextInt();
+            ataque = pok.getMovimientos()[ataqueNum-1];
+        }while(ataque.getPpActual()<=0);
+        //while(ataque.getPpActual()<=0 || (ataqueNum<1 || ataqueNum>4) || ataque == null);
+        return ataqueNum-1;
     }
     public static void batalla(Entrenador entrenador1, Entrenador entrenador2){
         Scanner sc = new Scanner(System.in);
@@ -96,10 +104,12 @@ public class Main {
                 if (primerPokemonE1.getVelocidad() >= primerPokemonE2.getVelocidad()){
                     primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
                     if(primerPokemonE2.getPs() > 0){
+                        //Esto se haría si el pokemon rival tuviera los 4 movimientos disponibles
                         //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
                         primerPokemonE2.atacar(primerPokemonE1,0);
                     }
                 } else {
+                    //Esto se haría si el pokemon rival tuviera los 4 movimientos disponibles
                     //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
                     int ataque = elegirAtaque(primerPokemonE1);
                     primerPokemonE2.atacar(primerPokemonE1,0);
@@ -112,22 +122,34 @@ public class Main {
                 System.out.println("Tu pokemon " + primerPokemonE1.getMote() + " se debilitó");
                 numPokE1--;
                 if (numPokE1 > 0){
+                    System.out.println("Selecciona el pokemon que quieres sacar: ");
                     do {
-                        System.out.println("Selecciona el pokemon que quieres sacar: ");
-                        //System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
                         for (int i = 0; i < entrenador1.getPokemons().length; i++) {
                             if (entrenador1.getPokemons()[i] == null){
-                                System.out.print("null ");
+                                System.out.println(i+1 + " -> " + "null ");
                             } else {
-                                System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+                                System.out.println(i+1 + " -> "
+                                        + entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
                             }
                         }
-                        primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
-                        if (primerPokemonE1.getPs() <= 0){
-                            System.out.println("Este pokemon está debilitado y no puede combatir, seleccione otro:");
-                            primerPokemonE1 = null;
+                        boolean pokNoValido = false;
+                        try {
+                            primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
+                        } catch (ArrayIndexOutOfBoundsException e){
+                            System.out.println("Esta posición no existe en tu lista de pokemons, debe ser un número" +
+                                    " comprendido entre 1 y 6 (ambos incluidos)");
+                            pokNoValido = true;
                         }
-
+                        if (!pokNoValido){
+                            if (primerPokemonE1 == null) {
+                                System.out.println("Este espacio está vacío y no hay ningún pokemon," +
+                                        " seleccione otro:");
+                            } else if (primerPokemonE1.getPs() <= 0) {
+                                System.out.println("Este pokemon está debilitado y no puede combatir," +
+                                        " seleccione otro:");
+                                primerPokemonE1 = null;
+                            }
+                        }
                     } while (primerPokemonE1 == null);
                 } else {
                     System.out.println("HAS PERDIDO");
@@ -143,17 +165,34 @@ public class Main {
                     System.out.println(entrenador2.getNombre() + " sacará a " + primerPokemonE2.getMote() +
                             " ¿quieres cambiar de pokemon? (true -> si; false -> no)");
                     if (sc.nextBoolean()){
+                        System.out.println("Selecciona el pokemon que quieres sacar: ");
                         do {
-                            System.out.println("Selecciona el pokemon que quieres sacar: ");
-                            //System.out.println(Arrays.toString(entrenador1.getPokemons()));//SALTA EXCEPCION
                             for (int i = 0; i < entrenador1.getPokemons().length; i++) {
                                 if (entrenador1.getPokemons()[i] == null){
-                                    System.out.print("null ");
+                                    System.out.println(i+1 + " -> " + "null ");
                                 } else {
-                                    System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+                                    System.out.println(i+1 + " -> "
+                                            + entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
                                 }
                             }
-                            primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
+                            boolean pokNoValido = false;
+                            try {
+                                primerPokemonE1 = entrenador1.getPokemons()[sc.nextInt()-1];
+                            } catch (ArrayIndexOutOfBoundsException e){
+                                System.out.println("Esta posición no existe en tu lista de pokemons, debe ser un" +
+                                        " número comprendido entre 1 y 6 (ambos incluidos)");
+                                pokNoValido = true;
+                            }
+                            if (!pokNoValido){
+                                if (primerPokemonE1 == null) {
+                                    System.out.println("Este espacio está vacío y no hay ningún pokemon," +
+                                            " seleccione otro:");
+                                } else if (primerPokemonE1.getPs() <= 0) {
+                                    System.out.println("Este pokemon está debilitado y no puede combatir," +
+                                            " seleccione otro:");
+                                    primerPokemonE1 = null;
+                                }
+                            }
                         } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
                     }
                 } else {
@@ -162,8 +201,7 @@ public class Main {
                 }
             }
         }
-        //BUGS:
-        //1.- FORMULA DE DAÑO MAL IMPLEMENTADA??? (funciona haciendo *10 en vez de *100)
-        //2.- IMPRESION DEL ARRAY POKEMONS NO SE PUEDE HACER CON ARRAYS.TOSTRING()?
     }
+    //BUGS
+    //1.- Línea 55 (las condiciones están pochas)
 }
