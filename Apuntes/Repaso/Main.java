@@ -35,5 +35,11 @@ public class Main {
         System.out.println("***hashCode***");
         System.out.println(al2.hashCode());
         System.out.println(al3.hashCode());
+        System.out.println("***clone***");
+        try {
+            System.out.println(al1.clone());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
     }
 }

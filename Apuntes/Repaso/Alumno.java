@@ -1,8 +1,6 @@
 package Apuntes.Repaso;
 
-import java.util.Objects;
-
-public class Alumno {
+public class Alumno implements Cloneable{
     private String dni;
     private String nombre;
     private String apellidos;
@@ -29,5 +27,10 @@ public class Alumno {
     public int hashCode() {
         //return Objects.hash(dni); //válido para más de un criterio
         return dni.hashCode(); //válido para un sólo criterio
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
