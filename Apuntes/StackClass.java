@@ -31,7 +31,9 @@ class StackClass {
         // Imprime "D" ya que es la última letra insertada
 
         stack.pop(); // Elimina "D", ya que es la última letra insertada y, por tanto, está arriba en la pila
-        stack.pop(); // Elimina "C" ya que es la letra que está más arriba en la pila
+        stack.pop(); // Elimina "C", ya que es la letra que está más arriba en la pila, después de haber eliminado "D"
+
+        System.out.println("La posición del elemento \"A\" es: " + stack.search("A"));
 
         System.out.println("El tamaño de la pila es: " + stack.size());
 
