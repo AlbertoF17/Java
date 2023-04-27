@@ -6,7 +6,7 @@ import Practicas.PokemonAlbertoFernandez.tipos.*;
 import javax.naming.OperationNotSupportedException;
 import java.util.Arrays;
 
-public abstract class Pokemon implements Tipo {
+public abstract class Pokemon implements Tipo, Cloneable {
     String mote;
     int pokedexNum;
     int tipo1;
@@ -285,5 +285,16 @@ public abstract class Pokemon implements Tipo {
     public void atacar(Pokemon objetivo, int movimiento){
         System.out.println(mote + " usó: " + movimientos[movimiento].getClass().getSimpleName());
         objetivo.recibirDanho(this, movimientos[movimiento]);
+    }
+
+    @Override
+    public Pokemon clone() {
+        try {
+            Pokemon clone = (Pokemon) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

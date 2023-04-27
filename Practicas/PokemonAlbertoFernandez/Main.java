@@ -11,6 +11,12 @@ import java.util.Scanner;
 public class Main {
     Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
+        Random rand = new Random();
+        Pokemon[] arrayRandom = {new Arcanine(), new Braviary(), new Cinderace(), new Corviknight(), new Dracovish(),
+        new Dragapult(), new Duraludon(), new Ferrothorn(), new Garchomp(), new Gastrodon(), new Groudon(),
+        new Incineroar(), new Kyogre(), new Landorus(), new Metagross(), new Salamence(), new TapuFini(),
+        new Thundurus(), new Tornadus(), new Toxtricity(), new Tyranitar(), new Zacian()};
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Hola a todos! Bienvenidos al mundo de Pokemon! Me " +
                 "llamo Joaquin! Pero la gente me llama el PROFESOR  POKEMON!\nEste mundo está habitado por unas" +
@@ -23,22 +29,33 @@ public class Main {
         System.out.println("Ah si! Ahora lo recuerdo! Se llama " + npc.getNombre() + "\n" +
                 entrenador.getNombre() + "! Tu propia leyenda pokemon está a punto de comenzar!" +
                 " Te espera un mundo de sueños y aventuras con los pokemon!\nAdelante! " + entrenador.getNombre() +
-                " toma! Aqui hay 3 Pokemon! Bien! Estan dentro de las Pokeball! Cuando yo era joven," +
-                " era un buen entrenador de Main!\nPero ahora solo me quedan 3. Te daré uno. Cual quieres?\n" +
-                "(1 -> Bulbasaur, 2 -> Charmander, 3 -> Squirtle):");
-        int eleccionPokemon = sc.nextInt();
-        if (eleccionPokemon == 1){
-            entrenador.nuevoPokemon(new Bulbasaur(5));
-            npc.nuevoPokemon(new Charmander(5));
-        } else if (eleccionPokemon == 2){
-            entrenador.nuevoPokemon(new Charmander(5));
-            entrenador.nuevoPokemon(new Venusaur(5));//PRUEBA
-            npc.nuevoPokemon(new Squirtle(5));
-            npc.nuevoPokemon(new Blastoise(4));//PRUEBA
+                ", elije un modo de juego:\nCombate de starters -> 0 | Batalla aleatoria -> 1");
+        if (sc.nextInt() == 1){
+            System.out.println("Ambos os batiréis en un duelo épico con equipos totalmente aleatorios...\n" +
+                    "QUE COMIENCE EL COMBATE!!!");
+            for (int i = 0; i < entrenador.getPokemons().length; i++) {
+                entrenador.nuevoPokemon(arrayRandom[rand.nextInt(0, arrayRandom.length)]);
+            }
+            for (int i = 0; i < npc.getPokemons().length; i++) {
+                npc.nuevoPokemon(arrayRandom[rand.nextInt(0, arrayRandom.length)]);
+            }
         } else {
-            entrenador.nuevoPokemon(new Squirtle(5));
-            npc.nuevoPokemon(new Bulbasaur(5));
+            System.out.println("toma! Aqui hay 3 Pokemon! Bien! Estan dentro de las Pokeball! Cuando yo era joven," +
+                    " era un buen entrenador de Main!\nPero ahora solo me quedan 3. Te daré uno. Cual quieres?\n" +
+                    "(1 -> Bulbasaur, 2 -> Charmander, 3 -> Squirtle):");
+            int eleccionPokemon = sc.nextInt();
+            if (eleccionPokemon == 1){
+                entrenador.nuevoPokemon(new Bulbasaur(5));
+                npc.nuevoPokemon(new Charmander(5));
+            } else if (eleccionPokemon == 2){
+                entrenador.nuevoPokemon(new Charmander(5));
+                npc.nuevoPokemon(new Squirtle(5));
+            } else {
+                entrenador.nuevoPokemon(new Squirtle(5));
+                npc.nuevoPokemon(new Bulbasaur(5));
+            }
         }
+
         batalla(entrenador, npc);
     }
     public static int elegirAtaque(Pokemon pok) {
