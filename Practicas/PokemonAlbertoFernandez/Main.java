@@ -4,7 +4,6 @@ import Practicas.PokemonAlbertoFernandez.entrenadores.Entrenador;
 import Practicas.PokemonAlbertoFernandez.movimientos.Movimiento;
 import Practicas.PokemonAlbertoFernandez.pokemons.*;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -30,14 +29,43 @@ public class Main {
                 entrenador.getNombre() + "! Tu propia leyenda pokemon está a punto de comenzar!" +
                 " Te espera un mundo de sueños y aventuras con los pokemon!\nAdelante! " + entrenador.getNombre() +
                 ", elije un modo de juego:\nCombate de starters -> 0 | Batalla aleatoria -> 1");
-        if (sc.nextInt() == 1){
+        int modoJuego = sc.nextInt();
+        if (modoJuego == 1){
             System.out.println("Ambos os batiréis en un duelo épico con equipos totalmente aleatorios...\n" +
                     "QUE COMIENCE EL COMBATE!!!");
+            int[] numerosGenerados = new int[entrenador.getPokemons().length];
             for (int i = 0; i < entrenador.getPokemons().length; i++) {
-                entrenador.nuevoPokemon(arrayRandom[rand.nextInt(0, arrayRandom.length)]);
+                int numero;
+                boolean existe;
+                do {
+                    numero = rand.nextInt(0, arrayRandom.length);
+                    existe = false;
+                    for (int j = 0; j < i; j++) {
+                        if (numerosGenerados[j] == numero) {
+                            existe = true;
+                            break;
+                        }
+                    }
+                } while (existe);
+                numerosGenerados[i] = numero;
+                entrenador.nuevoPokemon(arrayRandom[numero].clone());
             }
+            numerosGenerados = new int[npc.getPokemons().length];
             for (int i = 0; i < npc.getPokemons().length; i++) {
-                npc.nuevoPokemon(arrayRandom[rand.nextInt(0, arrayRandom.length)]);
+                int numero;
+                boolean existe;
+                do {
+                    numero = rand.nextInt(0, arrayRandom.length);
+                    existe = false;
+                    for (int j = 0; j < i; j++) {
+                        if (numerosGenerados[j] == numero) {
+                            existe = true;
+                            break;
+                        }
+                    }
+                } while (existe);
+                numerosGenerados[i] = numero;
+                npc.nuevoPokemon(arrayRandom[numero].clone());
             }
         } else {
             System.out.println("toma! Aqui hay 3 Pokemon! Bien! Estan dentro de las Pokeball! Cuando yo era joven," +
@@ -55,22 +83,23 @@ public class Main {
                 npc.nuevoPokemon(new Bulbasaur(5));
             }
         }
-
         batalla(entrenador, npc);
     }
     public static int elegirAtaque(Pokemon pok) {
         Scanner sc = new Scanner(System.in);
-        Movimiento ataque;
-        int ataqueNum;
-        do{
+        Movimiento ataque = null;
+        int ataqueNum = 0;
+
+        while (ataqueNum < 1 || ataqueNum > 4 || ataque == null || ataque.getPpActual() <= 0) {
             for (int i = 0; i < pok.getMovimientos().length; i++) {
                 System.out.println(i + 1 + " -> " + pok.getMovimientos()[i]);
             }
             System.out.print("Selecciona un ataque (1-4): ");
             ataqueNum = sc.nextInt();
-            ataque = pok.getMovimientos()[ataqueNum-1];
-        }while(ataque.getPpActual()<=0);
-        //while(ataque.getPpActual()<=0 || (ataqueNum<1 || ataqueNum>4) || ataque == null);
+            if (ataqueNum >= 1 && ataqueNum <= 4) {
+                ataque = pok.getMovimientos()[ataqueNum-1];
+            }
+        }
         return ataqueNum-1;
     }
     public static void batalla(Entrenador entrenador1, Entrenador entrenador2){
@@ -121,15 +150,11 @@ public class Main {
                 if (primerPokemonE1.getVelocidad() >= primerPokemonE2.getVelocidad()){
                     primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
                     if(primerPokemonE2.getPs() > 0){
-                        //Esto se haría si el pokemon rival tuviera los 4 movimientos disponibles
-                        //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
-                        primerPokemonE2.atacar(primerPokemonE1,0);
+                        primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
                     }
                 } else {
-                    //Esto se haría si el pokemon rival tuviera los 4 movimientos disponibles
-                    //primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
                     int ataque = elegirAtaque(primerPokemonE1);
-                    primerPokemonE2.atacar(primerPokemonE1,0);
+                    primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
                     if(primerPokemonE1.getPs() > 0){
                         primerPokemonE1.atacar(primerPokemonE2, ataque);
                     }
@@ -177,7 +202,8 @@ public class Main {
                 numPokE2--;
                 if (numPokE2 > 0){
                     do{
-                        primerPokemonE2 = entrenador2.getPokemons()[rand.nextInt(0,4)];
+                        primerPokemonE2 =
+                                entrenador2.getPokemons()[rand.nextInt(0,entrenador2.getPokemons().length)];
                     } while (primerPokemonE2 == null || primerPokemonE2.getPs() <= 0);
                     System.out.println(entrenador2.getNombre() + " sacará a " + primerPokemonE2.getMote() +
                             " ¿quieres cambiar de pokemon? (true -> si; false -> no)");
@@ -219,6 +245,4 @@ public class Main {
             }
         }
     }
-    //BUGS
-    //1.- Línea 55 (las condiciones están pochas)
 }

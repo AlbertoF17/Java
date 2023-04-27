@@ -48,9 +48,9 @@ public class Entrenador {
                 pokemons[i] = newPokemon;
                 pokemonIntroducido = true;
             }
-            if (!pokemonIntroducido){
-                System.out.println("No tienes sitio para más pokemon! mote fue enviado a la Caja Pokemon 1 del PC");
-            }
+        }
+        if (!pokemonIntroducido){
+            System.out.println("No tienes sitio para más pokemon! mote fue enviado a la Caja Pokemon 1 del PC");
         }
     }
 }
