@@ -11,7 +11,7 @@ import javax.naming.OperationNotSupportedException;
 public class Kyogre extends Pokemon implements TipoAgua {
     public Kyogre(){
         super("Kyogre", 382, 1, -1, 100, 100, 90,
-                150, 140, 90, 50);
+                150, 140, 90, 1);
         movimientos[0] = new Escaldar();
         movimientos[1] = new RayoHielo();
         movimientos[2] = new PulsoPrimigenio();

@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Garchomp extends Pokemon implements TipoDragon, TipoTierra {
     public Garchomp(){
         super("Garchomp", 445, 3, 15, 108, 130, 95,
-                80, 85, 102, 50);
+                80, 85, 102, 1);
         movimientos[0] = new Enfado();
         movimientos[1] = new Terremoto();
         movimientos[2] = new ColmilloIgneo();
@@ -20,7 +20,7 @@ public class Garchomp extends Pokemon implements TipoDragon, TipoTierra {
     }
     public Garchomp(int nivel){
         super("Garchomp", 445, 3, 15, 108, 130, 95,
-                80, 85, 102, 50);
+                80, 85, 102, nivel);
         movimientos[0] = new Enfado();
         movimientos[1] = new Terremoto();
         movimientos[2] = new ColmilloIgneo();

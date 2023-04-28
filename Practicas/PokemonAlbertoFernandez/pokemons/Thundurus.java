@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Thundurus extends Pokemon implements TipoElectrico, TipoVolador {
     public Thundurus(){
         super("Thundurus", 642, 4, 17, 79, 115, 70,
-                125, 80, 111, 50);
+                125, 80, 111, 1);
         movimientos[0] = new Rayo();
         movimientos[1] = new Desarme();
         movimientos[2] = new IdaYVuleta();
@@ -20,7 +20,7 @@ public class Thundurus extends Pokemon implements TipoElectrico, TipoVolador {
     }
     public Thundurus(int nivel){
         super("Thundurus", 642, 4, 17, 79, 115, 70,
-                125, 80, 111, 50);
+                125, 80, 111, nivel);
         movimientos[0] = new Rayo();
         movimientos[1] = new Desarme();
         movimientos[2] = new IdaYVuleta();

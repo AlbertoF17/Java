@@ -8,7 +8,7 @@ import javax.naming.OperationNotSupportedException;
 public class Arcanine extends Pokemon implements TipoFuego {
     public Arcanine(){
         super("Arcanine", 59, 6, -1, 90, 110, 80,
-                100, 80, 95, 50);
+                100, 80, 95, 1);
         movimientos[0] = new Lanzallamas();
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Ascuas();
@@ -19,7 +19,7 @@ public class Arcanine extends Pokemon implements TipoFuego {
     }
     public Arcanine(int nivel){
         super("Arcanine", 59, 6, -1, 90, 110, 80,
-                100, 80, 95, 50);
+                100, 80, 95, nivel);
         movimientos[0] = new Lanzallamas();
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Ascuas();

@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Tyranitar extends Pokemon implements TipoRoca, TipoSiniestro {
     public Tyranitar(){
         super("Tyranitar", 248, 13, 14, 100, 134, 110,
-                95, 100, 61, 50);
+                95, 100, 61, 1);
         movimientos[0] = new RocaAfilada();
         movimientos[1] = new Terremoto();
         movimientos[2] = new Triturar();
@@ -20,7 +20,7 @@ public class Tyranitar extends Pokemon implements TipoRoca, TipoSiniestro {
     }
     public Tyranitar(int nivel){
         super("Tyranitar", 248, 13, 14, 100, 134, 110,
-                95, 100, 61, 50);
+                95, 100, 61, nivel);
         movimientos[0] = new RocaAfilada();
         movimientos[1] = new Terremoto();
         movimientos[2] = new Triturar();

@@ -8,7 +8,7 @@ import javax.naming.OperationNotSupportedException;
 public class Zacian extends Pokemon implements TipoHada {
     public Zacian(){
         super("Zacian", 888, 7, -1, 92, 120, 115,
-                80, 115, 138, 50);
+                80, 115, 138, 1);
         movimientos[0] = new Carantona();
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Triturar();
@@ -19,7 +19,7 @@ public class Zacian extends Pokemon implements TipoHada {
     }
     public Zacian(int nivel){
         super("Zacian", 888, 7, -1, 92, 120, 115,
-                80, 115, 138, 50);
+                80, 115, 138, nivel);
         movimientos[0] = new Carantona();
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Triturar();

@@ -8,8 +8,8 @@ import javax.naming.OperationNotSupportedException;
 
 public class Dracovish extends Pokemon implements TipoAgua, TipoDragon {
     public Dracovish(){
-        super("Dracovish", 888, 7, -1, 92, 120, 115,
-                80, 115, 138, 50);
+        super("Dracovish", 888, 1, 3, 92, 120, 115,
+                80, 115, 138, 1);
         movimientos[0] = new Branquibocado();
         movimientos[1] = new Psicocolmillo();
         movimientos[2] = new Triturar();
@@ -19,8 +19,8 @@ public class Dracovish extends Pokemon implements TipoAgua, TipoDragon {
         ps = psBase;
     }
     public Dracovish(int nivel){
-        super("Dracovish", 888, 7, -1, 92, 120, 115,
-                80, 115, 138, 50);
+        super("Dracovish", 888, 1, 3, 92, 120, 115,
+                80, 115, 138, nivel);
         movimientos[0] = new Branquibocado();
         movimientos[1] = new Psicocolmillo();
         movimientos[2] = new Triturar();
@@ -30,7 +30,7 @@ public class Dracovish extends Pokemon implements TipoAgua, TipoDragon {
         ps = psBase;
     }
     public Dracovish(String mote, int nivel){
-        super(mote, 888, 7, -1, 92, 120, 115,
+        super(mote, 888, 1, 3, 92, 120, 115,
                 80, 115, 138, nivel);
         movimientos[0] = new Branquibocado();
         movimientos[1] = new Psicocolmillo();

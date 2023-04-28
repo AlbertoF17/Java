@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Ferrothorn extends Pokemon implements TipoPlanta, TipoAcero {
     public Ferrothorn(){
         super("Ferrothorn", 598, 11, 0, 74, 94, 131,
-                54, 116, 20, 50);
+                54, 116, 20, 1);
         movimientos[0] = new LatigoCepa();
         movimientos[1] = new Desarme();
         movimientos[2] = new Latigazo();
@@ -20,7 +20,7 @@ public class Ferrothorn extends Pokemon implements TipoPlanta, TipoAcero {
     }
     public Ferrothorn(int nivel){
         super("Ferrothorn", 598, 11, 0, 74, 94, 131,
-                54, 116, 20, 50);
+                54, 116, 20, nivel);
         movimientos[0] = new LatigoCepa();
         movimientos[1] = new Desarme();
         movimientos[2] = new Latigazo();

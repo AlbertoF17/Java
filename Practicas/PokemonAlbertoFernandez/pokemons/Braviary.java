@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Braviary extends Pokemon implements TipoNormal, TipoVolador {
     public Braviary(){
         super("Braviary", 628, 10, 17, 100, 123, 75,
-                57, 75, 80, 50);
+                57, 75, 80, 1);
         movimientos[0] = new PajaroOsado();
         movimientos[1] = new ABocajarro();
         movimientos[2] = new PicoTaladro();
@@ -20,7 +20,7 @@ public class Braviary extends Pokemon implements TipoNormal, TipoVolador {
     }
     public Braviary(int nivel){
         super("Braviary", 628, 10, 17, 100, 123, 75,
-                57, 75, 80, 50);
+                57, 75, 80, nivel);
         movimientos[0] = new PajaroOsado();
         movimientos[1] = new ABocajarro();
         movimientos[2] = new PicoTaladro();

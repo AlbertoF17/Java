@@ -11,10 +11,12 @@ public class Main {
     Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
         Random rand = new Random();
-        Pokemon[] arrayRandom = {new Arcanine(), new Braviary(), new Cinderace(), new Corviknight(), new Dracovish(),
-        new Dragapult(), new Duraludon(), new Ferrothorn(), new Garchomp(), new Gastrodon(), new Groudon(),
-        new Incineroar(), new Kyogre(), new Landorus(), new Metagross(), new Salamence(), new TapuFini(),
-        new Thundurus(), new Tornadus(), new Toxtricity(), new Tyranitar(), new Zacian()};
+        Pokemon[] arrayRandom = {new Arcanine(50), new Braviary(50), new Cinderace(50),
+                new Corviknight(50), new Dracovish(50), new Dragapult(50), new Duraludon(50),
+                new Ferrothorn(50), new Garchomp(50), new Gastrodon(50), new Groudon(50),
+                new Incineroar(50), new Kyogre(50), new Landorus(50), new Metagross(50),
+                new Salamence(50), new TapuFini(50), new Thundurus(50), new Tornadus(50),
+                new Toxtricity(50), new Tyranitar(50), new Zacian(50)};
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Hola a todos! Bienvenidos al mundo de Pokemon! Me " +
@@ -32,7 +34,7 @@ public class Main {
         int modoJuego = sc.nextInt();
         if (modoJuego == 1){
             System.out.println("Ambos os batiréis en un duelo épico con equipos totalmente aleatorios...\n" +
-                    "QUE COMIENCE EL COMBATE!!!");
+                    "-------------------\n" + "QUE COMIENCE EL COMBATE!!!\n" + "-------------------\n");
             int[] numerosGenerados = new int[entrenador.getPokemons().length];
             for (int i = 0; i < entrenador.getPokemons().length; i++) {
                 int numero;
@@ -91,10 +93,10 @@ public class Main {
         int ataqueNum = 0;
 
         while (ataqueNum < 1 || ataqueNum > 4 || ataque == null || ataque.getPpActual() <= 0) {
+            System.out.println("Selecciona un ataque (1-4): ");
             for (int i = 0; i < pok.getMovimientos().length; i++) {
                 System.out.println(i + 1 + " -> " + pok.getMovimientos()[i]);
             }
-            System.out.print("Selecciona un ataque (1-4): ");
             ataqueNum = sc.nextInt();
             if (ataqueNum >= 1 && ataqueNum <= 4) {
                 ataque = pok.getMovimientos()[ataqueNum-1];
@@ -132,7 +134,7 @@ public class Main {
                 System.out.print(entrenador2.getPokemons()[i].getClass().getSimpleName() + " ");
             }
         }
-        System.out.println();
+        System.out.println("\n");
         Pokemon primerPokemonE1 = entrenador1.getPokemons()[0];
         Pokemon primerPokemonE2 = entrenador2.getPokemons()[0];
         while ((primerPokemonE1 != null && primerPokemonE2 != null)){
@@ -143,10 +145,13 @@ public class Main {
             System.out.println(entrenador2.getNombre() + " envió a " + primerPokemonE2.getMote() + "!" +
                     "\nVe " + primerPokemonE1.getMote() + "!");
             while (primerPokemonE1.getPs() > 0 && primerPokemonE2.getPs() > 0){
+                System.out.println("--------------------------------------------------");
                 System.out.println(primerPokemonE2.getMote() + ": " + primerPokemonE2.getPs() + "/"
                         + primerPokemonE2.getPsMax());
+                System.out.println("*\n*\n*\n*");
                 System.out.println(primerPokemonE1.getMote() + ": " + primerPokemonE1.getPs() + "/"
                         + primerPokemonE1.getPsMax());
+                System.out.println("--------------------------------------------------");
                 if (primerPokemonE1.getVelocidad() >= primerPokemonE2.getVelocidad()){
                     primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
                     if(primerPokemonE2.getPs() > 0){
@@ -170,8 +175,13 @@ public class Main {
                             if (entrenador1.getPokemons()[i] == null){
                                 System.out.println(i+1 + " -> " + "null ");
                             } else {
-                                System.out.println(i+1 + " -> "
+                                System.out.print(i+1 + " -> "
                                         + entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+                                if(entrenador1.getPokemons()[i].getPs()<=0){
+                                    System.out.println("(debilitado)");
+                                } else {
+                                    System.out.println();
+                                }
                             }
                         }
                         boolean pokNoValido = false;

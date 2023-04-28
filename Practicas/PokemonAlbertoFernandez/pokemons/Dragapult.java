@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Dragapult extends Pokemon implements TipoDragon, TipoFantasma {
     public Dragapult(){
         super("Dragapult", 887, 3, 5, 88, 120, 75,
-                100, 75, 142, 50);
+                100, 75, 142, 1);
         movimientos[0] = new BolaSombra();
         movimientos[1] = new CometaDraco();
         movimientos[2] = new IdaYVuleta();
@@ -20,7 +20,7 @@ public class Dragapult extends Pokemon implements TipoDragon, TipoFantasma {
     }
     public Dragapult(int nivel){
         super("Dragapult", 887, 3, 5, 88, 120, 75,
-                100, 75, 142, 50);
+                100, 75, 142, nivel);
         movimientos[0] = new BolaSombra();
         movimientos[1] = new CometaDraco();
         movimientos[2] = new IdaYVuleta();

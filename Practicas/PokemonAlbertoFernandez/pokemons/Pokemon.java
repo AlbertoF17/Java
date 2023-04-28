@@ -256,6 +256,7 @@ public abstract class Pokemon implements Tipo, Cloneable {
         this.defensa = (int) ((((((2*defensaBase+31)*nivel)/100)+5)+nivel+10)*1.1f);
         this.defEspecial = (int) ((((((2*defEspecial+31)*nivel)/100)+5)+nivel+10)*1.1f);
         this.velocidad = (int) ((((((2*velocidadBase+31)*nivel)/100)+5)+nivel+10)*1.1f);
+        this.ps = psMax;
     }
 
     private void recibirDanho(Pokemon pok, Movimiento ataque){
@@ -276,10 +277,10 @@ public abstract class Pokemon implements Tipo, Cloneable {
             d = defEspecial;
         }
         int p = ataque.getPotencia();
-        //System.out.println(ps);
-        //System.out.println("Daño: " + (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/(25*d))+2)));
-        this.ps = this.ps - (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/(25*d))+2));
-        //System.out.println(ps);
+        System.out.println(ps);
+        System.out.println("Daño: " + (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/(25*d))+2)));
+        this.ps -= (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/(25*d))+2));
+        System.out.println(ps);
     }
 
     public void atacar(Pokemon objetivo, int movimiento){
@@ -290,9 +291,7 @@ public abstract class Pokemon implements Tipo, Cloneable {
     @Override
     public Pokemon clone() {
         try {
-            Pokemon clone = (Pokemon) super.clone();
-            // TODO: copy mutable state here, so the clone can't change the internals of the original
-            return clone;
+            return (Pokemon) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }

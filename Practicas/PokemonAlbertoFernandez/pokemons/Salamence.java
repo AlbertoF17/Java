@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Salamence extends Pokemon implements TipoDragon, TipoVolador {
     public Salamence(){
         super("Salamence", 373, 3, 17, 95, 135, 80,
-                110, 80, 100, 50);
+                110, 80, 100, 1);
         movimientos[0] = new CometaDraco();
         movimientos[1] = new Vendaval();
         movimientos[2] = new Lanzallamas();
@@ -20,7 +20,7 @@ public class Salamence extends Pokemon implements TipoDragon, TipoVolador {
     }
     public Salamence(int nivel){
         super("Salamence", 373, 3, 17, 95, 135, 80,
-                110, 80, 100, 50);
+                110, 80, 100, nivel);
         movimientos[0] = new CometaDraco();
         movimientos[1] = new Vendaval();
         movimientos[2] = new Lanzallamas();

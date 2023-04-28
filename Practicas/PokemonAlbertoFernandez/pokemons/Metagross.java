@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Metagross extends Pokemon implements TipoAcero, TipoPsiquico {
     public Metagross(){
         super("Metagross", 376, 0, 12, 80, 135, 130,
-                95, 90, 70, 50);
+                95, 90, 70, 1);
         movimientos[0] = new PlanchaCorporal();
         movimientos[1] = new PunoMeteoro();
         movimientos[2] = new Terremoto();
@@ -20,7 +20,7 @@ public class Metagross extends Pokemon implements TipoAcero, TipoPsiquico {
     }
     public Metagross(int nivel){
         super("Metagross", 376, 0, 12, 80, 135, 130,
-                95, 90, 70, 50);
+                95, 90, 70, nivel);
         movimientos[0] = new PlanchaCorporal();
         movimientos[1] = new PunoMeteoro();
         movimientos[2] = new Terremoto();

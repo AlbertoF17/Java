@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Incineroar extends Pokemon implements TipoFuego, TipoSiniestro {
     public Incineroar(){
         super("Incineroar", 727, 6, 14, 95, 115, 90,
-                80, 90, 60, 50);
+                80, 90, 60, 1);
         movimientos[0] = new ColmilloIgneo();
         movimientos[1] = new EnviteIgneo();
         movimientos[2] = new IdaYVuleta();
@@ -20,7 +20,7 @@ public class Incineroar extends Pokemon implements TipoFuego, TipoSiniestro {
     }
     public Incineroar(int nivel){
         super("Incineroar", 727, 6, 14, 95, 115, 90,
-                80, 90, 60, 50);
+                80, 90, 60, nivel);
         movimientos[0] = new ColmilloIgneo();
         movimientos[1] = new EnviteIgneo();
         movimientos[2] = new IdaYVuleta();

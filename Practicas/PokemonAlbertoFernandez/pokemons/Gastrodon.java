@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Gastrodon extends Pokemon implements TipoAgua, TipoTierra {
     public Gastrodon(){
         super("Gastrodon", 423, 1, 15, 111, 83, 68,
-                92, 82, 39, 50);
+                92, 82, 39, 1);
         movimientos[0] = new TierraViva();
         movimientos[1] = new RayoHielo();
         movimientos[2] = new Escaldar();
@@ -20,7 +20,7 @@ public class Gastrodon extends Pokemon implements TipoAgua, TipoTierra {
     }
     public Gastrodon(int nivel){
         super("Gastrodon", 423, 1, 15, 111, 83, 68,
-                92, 82, 39, 50);
+                92, 82, 39, nivel);
         movimientos[0] = new TierraViva();
         movimientos[1] = new RayoHielo();
         movimientos[2] = new Escaldar();

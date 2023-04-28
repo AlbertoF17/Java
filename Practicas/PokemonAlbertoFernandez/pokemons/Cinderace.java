@@ -8,7 +8,7 @@ import javax.naming.OperationNotSupportedException;
 public class Cinderace extends Pokemon implements TipoFuego {
     public Cinderace(){
         super("Cinderace", 815, 6, -1, 80, 116, 75,
-                65, 75, 119, 50);
+                65, 75, 119, 1);
         movimientos[0] = new BalonIgneo();
         movimientos[1] = new IdaYVuleta();
         movimientos[2] = new Lanzamugre();
@@ -19,7 +19,7 @@ public class Cinderace extends Pokemon implements TipoFuego {
     }
     public Cinderace(int nivel){
         super("Cinderace", 815, 6, -1, 80, 116, 75,
-                65, 75, 119, 50);
+                65, 75, 119, nivel);
         movimientos[0] = new BalonIgneo();
         movimientos[1] = new IdaYVuleta();
         movimientos[2] = new Lanzamugre();

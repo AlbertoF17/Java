@@ -12,7 +12,7 @@ import javax.naming.OperationNotSupportedException;
 public class TapuFini extends Pokemon implements TipoAgua, TipoHada {
     public TapuFini(){
         super("TapuFini", 788, 1, 7, 70, 75, 115,
-                95, 130, 85, 50);
+                95, 130, 85, 1);
         movimientos[0] = new Escaldar();
         movimientos[1] = new FuerzaLunar();
         movimientos[2] = new Burbuja();
@@ -23,7 +23,7 @@ public class TapuFini extends Pokemon implements TipoAgua, TipoHada {
     }
     public TapuFini(int nivel){
         super("TapuFini", 788, 1, 7, 70, 75, 115,
-                95, 130, 85, 50);
+                95, 130, 85, nivel);
         movimientos[0] = new Escaldar();
         movimientos[1] = new FuerzaLunar();
         movimientos[2] = new Burbuja();

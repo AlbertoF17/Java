@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Duraludon extends Pokemon implements TipoAcero, TipoDragon {
     public Duraludon(){
         super("Duraludon", 884, 0, 3, 70, 95, 115,
-                120, 50, 85, 50);
+                120, 50, 85, 1);
         movimientos[0] = new CometaDraco();
         movimientos[1] = new FocoResplandor();
         movimientos[2] = new PlanchaCorporal();
@@ -20,7 +20,7 @@ public class Duraludon extends Pokemon implements TipoAcero, TipoDragon {
     }
     public Duraludon(int nivel){
         super("Duraludon", 884, 0, 3, 70, 95, 115,
-                120, 50, 85, 50);
+                120, 50, 85, nivel);
         movimientos[0] = new CometaDraco();
         movimientos[1] = new FocoResplandor();
         movimientos[2] = new PlanchaCorporal();

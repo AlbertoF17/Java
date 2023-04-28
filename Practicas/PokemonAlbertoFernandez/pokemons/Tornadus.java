@@ -8,7 +8,7 @@ import javax.naming.OperationNotSupportedException;
 public class Tornadus extends Pokemon implements TipoVolador {
     public Tornadus(){
         super("Tornadus", 641, 17, -1, 79, 115, 70,
-                125, 80, 111, 50);
+                125, 80, 111, 1);
         movimientos[0] = new Acrobata();
         movimientos[1] = new IdaYVuleta();
         movimientos[2] = new Desarme();

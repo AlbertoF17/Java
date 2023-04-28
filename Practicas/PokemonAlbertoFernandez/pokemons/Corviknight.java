@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Corviknight extends Pokemon implements TipoVolador, TipoAcero {
     public Corviknight(){
         super("Corviknight", 823, 17, 0, 98, 87, 105,
-                53, 85, 67, 50);
+                53, 85, 67, 1);
         movimientos[0] = new PlanchaCorporal();
         movimientos[1] = new IdaYVuleta();
         movimientos[2] = new PajaroOsado();
@@ -20,7 +20,7 @@ public class Corviknight extends Pokemon implements TipoVolador, TipoAcero {
     }
     public Corviknight(int nivel){
         super("Corviknight", 823, 17, 0, 98, 87, 105,
-                53, 85, 67, 50);
+                53, 85, 67, nivel);
         movimientos[0] = new PlanchaCorporal();
         movimientos[1] = new IdaYVuleta();
         movimientos[2] = new PajaroOsado();

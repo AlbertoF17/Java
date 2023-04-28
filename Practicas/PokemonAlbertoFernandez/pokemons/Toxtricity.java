@@ -9,7 +9,7 @@ import javax.naming.OperationNotSupportedException;
 public class Toxtricity extends Pokemon implements TipoElectrico, TipoVeneno {
     public Toxtricity(){
         super("Toxtricity", 849, 4, 16, 75, 98, 70,
-                114, 70, 75, 50);
+                114, 70, 75, 1);
         movimientos[0] = new Estruendo();
         movimientos[1] = new Amplificador();
         movimientos[2] = new VoltioCambio();
@@ -20,7 +20,7 @@ public class Toxtricity extends Pokemon implements TipoElectrico, TipoVeneno {
     }
     public Toxtricity(int nivel){
         super("Toxtricity", 849, 4, 16, 75, 98, 70,
-                114, 70, 75, 50);
+                114, 70, 75, nivel);
         movimientos[0] = new Estruendo();
         movimientos[1] = new Amplificador();
         movimientos[2] = new VoltioCambio();
