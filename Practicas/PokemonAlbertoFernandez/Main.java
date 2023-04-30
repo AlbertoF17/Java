@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Main {
     Scanner sc = new Scanner(System.in);
+    static int modoJuego;
     public static void main(String[] args){
         Random rand = new Random();
         Pokemon[] arrayRandom = {new Arcanine(50), new Braviary(50), new Cinderace(50),
@@ -20,18 +21,18 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Hola a todos! Bienvenidos al mundo de Pokemon! Me " +
-                "llamo Joaquin! Pero la gente me llama el PROFESOR  POKEMON!\nEste mundo está habitado por unas" +
+                "llamo Joaquin! Pero la gente me llama el PROFESOR  POKEMON!\nEste mundo está habitado por unas " +
                 "criaturas llamadas POKEMON! Para algunos, los POKEMON son  mascotas. Pero otros los usan para " +
-                "pelear.\nEn cuanto a mi... Estudio a los pokemon como profesion. Pero primero dime como te llamas: ");
+                "pelear.\nEn cuanto a mi... Estudio a los pokemon como profesión. Pero primero dime como te llamas: ");
         Entrenador entrenador = new Entrenador(sc.nextLine());
         System.out.println("Bien! Tu nombre es " + entrenador.getNombre() + "\nEste es mi nieto." +
-                        " El ha sido tu rival desde que eras un niño... mmm podrias decirme como se llama?: ");
+                        " El ha sido tu rival desde que eras un niño... mmm podrías decirme como se llama?: ");
         Entrenador npc = new Entrenador(sc.nextLine());
         System.out.println("Ah si! Ahora lo recuerdo! Se llama " + npc.getNombre() + "\n" +
                 entrenador.getNombre() + "! Tu propia leyenda pokemon está a punto de comenzar!" +
                 " Te espera un mundo de sueños y aventuras con los pokemon!\nAdelante! " + entrenador.getNombre() +
-                ", elije un modo de juego:\nCombate de starters -> 0 | Batalla aleatoria -> 1");
-        int modoJuego = sc.nextInt();
+                ", elige un modo de juego:\nCombate de starters -> 0 | Batalla aleatoria -> 1");
+        modoJuego = sc.nextInt();
         if (modoJuego == 1){
             System.out.println("Ambos os batiréis en un duelo épico con equipos totalmente aleatorios...\n" +
                     "-------------------\n" + "QUE COMIENCE EL COMBATE!!!\n" + "-------------------\n");
@@ -120,7 +121,6 @@ public class Main {
         System.out.print("Lista de Pokemons: ");
         for (int i = 0; i < entrenador1.getPokemons().length; i++) {
             if (entrenador1.getPokemons()[i] == null){
-                System.out.print("null ");
             } else {
                 System.out.print(entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
             }
@@ -129,7 +129,6 @@ public class Main {
         System.out.print("Lista de Pokemons rivales: ");
         for (int i = 0; i < entrenador2.getPokemons().length; i++) {
             if (entrenador2.getPokemons()[i] == null){
-                System.out.print("null ");
             } else {
                 System.out.print(entrenador2.getPokemons()[i].getClass().getSimpleName() + " ");
             }
@@ -155,11 +154,19 @@ public class Main {
                 if (primerPokemonE1.getVelocidad() >= primerPokemonE2.getVelocidad()){
                     primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
                     if(primerPokemonE2.getPs() > 0){
-                        primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
+                        if(modoJuego == 1){
+                            primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
+                        } else {
+                            primerPokemonE2.atacar(primerPokemonE1, 0);
+                        }
                     }
                 } else {
                     int ataque = elegirAtaque(primerPokemonE1);
-                    primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
+                    if(modoJuego == 1){
+                        primerPokemonE2.atacar(primerPokemonE1, rand.nextInt(0, 4));
+                    } else {
+                        primerPokemonE2.atacar(primerPokemonE1, 0);
+                    }
                     if(primerPokemonE1.getPs() > 0){
                         primerPokemonE1.atacar(primerPokemonE2, ataque);
                     }
@@ -226,6 +233,11 @@ public class Main {
                                 } else {
                                     System.out.println(i+1 + " -> "
                                             + entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
+                                }
+                                if(entrenador1.getPokemons()[i].getPs()<=0){
+                                    System.out.println("(debilitado)");
+                                } else {
+                                    System.out.println();
                                 }
                             }
                             boolean pokNoValido = false;
