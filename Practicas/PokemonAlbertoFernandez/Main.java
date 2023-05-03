@@ -106,6 +106,7 @@ public class Main {
             if (ataqueNum >= 1 && ataqueNum <= 4) {
                 ataque = pok.getMovimientos()[ataqueNum-1];
             }
+            System.out.println();
         }
         return ataqueNum-1;
     }
@@ -139,7 +140,7 @@ public class Main {
             }
         }
         System.out.println("\n");
-        Thread.sleep(500);
+        Thread.sleep(1000);
         Pokemon primerPokemonE1 = entrenador1.getPokemons()[0];
         Pokemon primerPokemonE2 = entrenador2.getPokemons()[0];
         while ((primerPokemonE1 != null && primerPokemonE2 != null)){
@@ -149,19 +150,21 @@ public class Main {
             }
             System.out.println(entrenador2.getNombre() + " envió a " + primerPokemonE2.getMote() + "!" +
                     "\nVe " + primerPokemonE1.getMote() + "!");
+            Thread.sleep(500);
             while (primerPokemonE1.getPs() > 0 && primerPokemonE2.getPs() > 0){
                 System.out.println();
                 System.out.println("+------------------------------------------------+");
-                System.out.printf("| %-15s %3d/%3d                        |\n", primerPokemonE2.getMote() + ":",
+                System.out.printf("|                          %-14s%3d/%3d |\n", primerPokemonE2.getMote() + ":",
                         primerPokemonE2.getPs(), primerPokemonE2.getPsMax());
                 System.out.println("|                                                |");
                 System.out.println("|                                                |");
                 System.out.println("|                                                |");
                 System.out.println("|                                                |");
                 System.out.println("|                                                |");
-                System.out.printf("| %-15s %3d/%3d                        |\n", primerPokemonE1.getMote() + ":",
+                System.out.printf("| %-14s%3d/%3d                          |\n", primerPokemonE1.getMote() + ":",
                         primerPokemonE1.getPs(), primerPokemonE1.getPsMax());
                 System.out.println("+------------------------------------------------+");
+                System.out.println();
 
                 if (modoJuego == 0 && primerPokemonE1.getPs()<15){
                     System.out.println("Oh no! A tu pokemon le queda muy poca vida, quieres curarlo?" +
