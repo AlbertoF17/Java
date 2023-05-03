@@ -278,25 +278,31 @@ public abstract class Pokemon implements Tipo, Cloneable {
             d = defEspecial;
         }
         int p = ataque.getPotencia();
-        System.out.println(ps);
-        System.out.println("Daño: " + (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/(25*d))+2)));
         this.ps -= (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/(25*d))+2));
-        System.out.println(ps);
     }
 
     public void atacar(Pokemon objetivo, int movimiento){
+        float[] deb = calcularDebilidades();
         if (movimientos[movimiento].getPpActual() <= 0){
             System.out.println(mote + " no pudo atacar porque usó un movimiento sin pp");
         } else {
             System.out.println(mote + " usó: " + movimientos[movimiento].getClass().getSimpleName());
             Random rand = new Random();
             if(rand.nextInt(1, 101) <= movimientos[movimiento].getPrecision()){
+                if (deb[movimientos[movimiento].getTipo()] == 0){
+                    System.out.println("No afecta al " + objetivo.getMote() + " enemigo...");
+                } else if (deb[movimientos[movimiento].getTipo()] == 1.5f){
+                    System.out.println("No es muy efectivo...");
+                } else if (deb[movimientos[movimiento].getTipo()] >= 2){
+                    System.out.println("Es supereficaz!!!");
+                }
                 objetivo.recibirDanho(this, movimientos[movimiento]);
                 movimientos[movimiento].setPpActual(movimientos[movimiento].getPpActual()-1);
             } else {
                 System.out.println(mote + " falló");
             }
         }
+
     }
 
     @Override

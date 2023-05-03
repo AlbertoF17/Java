@@ -31,11 +31,11 @@ public class Main {
         System.out.println("Ah si! Ahora lo recuerdo! Se llama " + npc.getNombre() + "\n" +
                 entrenador.getNombre() + "! Tu propia leyenda pokemon está a punto de comenzar!" +
                 " Te espera un mundo de sueños y aventuras con los pokemon!\nAdelante! " + entrenador.getNombre() +
-                ", elige un modo de juego:\nCombate de starters -> 0 | Batalla aleatoria -> 1");
+                ", elige un modo de juego:\nCombate de starters -> 0\nBatalla aleatoria -> 1");
         modoJuego = sc.nextInt();
         if (modoJuego == 1){
             System.out.println("Ambos os batiréis en un duelo épico con equipos totalmente aleatorios...\n" +
-                    "-------------------\n" + "QUE COMIENCE EL COMBATE!!!\n" + "-------------------\n");
+                    "--------------------------\n" + "QUE COMIENCE EL COMBATE!!!\n" + "--------------------------\n");
             int[] numerosGenerados = new int[entrenador.getPokemons().length];
             for (int i = 0; i < entrenador.getPokemons().length; i++) {
                 int numero;
@@ -71,7 +71,7 @@ public class Main {
                 npc.nuevoPokemon(arrayRandom[numero].clone());
             }
         } else {
-            System.out.println("toma! Aqui hay 3 Pokemon! Bien! Estan dentro de las Pokeball! Cuando yo era joven," +
+            System.out.println("Toma! Aqui hay 3 Pokemon! Bien! Estan dentro de las Pokeball! Cuando yo era joven," +
                     " era un buen entrenador de Main!\nPero ahora solo me quedan 3. Te daré uno. Cual quieres?\n" +
                     "(1 -> Bulbasaur, 2 -> Charmander, 3 -> Squirtle):");
             int eleccionPokemon = sc.nextInt();
@@ -86,7 +86,11 @@ public class Main {
                 npc.nuevoPokemon(new Bulbasaur(5));
             }
         }
-        batalla(entrenador, npc);
+        try {
+            batalla(entrenador, npc);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     public static int elegirAtaque(Pokemon pok) {
         Scanner sc = new Scanner(System.in);
@@ -105,7 +109,7 @@ public class Main {
         }
         return ataqueNum-1;
     }
-    public static void batalla(Entrenador entrenador1, Entrenador entrenador2){
+    public static void batalla(Entrenador entrenador1, Entrenador entrenador2) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         int numPokE1 = 0;
@@ -118,6 +122,7 @@ public class Main {
                 numPokE2++;
             }
         }
+        Thread.sleep(500);
         System.out.print("Lista de Pokemons: ");
         for (int i = 0; i < entrenador1.getPokemons().length; i++) {
             if (entrenador1.getPokemons()[i] == null){
@@ -134,6 +139,7 @@ public class Main {
             }
         }
         System.out.println("\n");
+        Thread.sleep(500);
         Pokemon primerPokemonE1 = entrenador1.getPokemons()[0];
         Pokemon primerPokemonE2 = entrenador2.getPokemons()[0];
         while ((primerPokemonE1 != null && primerPokemonE2 != null)){
@@ -144,13 +150,18 @@ public class Main {
             System.out.println(entrenador2.getNombre() + " envió a " + primerPokemonE2.getMote() + "!" +
                     "\nVe " + primerPokemonE1.getMote() + "!");
             while (primerPokemonE1.getPs() > 0 && primerPokemonE2.getPs() > 0){
-                System.out.println("--------------------------------------------------");
-                System.out.println(primerPokemonE2.getMote() + ": " + primerPokemonE2.getPs() + "/"
-                        + primerPokemonE2.getPsMax());
-                System.out.println("*\n*\n*\n*");
-                System.out.println(primerPokemonE1.getMote() + ": " + primerPokemonE1.getPs() + "/"
-                        + primerPokemonE1.getPsMax());
-                System.out.println("--------------------------------------------------");
+                System.out.println("+------------------------------------------------+");
+                System.out.printf("| %-15s %3d/%3d                        |\n", primerPokemonE2.getMote() + ":",
+                        primerPokemonE2.getPs(), primerPokemonE2.getPsMax());
+                System.out.println("|                                                |");
+                System.out.println("|                                                |");
+                System.out.println("|                                                |");
+                System.out.println("|                                                |");
+                System.out.println("|                                                |");
+                System.out.printf("| %-15s %3d/%3d                        |\n", primerPokemonE1.getMote() + ":",
+                        primerPokemonE1.getPs(), primerPokemonE1.getPsMax());
+                System.out.println("+------------------------------------------------+");
+
                 if (modoJuego == 0 && primerPokemonE1.getPs()<15){
                     System.out.println("Oh no! A tu pokemon le queda muy poca vida, quieres curarlo?" +
                             " ( true -> si | false -> no)");
