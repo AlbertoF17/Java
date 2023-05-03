@@ -150,6 +150,7 @@ public class Main {
             System.out.println(entrenador2.getNombre() + " envió a " + primerPokemonE2.getMote() + "!" +
                     "\nVe " + primerPokemonE1.getMote() + "!");
             while (primerPokemonE1.getPs() > 0 && primerPokemonE2.getPs() > 0){
+                System.out.println();
                 System.out.println("+------------------------------------------------+");
                 System.out.printf("| %-15s %3d/%3d                        |\n", primerPokemonE2.getMote() + ":",
                         primerPokemonE2.getPs(), primerPokemonE2.getPsMax());
