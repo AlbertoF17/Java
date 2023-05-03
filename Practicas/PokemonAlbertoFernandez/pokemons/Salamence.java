@@ -14,9 +14,6 @@ public class Salamence extends Pokemon implements TipoDragon, TipoVolador {
         movimientos[1] = new Vendaval();
         movimientos[2] = new Lanzallamas();
         movimientos[3] = new Enfado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Salamence(int nivel){
         super("Salamence", 373, 3, 17, 95, 135, 80,
@@ -25,9 +22,6 @@ public class Salamence extends Pokemon implements TipoDragon, TipoVolador {
         movimientos[1] = new Vendaval();
         movimientos[2] = new Lanzallamas();
         movimientos[3] = new Enfado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Salamence(String mote, int nivel){
         super(mote, 373, 3, 17, 95, 135, 80,
@@ -36,9 +30,6 @@ public class Salamence extends Pokemon implements TipoDragon, TipoVolador {
         movimientos[1] = new Vendaval();
         movimientos[2] = new Lanzallamas();
         movimientos[3] = new Enfado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

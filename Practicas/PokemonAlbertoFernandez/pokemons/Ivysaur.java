@@ -12,25 +12,16 @@ public class Ivysaur extends Pokemon implements TipoPlanta, TipoVeneno {
         super("Ivysaur", 2, 11, 16, 60, 62, 63,
                 80 ,80, 61, 1);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Ivysaur(int nivel){
         super("Ivysaur", 2, 11, 16, 60, 62, 63,
                 80 ,80, 61, nivel);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Ivysaur(String mote, int nivel){
         super(mote, 2, 11, 16, 60, 62, 63,
                 80 ,80, 61, nivel);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

@@ -14,9 +14,6 @@ public class Gastrodon extends Pokemon implements TipoAgua, TipoTierra {
         movimientos[1] = new RayoHielo();
         movimientos[2] = new Escaldar();
         movimientos[3] = new PoderPasado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Gastrodon(int nivel){
         super("Gastrodon", 423, 1, 15, 111, 83, 68,
@@ -24,10 +21,7 @@ public class Gastrodon extends Pokemon implements TipoAgua, TipoTierra {
         movimientos[0] = new TierraViva();
         movimientos[1] = new RayoHielo();
         movimientos[2] = new Escaldar();
-        movimientos[3] = new PoderPasado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
+        movimientos[3] = new PoderPasado();;
     }
     public Gastrodon(String mote, int nivel){
         super(mote, 423, 1, 15, 111, 83, 68,
@@ -36,9 +30,6 @@ public class Gastrodon extends Pokemon implements TipoAgua, TipoTierra {
         movimientos[1] = new RayoHielo();
         movimientos[2] = new Escaldar();
         movimientos[3] = new PoderPasado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

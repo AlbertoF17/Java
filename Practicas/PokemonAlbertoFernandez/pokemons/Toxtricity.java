@@ -14,9 +14,6 @@ public class Toxtricity extends Pokemon implements TipoElectrico, TipoVeneno {
         movimientos[1] = new Amplificador();
         movimientos[2] = new VoltioCambio();
         movimientos[3] = new Alarido();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Toxtricity(int nivel){
         super("Toxtricity", 849, 4, 16, 75, 98, 70,
@@ -25,9 +22,6 @@ public class Toxtricity extends Pokemon implements TipoElectrico, TipoVeneno {
         movimientos[1] = new Amplificador();
         movimientos[2] = new VoltioCambio();
         movimientos[3] = new Alarido();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Toxtricity(String mote, int nivel){
         super(mote, 849, 4, 16, 75, 98, 70,
@@ -36,9 +30,6 @@ public class Toxtricity extends Pokemon implements TipoElectrico, TipoVeneno {
         movimientos[1] = new Amplificador();
         movimientos[2] = new VoltioCambio();
         movimientos[3] = new Alarido();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

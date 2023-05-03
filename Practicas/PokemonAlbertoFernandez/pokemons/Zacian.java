@@ -13,9 +13,6 @@ public class Zacian extends Pokemon implements TipoHada {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Triturar();
         movimientos[3] = new CuchillaSolar();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Zacian(int nivel){
         super("Zacian", 888, 7, -1, 92, 120, 115,
@@ -24,9 +21,6 @@ public class Zacian extends Pokemon implements TipoHada {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Triturar();
         movimientos[3] = new CuchillaSolar();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Zacian(String mote, int nivel){
         super(mote, 888, 7, -1, 92, 120, 115,
@@ -35,9 +29,6 @@ public class Zacian extends Pokemon implements TipoHada {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Triturar();
         movimientos[3] = new CuchillaSolar();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

@@ -14,9 +14,6 @@ public class Landorus extends Pokemon implements TipoTierra, TipoVolador {
         movimientos[1] = new RocaAfilada();
         movimientos[2] = new Desarme();
         movimientos[3] = new FuerzaBruta();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Landorus(int nivel){
         super("Landorus", 645, 15, 17, 89, 125, 90,
@@ -25,9 +22,6 @@ public class Landorus extends Pokemon implements TipoTierra, TipoVolador {
         movimientos[1] = new RocaAfilada();
         movimientos[2] = new Desarme();
         movimientos[3] = new FuerzaBruta();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Landorus(String mote, int nivel){
         super(mote, 645, 15, 17, 89, 125, 90,
@@ -36,9 +30,6 @@ public class Landorus extends Pokemon implements TipoTierra, TipoVolador {
         movimientos[1] = new RocaAfilada();
         movimientos[2] = new Desarme();
         movimientos[3] = new FuerzaBruta();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

@@ -14,9 +14,6 @@ public class Metagross extends Pokemon implements TipoAcero, TipoPsiquico {
         movimientos[1] = new PunoMeteoro();
         movimientos[2] = new Terremoto();
         movimientos[3] = new CabezazoZen();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Metagross(int nivel){
         super("Metagross", 376, 0, 12, 80, 135, 130,
@@ -25,9 +22,6 @@ public class Metagross extends Pokemon implements TipoAcero, TipoPsiquico {
         movimientos[1] = new PunoMeteoro();
         movimientos[2] = new Terremoto();
         movimientos[3] = new CabezazoZen();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Metagross(String mote, int nivel){
         super(mote, 376, 0, 12, 80, 135, 130,
@@ -36,9 +30,6 @@ public class Metagross extends Pokemon implements TipoAcero, TipoPsiquico {
         movimientos[1] = new PunoMeteoro();
         movimientos[2] = new Terremoto();
         movimientos[3] = new CabezazoZen();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

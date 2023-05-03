@@ -12,33 +12,24 @@ public class Incineroar extends Pokemon implements TipoFuego, TipoSiniestro {
                 80, 90, 60, 1);
         movimientos[0] = new ColmilloIgneo();
         movimientos[1] = new EnviteIgneo();
-        movimientos[2] = new IdaYVuleta();
+        movimientos[2] = new IdaYVuelta();
         movimientos[3] = new Desarme();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Incineroar(int nivel){
         super("Incineroar", 727, 6, 14, 95, 115, 90,
                 80, 90, 60, nivel);
         movimientos[0] = new ColmilloIgneo();
         movimientos[1] = new EnviteIgneo();
-        movimientos[2] = new IdaYVuleta();
+        movimientos[2] = new IdaYVuelta();
         movimientos[3] = new Desarme();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Incineroar(String mote, int nivel){
         super(mote, 727, 6, 14, 95, 115, 90,
                 80, 90, 60, nivel);
         movimientos[0] = new ColmilloIgneo();
         movimientos[1] = new EnviteIgneo();
-        movimientos[2] = new IdaYVuleta();
+        movimientos[2] = new IdaYVuelta();
         movimientos[3] = new Desarme();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

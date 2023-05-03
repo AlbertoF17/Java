@@ -14,9 +14,6 @@ public class Duraludon extends Pokemon implements TipoAcero, TipoDragon {
         movimientos[1] = new FocoResplandor();
         movimientos[2] = new PlanchaCorporal();
         movimientos[3] = new Rayo();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Duraludon(int nivel){
         super("Duraludon", 884, 0, 3, 70, 95, 115,
@@ -25,9 +22,6 @@ public class Duraludon extends Pokemon implements TipoAcero, TipoDragon {
         movimientos[1] = new FocoResplandor();
         movimientos[2] = new PlanchaCorporal();
         movimientos[3] = new Rayo();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Duraludon(String mote, int nivel){
         super(mote, 884, 0, 3, 70, 95, 115,
@@ -36,9 +30,6 @@ public class Duraludon extends Pokemon implements TipoAcero, TipoDragon {
         movimientos[1] = new FocoResplandor();
         movimientos[2] = new PlanchaCorporal();
         movimientos[3] = new Rayo();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

@@ -17,9 +17,6 @@ public class TapuFini extends Pokemon implements TipoAgua, TipoHada {
         movimientos[1] = new FuerzaLunar();
         movimientos[2] = new Burbuja();
         movimientos[3] = new Gigaimpacto();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public TapuFini(int nivel){
         super("TapuFini", 788, 1, 7, 70, 75, 115,
@@ -28,9 +25,6 @@ public class TapuFini extends Pokemon implements TipoAgua, TipoHada {
         movimientos[1] = new FuerzaLunar();
         movimientos[2] = new Burbuja();
         movimientos[3] = new Gigaimpacto();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public TapuFini(String mote, int nivel){
         super(mote, 788, 1, 7, 70, 75, 115,
@@ -39,9 +33,6 @@ public class TapuFini extends Pokemon implements TipoAgua, TipoHada {
         movimientos[1] = new FuerzaLunar();
         movimientos[2] = new Burbuja();
         movimientos[3] = new Gigaimpacto();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

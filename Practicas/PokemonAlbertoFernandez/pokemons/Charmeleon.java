@@ -10,25 +10,16 @@ public class Charmeleon extends Pokemon implements TipoFuego {
         super("Charmeleon", 5, 6, -1, 58,
                 64, 58, 80, 65, 80, 1);
         movimientos[0] = new Ascuas();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Charmeleon(int nivel){
         super("Charmeleon", 5, 6, -1, 58,
                 64, 58, 80, 65, 80, nivel);
         movimientos[0] = new Ascuas();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Charmeleon(String mote, int nivel){
         super(mote, 5, 6, -1, 58,
                 64, 58, 80, 65, 80, nivel);
         movimientos[0] = new Ascuas();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

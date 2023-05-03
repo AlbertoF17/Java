@@ -14,9 +14,6 @@ public class Braviary extends Pokemon implements TipoNormal, TipoVolador {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new PicoTaladro();
         movimientos[3] = new Acrobata();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Braviary(int nivel){
         super("Braviary", 628, 10, 17, 100, 123, 75,
@@ -25,9 +22,6 @@ public class Braviary extends Pokemon implements TipoNormal, TipoVolador {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new PicoTaladro();
         movimientos[3] = new Acrobata();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Braviary(String mote, int nivel){
         super(mote, 628, 10, 17, 100, 123, 75,
@@ -36,9 +30,6 @@ public class Braviary extends Pokemon implements TipoNormal, TipoVolador {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new PicoTaladro();
         movimientos[3] = new Acrobata();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

@@ -12,25 +12,16 @@ public class Bulbasaur extends Pokemon implements TipoPlanta, TipoVeneno {
         super("Bulbasaur", 1, 11, 16, 45, 49, 49,
                 65 ,65, 45, 1);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Bulbasaur(int nivel){
         super("Bulbasaur", 1, 11, 16, 45, 49, 49,
                 65 ,65, 45, nivel);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Bulbasaur(String mote, int nivel){
         super(mote, 1, 11, 16, 45, 49, 49,
                 65 ,65, 45, nivel);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

@@ -5,6 +5,7 @@ import Practicas.PokemonAlbertoFernandez.tipos.*;
 
 import javax.naming.OperationNotSupportedException;
 import java.util.Arrays;
+import java.util.Random;
 
 public abstract class Pokemon implements Tipo, Cloneable {
     String mote;
@@ -284,8 +285,18 @@ public abstract class Pokemon implements Tipo, Cloneable {
     }
 
     public void atacar(Pokemon objetivo, int movimiento){
-        System.out.println(mote + " usó: " + movimientos[movimiento].getClass().getSimpleName());
-        objetivo.recibirDanho(this, movimientos[movimiento]);
+        if (movimientos[movimiento].getPpActual() <= 0){
+            System.out.println(mote + " no pudo atacar porque usó un movimiento sin pp");
+        } else {
+            System.out.println(mote + " usó: " + movimientos[movimiento].getClass().getSimpleName());
+            Random rand = new Random();
+            if(rand.nextInt(1, 101) <= movimientos[movimiento].getPrecision()){
+                objetivo.recibirDanho(this, movimientos[movimiento]);
+                movimientos[movimiento].setPpActual(movimientos[movimiento].getPpActual()-1);
+            } else {
+                System.out.println(mote + " falló");
+            }
+        }
     }
 
     @Override

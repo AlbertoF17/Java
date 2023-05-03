@@ -13,9 +13,6 @@ public class Groudon extends Pokemon implements TipoTierra {
         movimientos[1] = new RocaAfilada();
         movimientos[2] = new Terremoto();
         movimientos[3] = new TierraViva();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Groudon(int nivel){
         super("Groudon", 383, 15, -1, 100, 150, 140,
@@ -24,9 +21,6 @@ public class Groudon extends Pokemon implements TipoTierra {
         movimientos[1] = new RocaAfilada();
         movimientos[2] = new Terremoto();
         movimientos[3] = new TierraViva();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Groudon(String mote, int nivel){
         super(mote, 383, 15, -1, 100, 150, 140,
@@ -35,9 +29,6 @@ public class Groudon extends Pokemon implements TipoTierra {
         movimientos[1] = new RocaAfilada();
         movimientos[2] = new Terremoto();
         movimientos[3] = new TierraViva();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

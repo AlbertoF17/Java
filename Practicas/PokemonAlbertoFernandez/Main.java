@@ -151,6 +151,13 @@ public class Main {
                 System.out.println(primerPokemonE1.getMote() + ": " + primerPokemonE1.getPs() + "/"
                         + primerPokemonE1.getPsMax());
                 System.out.println("--------------------------------------------------");
+                if (modoJuego == 0 && primerPokemonE1.getPs()<15){
+                    System.out.println("Oh no! A tu pokemon le queda muy poca vida, quieres curarlo?" +
+                            " ( true -> si | false -> no)");
+                    if (sc.nextBoolean()){
+                        primerPokemonE1.curar();
+                    }
+                }
                 if (primerPokemonE1.getVelocidad() >= primerPokemonE2.getVelocidad()){
                     primerPokemonE1.atacar(primerPokemonE2, elegirAtaque(primerPokemonE1));
                     if(primerPokemonE2.getPs() > 0){
@@ -231,7 +238,7 @@ public class Main {
                                 if (entrenador1.getPokemons()[i] == null){
                                     System.out.println(i+1 + " -> " + "null ");
                                 } else {
-                                    System.out.println(i+1 + " -> "
+                                    System.out.print(i+1 + " -> "
                                             + entrenador1.getPokemons()[i].getClass().getSimpleName() + " ");
                                 }
                                 if(entrenador1.getPokemons()[i].getPs()<=0){

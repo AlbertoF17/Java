@@ -14,9 +14,6 @@ public class Garchomp extends Pokemon implements TipoDragon, TipoTierra {
         movimientos[1] = new Terremoto();
         movimientos[2] = new ColmilloIgneo();
         movimientos[3] = new RafagaEscamas();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Garchomp(int nivel){
         super("Garchomp", 445, 3, 15, 108, 130, 95,
@@ -25,9 +22,6 @@ public class Garchomp extends Pokemon implements TipoDragon, TipoTierra {
         movimientos[1] = new Terremoto();
         movimientos[2] = new ColmilloIgneo();
         movimientos[3] = new RafagaEscamas();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Garchomp(String mote, int nivel){
         super(mote, 445, 3, 15, 108, 130, 95,
@@ -36,9 +30,6 @@ public class Garchomp extends Pokemon implements TipoDragon, TipoTierra {
         movimientos[1] = new Terremoto();
         movimientos[2] = new ColmilloIgneo();
         movimientos[3] = new RafagaEscamas();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

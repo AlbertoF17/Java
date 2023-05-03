@@ -14,9 +14,6 @@ public class Dracovish extends Pokemon implements TipoAgua, TipoDragon {
         movimientos[1] = new Psicocolmillo();
         movimientos[2] = new Triturar();
         movimientos[3] = new Enfado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Dracovish(int nivel){
         super("Dracovish", 888, 1, 3, 92, 120, 115,
@@ -25,9 +22,6 @@ public class Dracovish extends Pokemon implements TipoAgua, TipoDragon {
         movimientos[1] = new Psicocolmillo();
         movimientos[2] = new Triturar();
         movimientos[3] = new Enfado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Dracovish(String mote, int nivel){
         super(mote, 888, 1, 3, 92, 120, 115,
@@ -36,9 +30,6 @@ public class Dracovish extends Pokemon implements TipoAgua, TipoDragon {
         movimientos[1] = new Psicocolmillo();
         movimientos[2] = new Triturar();
         movimientos[3] = new Enfado();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

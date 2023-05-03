@@ -14,9 +14,6 @@ public class Tyranitar extends Pokemon implements TipoRoca, TipoSiniestro {
         movimientos[1] = new Terremoto();
         movimientos[2] = new Triturar();
         movimientos[3] = new TierraViva();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Tyranitar(int nivel){
         super("Tyranitar", 248, 13, 14, 100, 134, 110,
@@ -25,9 +22,6 @@ public class Tyranitar extends Pokemon implements TipoRoca, TipoSiniestro {
         movimientos[1] = new Terremoto();
         movimientos[2] = new Triturar();
         movimientos[3] = new TierraViva();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Tyranitar(String mote, int nivel){
         super(mote, 248, 13, 14, 100, 134, 110,
@@ -36,9 +30,6 @@ public class Tyranitar extends Pokemon implements TipoRoca, TipoSiniestro {
         movimientos[1] = new Terremoto();
         movimientos[2] = new Triturar();
         movimientos[3] = new TierraViva();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

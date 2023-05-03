@@ -16,9 +16,6 @@ public class Kyogre extends Pokemon implements TipoAgua {
         movimientos[1] = new RayoHielo();
         movimientos[2] = new PulsoPrimigenio();
         movimientos[3] = new Burbuja();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Kyogre(int nivel){
         super("Kyogre", 382, 1, -1, 100, 100, 90,
@@ -27,9 +24,6 @@ public class Kyogre extends Pokemon implements TipoAgua {
         movimientos[1] = new RayoHielo();
         movimientos[2] = new PulsoPrimigenio();
         movimientos[3] = new Burbuja();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Kyogre(String mote, int nivel){
         super(mote, 382, 1, -1, 100, 100, 90,
@@ -38,9 +32,6 @@ public class Kyogre extends Pokemon implements TipoAgua {
         movimientos[1] = new RayoHielo();
         movimientos[2] = new PulsoPrimigenio();
         movimientos[3] = new Burbuja();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

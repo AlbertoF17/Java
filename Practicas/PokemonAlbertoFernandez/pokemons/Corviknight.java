@@ -11,34 +11,25 @@ public class Corviknight extends Pokemon implements TipoVolador, TipoAcero {
         super("Corviknight", 823, 17, 0, 98, 87, 105,
                 53, 85, 67, 1);
         movimientos[0] = new PlanchaCorporal();
-        movimientos[1] = new IdaYVuleta();
+        movimientos[1] = new IdaYVuelta();
         movimientos[2] = new PajaroOsado();
         movimientos[3] = new PicoTaladro();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Corviknight(int nivel){
         super("Corviknight", 823, 17, 0, 98, 87, 105,
                 53, 85, 67, nivel);
         movimientos[0] = new PlanchaCorporal();
-        movimientos[1] = new IdaYVuleta();
+        movimientos[1] = new IdaYVuelta();
         movimientos[2] = new PajaroOsado();
         movimientos[3] = new PicoTaladro();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Corviknight(String mote, int nivel){
         super(mote, 823, 17, 0, 98, 87, 105,
                 53, 85, 67, nivel);
         movimientos[0] = new PlanchaCorporal();
-        movimientos[1] = new IdaYVuleta();
+        movimientos[1] = new IdaYVuelta();
         movimientos[2] = new PajaroOsado();
         movimientos[3] = new PicoTaladro();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

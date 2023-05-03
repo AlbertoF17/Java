@@ -11,25 +11,16 @@ public class Venusaur extends Pokemon implements TipoPlanta, TipoVeneno {
         super("Venusaur", 3, 11, 16, 80, 82, 83,
                 100 ,100, 80, 1);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Venusaur(int nivel){
         super("Venusaur", 3, 11, 16, 80, 82, 83,
                 100 ,100, 80, nivel);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Venusaur(String mote, int nivel){
         super(mote, 3, 11, 16, 80, 82, 83,
                 100 ,100, 80, nivel);
         movimientos[0] = new LatigoCepa();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {

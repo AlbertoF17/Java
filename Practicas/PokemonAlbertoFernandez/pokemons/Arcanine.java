@@ -13,9 +13,6 @@ public class Arcanine extends Pokemon implements TipoFuego {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Ascuas();
         movimientos[3] = new GiroFuego();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Arcanine(int nivel){
         super("Arcanine", 59, 6, -1, 90, 110, 80,
@@ -24,9 +21,6 @@ public class Arcanine extends Pokemon implements TipoFuego {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Ascuas();
         movimientos[3] = new GiroFuego();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     public Arcanine(String mote, int nivel){
         super(mote, 59, 6, -1, 90, 110, 80,
@@ -35,9 +29,6 @@ public class Arcanine extends Pokemon implements TipoFuego {
         movimientos[1] = new ABocajarro();
         movimientos[2] = new Ascuas();
         movimientos[3] = new GiroFuego();
-        //VALORES EXTRA PORQUE SINO DA ERROR
-        psMax = psBase;
-        ps = psBase;
     }
     @Override
     public Pokemon evolucionar() throws OperationNotSupportedException {
