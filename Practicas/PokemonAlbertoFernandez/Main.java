@@ -3,7 +3,9 @@ package Practicas.PokemonAlbertoFernandez;
 import Practicas.PokemonAlbertoFernandez.entrenadores.Entrenador;
 import Practicas.PokemonAlbertoFernandez.movimientos.Movimiento;
 import Practicas.PokemonAlbertoFernandez.pokemons.*;
+import jdk.swing.interop.SwingInterOpUtils;
 
+import javax.naming.OperationNotSupportedException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -91,6 +93,18 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        if (modoJuego == 0){
+            System.out.println();
+            System.out.println("¿QUE? TU POKEMON " + entrenador.getPokemons()[0].getMote().toUpperCase() +
+                    " ESTÁ EVOLUCIONANDO");
+            entrenador.getPokemons()[0].setNivel(17);
+            try{
+                entrenador.getPokemons()[0] = entrenador.getPokemons()[0].evolucionar();
+            } catch (OperationNotSupportedException e){
+                e.printStackTrace();
+            }
+            System.out.println("TU POKEMON HA EVOLUCIONADO A " + entrenador.getPokemons()[0].getMote().toUpperCase());
+        }
     }
     public static int elegirAtaque(Pokemon pok) {
         Scanner sc = new Scanner(System.in);
@@ -154,14 +168,14 @@ public class Main {
             while (primerPokemonE1.getPs() > 0 && primerPokemonE2.getPs() > 0){
                 System.out.println();
                 System.out.println("+------------------------------------------------+");
-                System.out.printf("|                          %-14s%3d/%3d |\n", primerPokemonE2.getMote() + ":",
+                System.out.printf("|                             %-11s%3d/%3d |\n", primerPokemonE2.getMote() + ":",
                         primerPokemonE2.getPs(), primerPokemonE2.getPsMax());
                 System.out.println("|                                                |");
                 System.out.println("|                                                |");
                 System.out.println("|                                                |");
                 System.out.println("|                                                |");
                 System.out.println("|                                                |");
-                System.out.printf("| %-14s%3d/%3d                          |\n", primerPokemonE1.getMote() + ":",
+                System.out.printf("| %-11s%3d/%3d                             |\n", primerPokemonE1.getMote() + ":",
                         primerPokemonE1.getPs(), primerPokemonE1.getPsMax());
                 System.out.println("+------------------------------------------------+");
                 System.out.println();
@@ -283,7 +297,9 @@ public class Main {
                         } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
                     }
                 } else {
+                    System.out.println("************");
                     System.out.println("HAS GANADO!!");
+                    System.out.println("************");
                     primerPokemonE2 = null;
                 }
             }

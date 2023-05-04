@@ -261,6 +261,7 @@ public abstract class Pokemon implements Tipo, Cloneable {
     }
 
     private void recibirDanho(Pokemon pok, Movimiento ataque){
+        Random rand = new Random();
         float[] deb = calcularDebilidades();
         float b;
         if (ataque.getTipo() == pok.getTipo1() || ataque.getTipo() == pok.getTipo2()){
@@ -277,21 +278,23 @@ public abstract class Pokemon implements Tipo, Cloneable {
             a = pok.getAtqEspecial();
             d = defEspecial;
         }
+        int v = rand.nextInt(75,101);
         int p = ataque.getPotencia();
-        this.ps -= (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/(25*d))+2));
+        this.ps -= (int) (0.01*b*e*v*((((0.2*nivel+1)*a*p)/(25*d))+2));
+        //this.ps -= (int) (0.01*b*e*100*((((0.2*nivel+1)*a*p)/(25*d))+2));
     }
 
     public void atacar(Pokemon objetivo, int movimiento){
-        float[] deb = calcularDebilidades();
+        float[] deb = objetivo.calcularDebilidades();
         if (movimientos[movimiento].getPpActual() <= 0){
             System.out.println(mote + " no pudo atacar porque usó un movimiento sin pp");
         } else {
             System.out.println(mote + " usó: " + movimientos[movimiento].getClass().getSimpleName());
             Random rand = new Random();
             if(rand.nextInt(1, 101) <= movimientos[movimiento].getPrecision()){
-                if (deb[movimientos[movimiento].getTipo()] == 0){
-                    System.out.println("No afecta al " + objetivo.getMote() + " enemigo...");
-                } else if (deb[movimientos[movimiento].getTipo()] == 1.5f){
+                if (deb[movimientos[movimiento].getTipo()] == 0.0){
+                    System.out.println("No afecta a " + objetivo.getMote() + "...");
+                } else if (deb[movimientos[movimiento].getTipo()] == .5f){
                     System.out.println("No es muy efectivo...");
                 } else if (deb[movimientos[movimiento].getTipo()] >= 2){
                     System.out.println("Es supereficaz!!!");
