@@ -3,8 +3,6 @@ package Practicas.PokemonAlbertoFernandez;
 import Practicas.PokemonAlbertoFernandez.entrenadores.Entrenador;
 import Practicas.PokemonAlbertoFernandez.movimientos.Movimiento;
 import Practicas.PokemonAlbertoFernandez.pokemons.*;
-import jdk.swing.interop.SwingInterOpUtils;
-
 import javax.naming.OperationNotSupportedException;
 import java.util.Random;
 import java.util.Scanner;
@@ -184,7 +182,7 @@ public class Main {
 
                 if (modoJuego == 0 && primerPokemonE1.getPs()<15){
                     System.out.println("Oh no! A tu pokemon le queda muy poca vida, quieres curarlo?" +
-                            " ( true -> si | false -> no)");
+                            " (true -> si | false -> no)");
                     if (sc.nextBoolean()){
                         primerPokemonE1.curar();
                     }
@@ -249,7 +247,14 @@ public class Main {
                         }
                     } while (primerPokemonE1 == null);
                 } else {
-                    System.out.println("HAS PERDIDO");
+                    System.out.println();
+                    System.out.println("╔═══════════════════════╗");
+                    System.out.println("║                       ║");
+                    System.out.println("║                       ║");
+                    System.out.println("║      HAS PERDIDO      ║");
+                    System.out.println("║                       ║");
+                    System.out.println("║                       ║");
+                    System.out.println("╚═══════════════════════╝");
                     primerPokemonE1 = null;
                 }
             } else if (primerPokemonE2.getPs()<=0){
@@ -299,9 +304,15 @@ public class Main {
                         } while (primerPokemonE1 == null || primerPokemonE1.getPs() <= 0);
                     }
                 } else {
-                    System.out.println("************");
-                    System.out.println("HAS GANADO!!");
-                    System.out.println("************");
+                    System.out.println();
+                    System.out.println("╔═══════════════════════╗");
+                    System.out.println("║                       ║");
+                    System.out.println("║                       ║");
+                    System.out.println("║      HAS GANADO!      ║");
+                    System.out.println("║                       ║");
+                    System.out.println("║                       ║");
+                    System.out.println("╚═══════════════════════╝");
+
                     primerPokemonE2 = null;
                 }
             }
