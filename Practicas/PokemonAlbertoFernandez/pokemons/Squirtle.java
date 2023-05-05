@@ -27,7 +27,7 @@ public class Squirtle extends Pokemon implements TipoAgua {
             throw new OperationNotSupportedException(this.getClass().getSimpleName() +
                     " aún no está preparado para evolucionar");
         } else {
-            Pokemon pokemonEvolucionado = new Wartortle(nivel);
+            Pokemon pokemonEvolucionado = new Wartortle(mote, nivel);
             return pokemonEvolucionado;
         }
     }

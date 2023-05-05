@@ -27,7 +27,7 @@ public class Charmander extends Pokemon implements TipoFuego {
             throw new OperationNotSupportedException(this.getClass().getSimpleName() +
                     " aún no está preparado para evolucionar");
         } else {
-            Pokemon pokemonEvolucionado = new Charmeleon(nivel);
+            Pokemon pokemonEvolucionado = new Charmeleon(mote, nivel);
             return pokemonEvolucionado;
         }
     }

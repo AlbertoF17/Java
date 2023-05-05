@@ -29,7 +29,7 @@ public class Bulbasaur extends Pokemon implements TipoPlanta, TipoVeneno {
             throw new OperationNotSupportedException(this.getClass().getSimpleName() +
                     " aún no está preparado para evolucionar");
         } else {
-            Pokemon pokemonEvolucionado = new Ivysaur(nivel);
+            Pokemon pokemonEvolucionado = new Ivysaur(mote, nivel);
             return pokemonEvolucionado;
         }
     }

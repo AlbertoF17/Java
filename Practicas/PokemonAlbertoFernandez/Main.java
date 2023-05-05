@@ -95,7 +95,8 @@ public class Main {
         }
         if (modoJuego == 0){
             System.out.println();
-            System.out.println("¿QUE? TU POKEMON " + entrenador.getPokemons()[0].getMote().toUpperCase() +
+            System.out.println("¿QUE? TU POKEMON " +
+                    entrenador.getPokemons()[0].getClass().getSimpleName().toUpperCase() +
                     " ESTÁ EVOLUCIONANDO");
             entrenador.getPokemons()[0].setNivel(17);
             try{
@@ -103,7 +104,8 @@ public class Main {
             } catch (OperationNotSupportedException e){
                 e.printStackTrace();
             }
-            System.out.println("TU POKEMON HA EVOLUCIONADO A " + entrenador.getPokemons()[0].getMote().toUpperCase());
+            System.out.println("TU POKEMON HA EVOLUCIONADO A " +
+                    entrenador.getPokemons()[0].getClass().getSimpleName().toUpperCase());
         }
     }
     public static int elegirAtaque(Pokemon pok) {
