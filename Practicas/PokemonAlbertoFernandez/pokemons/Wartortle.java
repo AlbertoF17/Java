@@ -27,7 +27,7 @@ public class Wartortle extends Pokemon implements TipoAgua {
             throw new OperationNotSupportedException(this.getClass().getSimpleName() +
                     " aún no está preparado para evolucionar");
         } else {
-            Pokemon pokemonEvolucionado = new Blastoise(mote, nivel);
+            Pokemon pokemonEvolucionado = new Blastoise(nivel);
             return pokemonEvolucionado;
         }
     }

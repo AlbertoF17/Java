@@ -27,7 +27,7 @@ public class Charmeleon extends Pokemon implements TipoFuego {
             throw new OperationNotSupportedException(this.getClass().getSimpleName() +
                     " aún no está preparado para evolucionar");
         } else {
-            Pokemon pokemonEvolucionado = new Charizard(mote, nivel);
+            Pokemon pokemonEvolucionado = new Charizard(nivel);
             return pokemonEvolucionado;
         }
     }

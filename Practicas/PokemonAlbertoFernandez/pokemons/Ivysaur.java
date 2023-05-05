@@ -29,7 +29,7 @@ public class Ivysaur extends Pokemon implements TipoPlanta, TipoVeneno {
             throw new OperationNotSupportedException(this.getClass().getSimpleName() +
                     " aún no está preparado para evolucionar");
         } else {
-            Pokemon pokemonEvolucionado = new Venusaur(mote, nivel);
+            Pokemon pokemonEvolucionado = new Venusaur(nivel);
             return pokemonEvolucionado;
         }
     }
