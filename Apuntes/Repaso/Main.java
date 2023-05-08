@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
+        /*
         Alumno al1 = new Alumno("23498463R", "Juan", "Perez Gomez");
         Alumno al2 = new Alumno("32497773M", "Maria", "Munoz Fernandez");
         Alumno al3 = new Alumno("32497773M", "Maria", "Munoz Fernandez");
@@ -40,6 +41,34 @@ public class Main {
             System.out.println(al1.clone());
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
+        }
+        */
+    }
+    public static boolean esRectangular(int[][] matriz){
+        if (matriz.length > 0){
+            int anchura = matriz[0].length;
+            for (int[]row : matriz) {
+                if (row.length != anchura){
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            throw new NullPointerException();
+            //Podemos ignorar la validación y hacer que devuelva verdadero igual
+        }
+    }
+    public static boolean esMatrizRectangular(int[][] matriz){
+        if (matriz.length > 0){
+            for (int i = 0; i < matriz.length-1; i++) {
+                if (matriz[i].length != matriz[i+1].length){
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            throw new NullPointerException();
+            //Podemos ignorar la validación y hacer que devuelva verdadero igual
         }
     }
 }
