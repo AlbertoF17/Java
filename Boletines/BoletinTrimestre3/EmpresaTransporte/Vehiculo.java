@@ -30,7 +30,7 @@ public abstract class Vehiculo {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Vehiculo vehiculo)) return false;
+        if (!(o instanceof Vehiculo)) return false;
         return matricula.equals(((Vehiculo) o).getMatricula());
     }
 

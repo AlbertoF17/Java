@@ -8,6 +8,9 @@ public final class Camion extends Vehiculo implements Cloneable, Comparable<Cami
         super(matricula, marca, modelo);
         this.camioneros = new TreeSet<>();
     }
+    public TreeSet<Camionero> getCamioneros() {
+        return camioneros;
+    }
     @Override
     public int compareTo(Camion o) {
         if(o == null){
