@@ -26,7 +26,7 @@ public class MainErrores {
         try{
             evilEdu.eliminarNota(-1);
         }catch (IllegalArgumentException e){
-            e.printStackTrace();
+            evilEdu.eliminarNota(1);
         }
 
         evilEdu.eliminarNota(1);
@@ -35,7 +35,7 @@ public class MainErrores {
         try{
             evilEdu.editarNota(-1, 10);
         }catch (IllegalArgumentException e){
-            e.printStackTrace();
+            evilEdu.editarNota(1, 10);
         }
         evilEdu.editarNota(1, 11);
         System.out.println(evilEdu);
