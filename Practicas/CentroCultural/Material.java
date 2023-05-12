@@ -1,16 +1,22 @@
 package Practicas.CentroCultural;
 
+import java.util.Objects;
+
 public abstract class Material {
+    private static int nextId = 1;
     int id;
     String titulo;
     String autor;
-    int estanteria;
-    int altura;
+    int numEstanteria;
+    int numBalda;
 
-    public Material(int id, String titulo, String autor) {
-        this.id = id;
+    public Material(String titulo, String autor, int numEstanteria, int numBalda) {
+        this.id = nextId;
+        nextId++;
         this.titulo = titulo;
         this.autor = autor;
+        this.numEstanteria = numEstanteria;
+        this.numBalda = numBalda;
     }
 
     public int getId() {
@@ -37,25 +43,37 @@ public abstract class Material {
         this.autor = autor;
     }
 
-    public int getEstanteria() {
-        return estanteria;
+    public int getNumEstanteria() {
+        return numEstanteria;
     }
 
-    public void setEstanteria(int estanteria) {
-        this.estanteria = estanteria;
+    public void setNumEstanteria(int numEstanteria) {
+        this.numEstanteria = numEstanteria;
     }
 
-    public int getAltura() {
-        return altura;
+    public int getNumBalda() {
+        return numBalda;
     }
 
-    public void setAltura(int altura) {
-        this.altura = altura;
+    public void setNumBalda(int numBalda) {
+        this.numBalda = numBalda;
     }
 
-    void colocarMaterial(){
-        //System.out.println("El material con código XXX debe colocarlo en la estantería XX y altura X");
-        //this.estanteria = XX;
-        //this.altura = X;
+    final String colocarMaterial(){
+        return "El material con código " + id + " debe colocarlo en la estantería " +
+                numEstanteria + " y altura " + numBalda;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Material)) return false;
+        Material material = (Material) o;
+        return id == material.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -5,18 +5,14 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Centro {
-    Set<Cliente> clientes;
+    List<Cliente> clientes;
     List<Disco> discos;
     List<Libro> libros;
     Scanner sc = new Scanner(System.in);
     public Centro() {
-        this.clientes = new HashSet<>();
+        this.clientes = new ArrayList<>();
         this.discos = new ArrayList<>();
         this.libros = new ArrayList<>();
-    }
-
-    public Set<Cliente> getClientes() {
-        return clientes;
     }
 
     public List<Disco> getDiscos() {
@@ -25,10 +21,6 @@ public class Centro {
 
     public List<Libro> getLibros() {
         return libros;
-    }
-
-    public void setLibros(List<Libro> libros) {
-        this.libros = libros;
     }
 
     Cliente buscarCliente(String clienteDni){
@@ -52,14 +44,14 @@ public class Centro {
         }
         return null;
     }
-    void darAltaCliente(Cliente cliente){
+    void registrarCliente(Cliente cliente){
         if (clientes.contains(cliente)){
             System.out.println("Este cliente ya existe");
         } else {
             clientes.add(cliente);
         }
     }
-    void darAltaMaterial(Material material){
+    void registrarMaterial(Material material){
         if (material instanceof Disco){
             if (discos.contains(material)){
                 System.out.println("Este disco ya existe");
@@ -87,7 +79,7 @@ public class Centro {
                     Libro libro = (Libro) mat;
                     cl.librosActuales.add(libro);
                     //TODO cambiar el 2º parametro fecha
-                    cl.prestamos.add(new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), libro));
+                    cl.prestamos.add(new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), libro, false));
                 }
             } else {
                 if (cl.discosActuales.size()>=3){
@@ -97,7 +89,7 @@ public class Centro {
                     Disco disco = (Disco) mat;
                     cl.discosActuales.add(disco);
                     //TODO cambiar el 2º parametro fecha
-                    cl.prestamos.add(new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), disco));
+                    cl.prestamos.add(new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), disco, false));
                 }
             }
 
@@ -123,7 +115,7 @@ public class Centro {
         BufferedReader br = new BufferedReader(fr);String line;
         while ((line = br.readLine()) != null) {
             String[] datosCliente = line.split(",");
-            darAltaCliente(new Cliente(datosCliente[0], datosCliente[1]));
+            registrarCliente(new Cliente(datosCliente[0], datosCliente[1], datosCliente[2], datosCliente[3]));
         }
 
     }
@@ -153,12 +145,12 @@ public class Centro {
         BufferedWriter bw = new BufferedWriter(fw);
         for (Libro li : libros) {
             bw.write(li.getId() + "," + li.getTitulo() + "," + li.getAutor() + ","
-                    + li.getEstanteria() + "," + li.getAltura() + "," + li.getNumPaginas());
+                    + li.getNumEstanteria() + "," + li.getNumBalda() + "," + li.getNumPaginas());
             bw.newLine();
         }
         for (Disco dc : discos) {
             bw.write(dc.getId() + "," + dc.getTitulo() + "," + dc.getAutor() + ","
-                    + dc.getEstanteria() + "," + dc.getAltura() + "," + dc.getDiscografica());
+                    + dc.getNumEstanteria() + "," + dc.getNumBalda() + "," + dc.getDiscografica());
             bw.newLine();
         }
         bw.close();
@@ -192,7 +184,11 @@ public class Centro {
                     String dni = sc.nextLine();
                     System.out.println("Introduce nombre del cliente:");
                     String nombre = sc.nextLine();
-                    darAltaCliente(new Cliente(dni, nombre));
+                    System.out.println("Introduce su primer apellido:");
+                    String apellido1 = sc.nextLine();
+                    System.out.println("Introduce su primer apellido:");
+                    String apellido2 = sc.nextLine();
+                    registrarCliente(new Cliente(dni, nombre, apellido1, apellido2));
                     break;
                 case 2:
                     System.out.println("Es un libro o un disco:");
@@ -208,14 +204,18 @@ public class Centro {
                         System.out.println("Introduce el número de páginas:");
                         int numPaginas = sc.nextInt();
                         sc.nextLine();
-                        Libro libro = new Libro(id, titulo, autor, numPaginas);
-                        darAltaMaterial(libro);
+                        System.out.println("Introduce el ISBN:");
+                        String isbn = sc.nextLine();
+                        Libro libro = new Libro(titulo, autor, numPaginas, isbn);
+                        registrarMaterial(libro);
                         libro.colocarMaterial();
                     } else if (tipo.equalsIgnoreCase("Disco")) {
                         System.out.println("Introduce la discográfica:");
                         String discografica = sc.nextLine();
-                        Disco disco = new Disco(id, titulo, autor, discografica);
-                        darAltaMaterial(disco);
+                        System.out.println("Introduce el ISRC:");
+                        String isrc = sc.nextLine();
+                        Disco disco = new Disco(titulo, autor, discografica, isrc);
+                        registrarMaterial(disco);
                         disco.colocarMaterial();
                     } else {
                         throw new IllegalArgumentException("El material debe ser un libro o un disco");

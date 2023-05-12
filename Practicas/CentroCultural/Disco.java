@@ -1,11 +1,15 @@
 package Practicas.CentroCultural;
 
-public class Disco extends Material{
-    String discografica;
+import java.util.Objects;
 
-    public Disco(int id, String titulo, String autor, String discografica) {
-        super(id, titulo, autor);
+public final class Disco extends Material{
+    String discografica;
+    String isrc;
+
+    public Disco(String titulo, String autor, String discografica, String isrc) {
+        super(titulo, autor);
         this.discografica = discografica;
+        this.isrc = isrc;
     }
 
     public String getDiscografica() {
@@ -22,6 +26,21 @@ public class Disco extends Material{
                 ", id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
-                ", discografica='" + discografica + '\'' +'}';
+                ", discografica='" + discografica + '\'' +
+                ", ISRC='" + isrc + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Disco)) return false;
+        Disco disco = (Disco) o;
+        return isrc.equals(disco.isrc);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isrc);
     }
 }
