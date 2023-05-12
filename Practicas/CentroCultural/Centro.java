@@ -206,13 +206,19 @@ public final class Centro {
                     String titulo = sc.nextLine();
                     System.out.println("Introduce autor:");
                     String autor = sc.nextLine();
+                    System.out.println("Introduce el numero de Estanteria:");
+                    int numEstanteria = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Introduce el numero de Balda:");
+                    int numBalda = sc.nextInt();
+                    sc.nextLine();
                     if(tipo.equalsIgnoreCase("Libro")){
                         System.out.println("Introduce el número de páginas:");
                         int numPaginas = sc.nextInt();
                         sc.nextLine();
                         System.out.println("Introduce el ISBN:");
                         String isbn = sc.nextLine();
-                        Libro libro = new Libro(titulo, autor, numPaginas, isbn);
+                        Libro libro = new Libro(titulo, autor, numPaginas, numEstanteria, numBalda, isbn);
                         registrarMaterial(libro);
                         libro.colocarMaterial();
                     } else if (tipo.equalsIgnoreCase("Disco")) {
@@ -220,7 +226,7 @@ public final class Centro {
                         String discografica = sc.nextLine();
                         System.out.println("Introduce el ISRC:");
                         String isrc = sc.nextLine();
-                        Disco disco = new Disco(titulo, autor, discografica, isrc);
+                        Disco disco = new Disco(titulo, autor, numEstanteria, numBalda, discografica, isrc);
                         registrarMaterial(disco);
                         disco.colocarMaterial();
                     } else {

@@ -6,8 +6,8 @@ public final class Disco extends Material{
     String discografica;
     String isrc;
 
-    public Disco(String titulo, String autor, String discografica, String isrc) {
-        super(titulo, autor);
+    public Disco(String titulo, String autor, int numEstanteria, int numBalda, String discografica, String isrc) {
+        super(titulo, autor, numEstanteria, numBalda);
         this.discografica = discografica;
         this.isrc = isrc;
     }

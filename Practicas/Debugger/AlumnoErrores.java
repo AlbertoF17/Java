@@ -82,7 +82,7 @@ public class AlumnoErrores {
         if (notas.length <= n) {
             throw new IllegalArgumentException("No existe nota con ese indice.");
         }
-        if (nota <= 0) {
+        if (nota < 0 || nota > 10) {
             throw new IllegalArgumentException("Las notas deben ser un rango entre 0 y 10");
         }
         notas[n] = nota;

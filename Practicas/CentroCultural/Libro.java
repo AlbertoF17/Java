@@ -6,8 +6,8 @@ public final class Libro extends Material{
     int numPaginas;
     String isbn;
 
-    public Libro(String titulo, String autor, int numPaginas, String isbn) {
-        super(titulo, autor);
+    public Libro(String titulo, String autor, int numPaginas, int numEstanteria, int numBalda, String isbn) {
+        super(titulo, autor, numEstanteria, numBalda);
         this.numPaginas = numPaginas;
         this.isbn = isbn;
     }
