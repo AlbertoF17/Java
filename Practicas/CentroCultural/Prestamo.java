@@ -8,5 +8,12 @@ public class Prestamo {
     LocalDateTime fechaInicio;
     LocalDateTime fechaFin;
     Material material;
-    List<Prestamo> prestamos;
+    //List<Prestamo> prestamos;
+
+    public Prestamo(Cliente cliente, LocalDateTime fechaInicio, LocalDateTime fechaFin, Material material) {
+        this.cliente = cliente;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.material = material;
+    }
 }

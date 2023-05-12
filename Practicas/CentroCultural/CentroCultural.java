@@ -1,5 +1,7 @@
 package Practicas.CentroCultural;
 
+import java.util.Scanner;
+
 public interface CentroCultural {
     int maxLibros = 15;
     int maxDiscos = 15;
