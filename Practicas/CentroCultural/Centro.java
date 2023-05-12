@@ -4,11 +4,11 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class Centro {
+public final class Centro {
     List<Cliente> clientes;
     List<Disco> discos;
     List<Libro> libros;
-    Scanner sc = new Scanner(System.in);
+    private final static Scanner sc = new Scanner(System.in);
     public Centro() {
         this.clientes = new ArrayList<>();
         this.discos = new ArrayList<>();
@@ -44,26 +44,26 @@ public class Centro {
         }
         return null;
     }
-    void registrarCliente(Cliente cliente){
-        if (clientes.contains(cliente)){
-            System.out.println("Este cliente ya existe");
-        } else {
+    void registrarCliente(Cliente cliente) throws RegistroClienteException{
+        try {
             clientes.add(cliente);
+        } catch (Exception e){
+            throw new RegistroClienteException("El cliente ya está registrado");
         }
     }
-    void registrarMaterial(Material material){
+    void registrarMaterial(Material material) throws RegistroMaterialException{
         if (material instanceof Disco){
-            if (discos.contains(material)){
-                System.out.println("Este disco ya existe");
-            } else {
+            try {
                 discos.add((Disco) material);
+            } catch (Exception e){
+                throw new RegistroMaterialException("El disco ya está registrado");
             }
         }
         if (material instanceof Libro){
-            if (libros.contains(material)){
-                System.out.println("Este libro ya existe");
-            } else {
+            try {
                 libros.add((Libro) material);
+            } catch (Exception e){
+                throw new RegistroMaterialException("El libro ya está registrado");
             }
         }
     }
@@ -109,20 +109,22 @@ public class Centro {
         return l1.equals(l2);
     }
 
-    void cargarClientes() throws IOException {
+    void cargarClientes() throws IOException, RegistroClienteException {
         File file = new File("Clientes.csv");
         FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr);String line;
+        BufferedReader br = new BufferedReader(fr);
+        String line;
         while ((line = br.readLine()) != null) {
             String[] datosCliente = line.split(",");
             registrarCliente(new Cliente(datosCliente[0], datosCliente[1], datosCliente[2], datosCliente[3]));
         }
-
     }
+
     void cargarMateriales() throws IOException {
         File file = new File("Materiales.csv");
         FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr);String line;
+        BufferedReader br = new BufferedReader(fr);
+        String line;
         while ((line = br.readLine()) != null) {
             //Tengo que comprobar si es un Disco o Libro para cargarlo en su lista correspondiente
         }
@@ -172,7 +174,7 @@ public class Centro {
         return n;
     }
 
-    public void iniciar() throws IOException {
+    public void iniciar() throws IOException, RegistroClienteException, RegistroMaterialException {
         //cargarClientes();
         //cargarMateriales();
         int n;
@@ -182,13 +184,17 @@ public class Centro {
                 case 1:
                     System.out.println("Introduce DNI del cliente:");
                     String dni = sc.nextLine();
-                    System.out.println("Introduce nombre del cliente:");
-                    String nombre = sc.nextLine();
-                    System.out.println("Introduce su primer apellido:");
-                    String apellido1 = sc.nextLine();
-                    System.out.println("Introduce su primer apellido:");
-                    String apellido2 = sc.nextLine();
-                    registrarCliente(new Cliente(dni, nombre, apellido1, apellido2));
+                    if (clientes.contains(new Cliente(dni, "aaa", "bbb", "ccc"))){
+                        throw new RegistroClienteException("El cliente ya está registrado");
+                    } else {
+                        System.out.println("Introduce nombre del cliente:");
+                        String nombre = sc.nextLine();
+                        System.out.println("Introduce su primer apellido:");
+                        String apellido1 = sc.nextLine();
+                        System.out.println("Introduce su primer apellido:");
+                        String apellido2 = sc.nextLine();
+                        registrarCliente(new Cliente(dni, nombre, apellido1, apellido2));
+                    }
                     break;
                 case 2:
                     System.out.println("Es un libro o un disco:");
