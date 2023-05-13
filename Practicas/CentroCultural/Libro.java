@@ -2,20 +2,22 @@ package Practicas.CentroCultural;
 
 import java.util.Objects;
 
-public class Libro extends Material{
+public final class Libro extends Material{
     int numPaginas;
+    String isbn;
 
-    public Libro(int id, String titulo, String autor, int numPaginas) {
-        super(id, titulo, autor);
+    public Libro(String titulo, String autor, int numPaginas, int numEstanteria, int numBalda, String isbn) {
+        super(titulo, autor, numEstanteria, numBalda);
         this.numPaginas = numPaginas;
+        this.isbn = isbn;
     }
 
     public int getNumPaginas() {
         return numPaginas;
     }
 
-    public void setNumPaginas(int numPaginas) {
-        this.numPaginas = numPaginas;
+    public String getIsbn() {
+        return isbn;
     }
 
     @Override
@@ -28,5 +30,16 @@ public class Libro extends Material{
     @Override
     public int hashCode() {
         return Objects.hash(numPaginas);
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", numero de paginas='" + numPaginas + '\'' +
+                ", ISBN='" + isbn + '\'' +
+                '}';
     }
 }

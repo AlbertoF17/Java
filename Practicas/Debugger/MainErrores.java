@@ -10,7 +10,7 @@ public class MainErrores {
         try{
             evilEdu.publicarNota(-1);
         }catch (IllegalArgumentException e){
-            System.out.println("Nota errónea, no ha sido añadida");
+            evilEdu.publicarNota(1);
         }
 
         try{
@@ -26,7 +26,8 @@ public class MainErrores {
         try{
             evilEdu.eliminarNota(-1);
         }catch (IllegalArgumentException e){
-            evilEdu.eliminarNota(1);
+            System.out.println("Indice no válido, se eliminará la primera nota de la lista...");
+            evilEdu.eliminarNota(0);
         }
 
         evilEdu.eliminarNota(1);
@@ -34,10 +35,14 @@ public class MainErrores {
 
         try{
             evilEdu.editarNota(-1, 10);
-        }catch (IllegalArgumentException e){
-            evilEdu.editarNota(1, 10);
+        }catch (ArrayIndexOutOfBoundsException e){
+            evilEdu.editarNota(0, 10);
         }
-        evilEdu.editarNota(1, 11);
+        try{
+            evilEdu.editarNota(1, 11);
+        } catch (IllegalArgumentException e){
+            System.out.println("Nota errónea, no ha sido editada");
+        }
         System.out.println(evilEdu);
     }
 }

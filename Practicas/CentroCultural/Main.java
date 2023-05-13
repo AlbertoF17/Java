@@ -8,7 +8,7 @@ public class Main {
         Centro centro = new Centro();
         try {
             centro.iniciar();
-        } catch (IOException e) {
+        } catch (IOException | RegistroClienteException | RegistroMaterialException e) {
             throw new RuntimeException(e);
         }
     }

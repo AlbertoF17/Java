@@ -4,39 +4,23 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class Centro {
-    Set<Cliente> clientes;
+public final class Centro {
+    List<Cliente> clientes;
     List<Disco> discos;
     List<Libro> libros;
-    Scanner sc = new Scanner(System.in);
+    private final static Scanner sc = new Scanner(System.in);
     public Centro() {
-        this.clientes = new HashSet<>();
+        this.clientes = new ArrayList<>();
         this.discos = new ArrayList<>();
         this.libros = new ArrayList<>();
-    }
-
-    public Set<Cliente> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(Set<Cliente> clientes) {
-        this.clientes = clientes;
     }
 
     public List<Disco> getDiscos() {
         return discos;
     }
 
-    public void setDiscos(List<Disco> discos) {
-        this.discos = discos;
-    }
-
     public List<Libro> getLibros() {
         return libros;
-    }
-
-    public void setLibros(List<Libro> libros) {
-        this.libros = libros;
     }
 
     Cliente buscarCliente(String clienteDni){
@@ -60,26 +44,26 @@ public class Centro {
         }
         return null;
     }
-    void darAltaCliente(Cliente cliente){
-        if (clientes.contains(cliente)){
-            System.out.println("Este cliente ya existe");
-        } else {
+    void registrarCliente(Cliente cliente) throws RegistroClienteException{
+        try {
             clientes.add(cliente);
+        } catch (Exception e){
+            throw new RegistroClienteException("El cliente ya está registrado");
         }
     }
-    void darAltaMaterial(Material material){
+    void registrarMaterial(Material material) throws RegistroMaterialException{
         if (material instanceof Disco){
-            if (discos.contains(material)){
-                System.out.println("Este disco ya existe");
-            } else {
+            try {
                 discos.add((Disco) material);
+            } catch (Exception e){
+                throw new RegistroMaterialException("El disco ya está registrado");
             }
         }
         if (material instanceof Libro){
-            if (libros.contains(material)){
-                System.out.println("Este libro ya existe");
-            } else {
+            try {
                 libros.add((Libro) material);
+            } catch (Exception e){
+                throw new RegistroMaterialException("El libro ya está registrado");
             }
         }
     }
@@ -88,12 +72,27 @@ public class Centro {
         Material mat = buscarMaterial(idMaterial);
         if(cl != null && mat != null){
             if (mat instanceof Libro){
-                cl.librosActuales.add((Libro) mat);
+                if (cl.librosActuales.size()>=3){
+                    System.out.println("No se puede realizar el préstamo ya que el cliente tiene el numero máximo de" +
+                            " libros prestados");
+                } else {
+                    Libro libro = (Libro) mat;
+                    cl.librosActuales.add(libro);
+                    //TODO cambiar el 2º parametro fecha
+                    cl.prestamos.add(new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), libro, false));
+                }
             } else {
-                cl.discosActuales.add((Disco) mat);
+                if (cl.discosActuales.size()>=3){
+                    System.out.println("No se puede realizar el préstamo ya que el cliente tiene el numero máximo de" +
+                            " discos prestados");
+                } else {
+                    Disco disco = (Disco) mat;
+                    cl.discosActuales.add(disco);
+                    //TODO cambiar el 2º parametro fecha
+                    cl.prestamos.add(new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), disco, false));
+                }
             }
-            //TODO cambiar el 2º parametro fecha
-            new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), mat);
+
         }
     }
 
@@ -102,27 +101,30 @@ public class Centro {
         if (cl == null){
             throw new NullPointerException("Este cliente no existe");
         }
-        System.out.println("El cliente tiene " + cl.getDiscosActuales() + " " + cl.getLibrosActuales());
+        //System.out.println("El cliente tiene "+ cl.getDiscosActuales() + " " + cl.getLibrosActuales());
+        System.out.println("El cliente tiene " + cl.getPrestamos());
     }
 
     boolean compararLibros(Libro l1, Libro l2){
         return l1.equals(l2);
     }
 
-    void cargarClientes() throws IOException {
+    void cargarClientes() throws IOException, RegistroClienteException {
         File file = new File("Clientes.csv");
         FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr);String line;
+        BufferedReader br = new BufferedReader(fr);
+        String line;
         while ((line = br.readLine()) != null) {
             String[] datosCliente = line.split(",");
-            darAltaCliente(new Cliente(datosCliente[0], datosCliente[1]));
+            registrarCliente(new Cliente(datosCliente[0], datosCliente[1], datosCliente[2], datosCliente[3]));
         }
-
     }
+
     void cargarMateriales() throws IOException {
         File file = new File("Materiales.csv");
         FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr);String line;
+        BufferedReader br = new BufferedReader(fr);
+        String line;
         while ((line = br.readLine()) != null) {
             //Tengo que comprobar si es un Disco o Libro para cargarlo en su lista correspondiente
         }
@@ -145,12 +147,12 @@ public class Centro {
         BufferedWriter bw = new BufferedWriter(fw);
         for (Libro li : libros) {
             bw.write(li.getId() + "," + li.getTitulo() + "," + li.getAutor() + ","
-            + li.getEstanteria() + "," + li.getAltura() + "," + li.getNumPaginas());
+                    + li.getNumEstanteria() + "," + li.getNumBalda() + "," + li.getNumPaginas());
             bw.newLine();
         }
         for (Disco dc : discos) {
             bw.write(dc.getId() + "," + dc.getTitulo() + "," + dc.getAutor() + ","
-            + dc.getEstanteria() + "," + dc.getAltura() + "," + dc.getDiscografica());
+                    + dc.getNumEstanteria() + "," + dc.getNumBalda() + "," + dc.getDiscografica());
             bw.newLine();
         }
         bw.close();
@@ -172,9 +174,9 @@ public class Centro {
         return n;
     }
 
-    public void iniciar() throws IOException {
-        cargarClientes();
-        cargarMateriales();
+    public void iniciar() throws IOException, RegistroClienteException, RegistroMaterialException {
+        //cargarClientes();
+        //cargarMateriales();
         int n;
         do{
             n = menu();
@@ -182,9 +184,17 @@ public class Centro {
                 case 1:
                     System.out.println("Introduce DNI del cliente:");
                     String dni = sc.nextLine();
-                    System.out.println("Introduce nombre del cliente:");
-                    String nombre = sc.nextLine();
-                    darAltaCliente(new Cliente(dni, nombre));
+                    if (clientes.contains(new Cliente(dni, "aaa", "bbb", "ccc"))){
+                        throw new RegistroClienteException("El cliente ya está registrado");
+                    } else {
+                        System.out.println("Introduce nombre del cliente:");
+                        String nombre = sc.nextLine();
+                        System.out.println("Introduce su primer apellido:");
+                        String apellido1 = sc.nextLine();
+                        System.out.println("Introduce su primer apellido:");
+                        String apellido2 = sc.nextLine();
+                        registrarCliente(new Cliente(dni, nombre, apellido1, apellido2));
+                    }
                     break;
                 case 2:
                     System.out.println("Es un libro o un disco:");
@@ -196,19 +206,28 @@ public class Centro {
                     String titulo = sc.nextLine();
                     System.out.println("Introduce autor:");
                     String autor = sc.nextLine();
+                    System.out.println("Introduce el numero de Estanteria:");
+                    int numEstanteria = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Introduce el numero de Balda:");
+                    int numBalda = sc.nextInt();
                     sc.nextLine();
                     if(tipo.equalsIgnoreCase("Libro")){
                         System.out.println("Introduce el número de páginas:");
                         int numPaginas = sc.nextInt();
                         sc.nextLine();
-                        Libro libro = new Libro(id, titulo, autor, numPaginas);
-                        darAltaMaterial(libro);
+                        System.out.println("Introduce el ISBN:");
+                        String isbn = sc.nextLine();
+                        Libro libro = new Libro(titulo, autor, numPaginas, numEstanteria, numBalda, isbn);
+                        registrarMaterial(libro);
                         libro.colocarMaterial();
                     } else if (tipo.equalsIgnoreCase("Disco")) {
                         System.out.println("Introduce la discográfica:");
                         String discografica = sc.nextLine();
-                        Disco disco = new Disco(id, titulo, autor, discografica);
-                        darAltaMaterial(disco);
+                        System.out.println("Introduce el ISRC:");
+                        String isrc = sc.nextLine();
+                        Disco disco = new Disco(titulo, autor, numEstanteria, numBalda, discografica, isrc);
+                        registrarMaterial(disco);
                         disco.colocarMaterial();
                     } else {
                         throw new IllegalArgumentException("El material debe ser un libro o un disco");
@@ -232,7 +251,9 @@ public class Centro {
                     int idLibro1 = sc.nextInt();
                     System.out.println("Introduce ID del segundo libro a comparar:");
                     int idLibro2 = sc.nextInt();
-                    if(compararLibros((Libro) buscarMaterial(idLibro1), (Libro) buscarMaterial(idLibro2))){
+                    Libro l1 = (Libro) buscarMaterial(idLibro1);
+                    Libro l2 = (Libro) buscarMaterial(idLibro2);
+                    if(compararLibros(l1, l2)){
                         System.out.println("Los libros son iguales");
                     } else {
                         System.out.println("Los libros no son iguales");
@@ -242,9 +263,8 @@ public class Centro {
                     System.out.println("Saliendo del programa...");
                     break;
             }
-            guardarClientes();
-            guardarMateriales();
+            //guardarClientes();
+            //guardarMateriales();
         } while (n>0 && n<6);
-
     }
 }
