@@ -42,4 +42,13 @@ public final class Libro extends Material{
                 ", ISBN='" + isbn + '\'' +
                 '}';
     }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", numero de paginas='" + numPaginas + '\'' +'}';
+    }
 }
