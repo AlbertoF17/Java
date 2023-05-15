@@ -10,6 +10,7 @@ public class MainErrores {
         try{
             evilEdu.publicarNota(-1);
         }catch (IllegalArgumentException e){
+            System.out.println("No se pueden añadir valores negativos, añadiendo el valor en positivo...");
             evilEdu.publicarNota(1);
         }
 
