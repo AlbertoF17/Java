@@ -1,10 +1,10 @@
 package Practicas.CentroCultural;
 
 import java.io.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.*;
 
-public final class Centro {
+public class Centro implements CentroCultural{
     List<Cliente> clientes;
     List<Disco> discos;
     List<Libro> libros;
@@ -44,14 +44,14 @@ public final class Centro {
         }
         return null;
     }
-    void registrarCliente(Cliente cliente) throws RegistroClienteException{
+    public void registrarCliente(Cliente cliente) throws RegistroClienteException{
         try {
             clientes.add(cliente);
         } catch (Exception e){
             throw new RegistroClienteException("El cliente ya está registrado");
         }
     }
-    void registrarMaterial(Material material) throws RegistroMaterialException{
+    public void registrarMaterial(Material material) throws RegistroMaterialException{
         if (material instanceof Disco){
             try {
                 discos.add((Disco) material);
@@ -67,6 +67,14 @@ public final class Centro {
             }
         }
     }
+    void consultarClientes(){
+        System.out.println("******LISTA DE CLIENTES*******");
+        for (Cliente c: clientes) {
+            System.out.println(c);
+        }
+        System.out.println("******************************");
+    }
+
     void realizarPrestamo(String clienteDni, int idMaterial){
         Cliente cl = buscarCliente(clienteDni);
         Material mat = buscarMaterial(idMaterial);
@@ -79,7 +87,8 @@ public final class Centro {
                     Libro libro = (Libro) mat;
                     cl.librosActuales.add(libro);
                     //TODO cambiar el 2º parametro fecha
-                    cl.prestamos.add(new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), libro, false));
+                    cl.prestamos.add(new Prestamo(cl, LocalDate.now(),
+                            LocalDate.now().plusDays(CentroCultural.DURACION_PRESTAMO), libro, false));
                 }
             } else {
                 if (cl.discosActuales.size()>=3){
@@ -89,7 +98,7 @@ public final class Centro {
                     Disco disco = (Disco) mat;
                     cl.discosActuales.add(disco);
                     //TODO cambiar el 2º parametro fecha
-                    cl.prestamos.add(new Prestamo(cl, LocalDateTime.now(), LocalDateTime.now(), disco, false));
+                    cl.prestamos.add(new Prestamo(cl, LocalDate.now(), LocalDate.now(), disco, false));
                 }
             }
 

@@ -1,17 +1,17 @@
 package Practicas.CentroCultural;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Prestamo {
 
     Cliente cliente;
-    LocalDateTime fechaInicio;
-    LocalDateTime fechaFin;
+    LocalDate fechaInicio;
+    LocalDate fechaFin;
     Material material;
     boolean devuelto;
 
-    public Prestamo(Cliente cliente, LocalDateTime fechaInicio, LocalDateTime fechaFin,
+    public Prestamo(Cliente cliente, LocalDate fechaInicio, LocalDate fechaFin,
                     Material material, boolean devuelto) {
         this.cliente = cliente;
         this.fechaInicio = fechaInicio;
@@ -24,11 +24,11 @@ public class Prestamo {
         return cliente;
     }
 
-    public LocalDateTime getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public LocalDateTime getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 

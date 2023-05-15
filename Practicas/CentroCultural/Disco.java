@@ -43,13 +43,4 @@ public final class Disco extends Material{
     public int hashCode() {
         return Objects.hash(isrc);
     }
-
-    @Override
-    public String toString() {
-        return "Disco{" +
-                ", id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", discografica='" + discografica + '\'' +'}';
-    }
 }
