@@ -13,6 +13,14 @@ public class Centro implements CentroCultural{
         this.clientes = new ArrayList<>();
         this.discos = new ArrayList<>();
         this.libros = new ArrayList<>();
+        try {
+            cargarClientes();
+            cargarMateriales();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (RegistroClienteException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Disco> getDiscos() {
@@ -86,7 +94,6 @@ public class Centro implements CentroCultural{
                 } else {
                     Libro libro = (Libro) mat;
                     cl.librosActuales.add(libro);
-                    //TODO cambiar el 2º parametro fecha
                     cl.prestamos.add(new Prestamo(cl, LocalDate.now(),
                             LocalDate.now().plusDays(CentroCultural.DURACION_PRESTAMO), libro, false));
                 }
@@ -97,7 +104,6 @@ public class Centro implements CentroCultural{
                 } else {
                     Disco disco = (Disco) mat;
                     cl.discosActuales.add(disco);
-                    //TODO cambiar el 2º parametro fecha
                     cl.prestamos.add(new Prestamo(cl, LocalDate.now(), LocalDate.now(), disco, false));
                 }
             }
@@ -184,8 +190,6 @@ public class Centro implements CentroCultural{
     }
 
     public void iniciar() throws IOException, RegistroClienteException, RegistroMaterialException {
-        //cargarClientes();
-        //cargarMateriales();
         int n;
         do{
             n = menu();
@@ -272,8 +276,8 @@ public class Centro implements CentroCultural{
                     System.out.println("Saliendo del programa...");
                     break;
             }
-            //guardarClientes();
-            //guardarMateriales();
+            guardarClientes();
+            guardarMateriales();
         } while (n>0 && n<6);
     }
 }
