@@ -1,7 +1,9 @@
 package Practicas.CentroCultural;
 
-public interface CentroCultural {
+import java.util.Scanner;
 
+public interface CentroCultural {
+    final int DURACION_PRESTAMO = 3;
     int maxLibros = 3;
     int maxDiscos = 3;
 
