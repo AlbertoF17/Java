@@ -1,4 +1,4 @@
-package Apuntes.ColeccionesRecursividad;
+package Apuntes.ColeccionesyRecursividad;
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
@@ -219,6 +219,7 @@ public class Main {
 
     }
 
+    //RECURSIVIDAD
     public static int factorial(int n) {
         if (n == 0) {
             return 1;
@@ -235,5 +236,20 @@ public class Main {
         } else {
             return fibo(n-1) + fibo(n-2);
         }
+    }
+
+    public static void imprimirArrayListAux(ArrayList<Integer> arrayList){
+        if (arrayList.isEmpty()){
+            System.out.println();
+        } else {
+            System.out.println(arrayList.get(0) + " ");
+            arrayList.remove(0);
+            imprimirArrayListAux(arrayList);
+        }
+    }
+
+    public static void imprimirArrayListRec(ArrayList<Integer> arrayList){
+        ArrayList<Integer> arrayListC = (ArrayList<Integer>) arrayList.clone();
+        imprimirArrayListAux(arrayListC);
     }
 }
