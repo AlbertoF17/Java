@@ -16,9 +16,7 @@ public class Centro implements CentroCultural{
         try {
             cargarClientes();
             cargarMateriales();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (RegistroClienteException e) {
+        } catch (IOException | RegistroClienteException e) {
             e.printStackTrace();
         }
     }
